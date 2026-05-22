@@ -27,7 +27,7 @@ export function AssessCarousel() {
       <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-2">{card.tagline}</p>
       <div className="flex flex-wrap gap-1">
         {card.categories.map((c) => (
-          <span key={c.id} className="text-[9px] px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+          <span key={c.id} className="text-[9px] px-1.5 py-0.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400">
             {c.label}
           </span>
         ))}
