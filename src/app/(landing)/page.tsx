@@ -61,12 +61,7 @@ export default function LandingPage() {
               >
                 Start Your Free Assessment <span className="inline-block transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
               </Link>
-              <a
-                href="#painpoints"
-                className="group inline-block text-xs tracking-wider uppercase px-5 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 pixel-btn border border-gray-200 dark:border-gray-700 shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#bfdbfe] dark:hover:shadow-[5px_5px_0px_#1e3a5f]"
-              >
-                Identify your painpoints <span className="inline-block transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
-              </a>
+
             </motion.div>
           </motion.div>
         </section>
@@ -74,7 +69,7 @@ export default function LandingPage() {
         <section className="max-w-6xl mx-auto w-full px-6 py-16 grid md:grid-cols-2 gap-8 items-start">
           <div id="painpoints">
             <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4">
-              Where does it hurt?
+              Identify your painpoints
             </h2>
             <PainPointGrid />
           </div>
