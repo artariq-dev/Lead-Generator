@@ -66,9 +66,6 @@ export default function LandingPage() {
             </motion.div>
 
             <div id="painpoints">
-              <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4">
-                Identify your painpoints
-              </h2>
               <PainPointGrid />
             </div>
           </div>
