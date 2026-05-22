@@ -92,13 +92,14 @@ export function PainPointGrid() {
           maxHeight: "340px",
           minHeight: "200px",
           overflowY: "scroll",
-          maskImage: "linear-gradient(to bottom, transparent 0%, black 12px, black calc(100% - 12px), transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 12px, black calc(100% - 12px), transparent 100%)",
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 10px, black calc(100% - 8px), transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 10px, black calc(100% - 8px), transparent 100%)",
         }}
       >
         <div className={`flex items-center px-2 py-1 mb-2 border-b ${dark ? "border-gray-800 text-gray-300" : "border-gray-200 text-gray-700"}`}>
           <span className="font-bold tracking-wider">▼ Supply Chain</span>
         </div>
+        <div className="pb-2">
 
         {groups.map((g, gi) => {
           const isOpen = expanded.has(gi);
@@ -170,6 +171,7 @@ export function PainPointGrid() {
             </div>
           );
         })}
+        </div>
       </div>
 
       <div className="text-center mt-5">
