@@ -7,7 +7,6 @@ import { GridBg } from "@/components/GridBg";
 import { PainPointGrid } from "@/components/PainPointGrid";
 import { AssessCarousel } from "@/components/AssessCarousel";
 
-
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -17,9 +16,9 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
       <main className="flex-1 flex flex-col">
-        <section className="relative flex-1 flex flex-col justify-center pt-16 pb-6">
+        <section className="relative flex-1 flex flex-col justify-center py-20">
           <GridBg />
-          <div className="relative z-10 max-w-6xl mx-auto w-full px-6 grid md:grid-cols-2 gap-8 items-center">
+          <div className="relative z-10 max-w-6xl mx-auto w-full px-6 grid md:grid-cols-2 gap-10 items-center">
             <motion.div
               className="text-center md:text-left"
               initial="initial"
@@ -29,16 +28,16 @@ export default function LandingPage() {
               <motion.p variants={fadeUp} className="text-xs tracking-wider uppercase text-blue-600 dark:text-blue-400 font-bold mb-3">
                 Free Infrastructure Health Check
               </motion.p>
-              <motion.h1 variants={fadeUp} className="text-2xl sm:text-3xl font-bold leading-tight text-gray-900 dark:text-white mb-2">
+              <motion.h1 variants={fadeUp} className="text-2xl sm:text-3xl font-bold leading-tight text-gray-900 dark:text-white mb-3">
                 Score your infrastructure<br />
                 <span className="text-blue-600 dark:text-blue-400">in 2 minutes.</span>
               </motion.h1>
-            <motion.p variants={fadeUp} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg mb-6 font-medium">
+              <motion.p variants={fadeUp} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg mb-6 font-medium">
                 Answer 7 quick questions about your cloud, app, or deployment pipeline.
                 Get a scored report with a letter grade, category breakdown, and actionable fixes.
               </motion.p>
 
-              <motion.div variants={fadeUp} className="grid grid-cols-3 gap-3 max-w-sm mb-8 text-xs">
+              <motion.div variants={fadeUp} className="grid grid-cols-3 gap-3 max-w-sm mb-5 text-xs">
                 <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-3 shadow-[2px_2px_0px_#e5e7eb] dark:shadow-[2px_2px_0px_#374151]">
                   <p className="font-bold text-gray-900 dark:text-white">7</p>
                   <p className="text-gray-500 dark:text-gray-400">Questions</p>
@@ -53,7 +52,7 @@ export default function LandingPage() {
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeUp} className="mt-6 max-w-sm">
+              <motion.div variants={fadeUp} className="max-w-sm">
                 <AssessCarousel />
                 <div className="mt-3">
                   <Link
