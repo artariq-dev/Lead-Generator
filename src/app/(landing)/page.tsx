@@ -18,61 +18,61 @@ export default function LandingPage() {
       <main className="flex-1 flex flex-col">
         <section className="relative flex-1 flex flex-col justify-center pt-16 pb-6">
           <GridBg />
-          <motion.div
-            className="relative z-10 max-w-2xl mx-auto w-full px-6 text-center"
-            initial="initial"
-            animate="animate"
-            transition={{ staggerChildren: 0.1 }}
-          >
-            <motion.p variants={fadeUp} className="text-xs tracking-wider uppercase text-blue-600 dark:text-blue-400 font-bold mb-3">
-              Free Infrastructure Health Check
-            </motion.p>
-            <motion.h1 variants={fadeUp} className="text-3xl sm:text-4xl font-bold leading-tight text-gray-900 dark:text-white mb-2">
-              Score your infrastructure<br />
-              <span className="text-blue-600 dark:text-blue-400">in 2 minutes.</span>
-            </motion.h1>
-            <motion.div variants={fadeUp} className="mb-4 min-h-[1.5rem]">
-              <RewritingText />
+          <div className="relative z-10 max-w-6xl mx-auto w-full px-6 grid md:grid-cols-2 gap-8 items-center">
+            <motion.div
+              className="text-center md:text-left"
+              initial="initial"
+              animate="animate"
+              transition={{ staggerChildren: 0.1 }}
+            >
+              <motion.p variants={fadeUp} className="text-xs tracking-wider uppercase text-blue-600 dark:text-blue-400 font-bold mb-3">
+                Free Infrastructure Health Check
+              </motion.p>
+              <motion.h1 variants={fadeUp} className="text-3xl sm:text-4xl font-bold leading-tight text-gray-900 dark:text-white mb-2">
+                Score your infrastructure<br />
+                <span className="text-blue-600 dark:text-blue-400">in 2 minutes.</span>
+              </motion.h1>
+              <motion.div variants={fadeUp} className="mb-4 min-h-[1.5rem]">
+                <RewritingText />
+              </motion.div>
+              <motion.p variants={fadeUp} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg mb-6 font-medium">
+                Answer 7 quick questions about your cloud, app, or deployment pipeline.
+                Get a scored report with a letter grade, category breakdown, and actionable fixes.
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="grid grid-cols-3 gap-3 max-w-xs mb-8 text-xs">
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-3 shadow-[2px_2px_0px_#e5e7eb] dark:shadow-[2px_2px_0px_#374151]">
+                  <p className="font-bold text-gray-900 dark:text-white">7</p>
+                  <p className="text-gray-500 dark:text-gray-400">Questions</p>
+                </div>
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-3 shadow-[2px_2px_0px_#e5e7eb] dark:shadow-[2px_2px_0px_#374151]">
+                  <p className="font-bold text-gray-900 dark:text-white">3</p>
+                  <p className="text-gray-500 dark:text-gray-400">Assessments</p>
+                </div>
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-3 shadow-[2px_2px_0px_#e5e7eb] dark:shadow-[2px_2px_0px_#374151]">
+                  <p className="font-bold text-gray-900 dark:text-white">Free</p>
+                  <p className="text-gray-500 dark:text-gray-400">Report</p>
+                </div>
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="flex flex-col items-start gap-3">
+                <Link
+                  href="/assess"
+                  className="group inline-block text-xs tracking-wider uppercase px-5 py-2.5 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
+                >
+                  Start Your Free Assessment <span className="inline-block transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
+                </Link>
+              </motion.div>
             </motion.div>
-            <motion.p variants={fadeUp} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg mx-auto mb-6 font-medium">
-              Answer 7 quick questions about your cloud, app, or deployment pipeline.
-              Get a scored report with a letter grade, category breakdown, and actionable fixes.
-            </motion.p>
 
-            <motion.div variants={fadeUp} className="grid grid-cols-3 gap-3 max-w-md mx-auto mb-8 text-xs">
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-3 shadow-[2px_2px_0px_#e5e7eb] dark:shadow-[2px_2px_0px_#374151]">
-                <p className="font-bold text-gray-900 dark:text-white">7</p>
-                <p className="text-gray-500 dark:text-gray-400">Questions</p>
-              </div>
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-3 shadow-[2px_2px_0px_#e5e7eb] dark:shadow-[2px_2px_0px_#374151]">
-                <p className="font-bold text-gray-900 dark:text-white">3</p>
-                <p className="text-gray-500 dark:text-gray-400">Assessments</p>
-              </div>
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-3 shadow-[2px_2px_0px_#e5e7eb] dark:shadow-[2px_2px_0px_#374151]">
-                <p className="font-bold text-gray-900 dark:text-white">Free</p>
-                <p className="text-gray-500 dark:text-gray-400">Report</p>
-              </div>
-            </motion.div>
-
-            <motion.div variants={fadeUp} className="flex flex-col items-center gap-3">
-              <Link
-                href="/assess"
-                className="group inline-block text-xs tracking-wider uppercase px-5 py-2.5 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
-              >
-                Start Your Free Assessment <span className="inline-block transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
-              </Link>
-
-            </motion.div>
-          </motion.div>
-        </section>
-
-        <section className="max-w-6xl mx-auto w-full px-6 py-16 grid md:grid-cols-2 gap-8 items-start">
-          <div id="painpoints">
-            <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4">
-              Identify your painpoints
-            </h2>
-            <PainPointGrid />
+            <div id="painpoints">
+              <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4">
+                Identify your painpoints
+              </h2>
+              <PainPointGrid />
+            </div>
           </div>
+        </section>
 
           <div>
             <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-6">
@@ -96,6 +96,30 @@ export default function LandingPage() {
                 </Link>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="max-w-5xl mx-auto w-full px-6 py-16">
+          <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-6 text-center">
+            Choose your assessment
+          </h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            {Object.values(calculators).map((calc) => (
+              <Link
+                key={calc.id}
+                href={`/assess/${calc.id}`}
+                className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-5 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] hover:shadow-[5px_5px_0px_#bfdbfe] dark:hover:shadow-[5px_5px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <p className="text-[10px] tracking-wider uppercase text-blue-600 font-semibold">
+                    {calc.categories.length} categories
+                  </p>
+                  <span className="text-sm transition-all duration-300 group-hover:text-blue-500 group-hover:scale-[2] group-hover:translate-x-1">→</span>
+                </div>
+                <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1">{calc.name}</h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{calc.tagline}</p>
+              </Link>
+            ))}
           </div>
         </section>
       </main>
