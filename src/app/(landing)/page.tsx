@@ -14,11 +14,10 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
       <main className="flex-1 flex flex-col">
-        <section className="relative flex-1 flex flex-col justify-center max-w-5xl mx-auto w-full px-6 pt-16 pb-6">
+        <section className="relative flex-1 flex flex-col justify-center pt-16 pb-6">
           <MatrixRain />
-
           <motion.div
-            className="relative z-10 max-w-2xl mx-auto text-center"
+            className="relative z-10 max-w-2xl mx-auto w-full px-6 text-center"
             initial="initial"
             animate="animate"
             transition={{ staggerChildren: 0.1 }}
