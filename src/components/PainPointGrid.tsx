@@ -6,34 +6,35 @@ import Link from "next/link";
 interface Item {
   id: string;
   label: string;
+  tech: string;
   depth: number;
   parent: number | null;
 }
 
 const items: Item[] = [
-  { id: "idea", label: "Idea", depth: 1, parent: null },
-  { id: "plan", label: "Plan", depth: 1, parent: null },
-  { id: "design", label: "Design", depth: 1, parent: null },
-  { id: "code", label: "Code", depth: 1, parent: null },
-  { id: "review", label: "Review", depth: 1, parent: null },
-  { id: "build", label: "Build", depth: 1, parent: null },
-  { id: "test", label: "Test", depth: 1, parent: null },
-  { id: "scan", label: "Scan", depth: 1, parent: null },
-  { id: "registry", label: "Registry", depth: 1, parent: null },
-  { id: "staging", label: "Staging", depth: 1, parent: null },
-  { id: "release", label: "Release", depth: 1, parent: null },
-  { id: "deploy", label: "Deploy", depth: 1, parent: null },
-  { id: "verify", label: "Verify", depth: 1, parent: null },
-  { id: "rollback", label: "Rollback", depth: 1, parent: null },
-  { id: "monitor", label: "Monitor", depth: 1, parent: null },
-  { id: "alert", label: "Alert", depth: 1, parent: null },
-  { id: "incident", label: "Incident", depth: 1, parent: null },
-  { id: "backup", label: "Backup", depth: 1, parent: null },
-  { id: "cost", label: "Cost", depth: 1, parent: null },
-  { id: "secure", label: "Secure", depth: 1, parent: null },
-  { id: "compliance", label: "Compliance", depth: 1, parent: null },
-  { id: "seo", label: "SEO", depth: 1, parent: null },
-  { id: "analytics", label: "Analytics", depth: 1, parent: null },
+  { id: "idea", label: "Idea", tech: "", depth: 1, parent: null },
+  { id: "plan", label: "Plan", tech: "Jira, Linear", depth: 1, parent: null },
+  { id: "design", label: "Design", tech: "Figma, Lucidchart", depth: 1, parent: null },
+  { id: "code", label: "Code", tech: "Git, GitHub, VS Code", depth: 1, parent: null },
+  { id: "review", label: "Review", tech: "PRs, CodeRabbit", depth: 1, parent: null },
+  { id: "build", label: "Build", tech: "GitHub Actions, Docker", depth: 1, parent: null },
+  { id: "test", label: "Test", tech: "Jest, Playwright, k6", depth: 1, parent: null },
+  { id: "scan", label: "Scan", tech: "Trivy, Snyk, SonarQube", depth: 1, parent: null },
+  { id: "registry", label: "Registry", tech: "GHCR, Docker Hub, ECR", depth: 1, parent: null },
+  { id: "staging", label: "Staging", tech: "K8s, Terraform, Helm", depth: 1, parent: null },
+  { id: "release", label: "Release", tech: "ArgoCD, GitOps", depth: 1, parent: null },
+  { id: "deploy", label: "Deploy", tech: "ECS, K8s, CloudFormation", depth: 1, parent: null },
+  { id: "verify", label: "Verify", tech: "Datadog, Sentry, PagerDuty", depth: 1, parent: null },
+  { id: "rollback", label: "Rollback", tech: "Blue/Green, Canary", depth: 1, parent: null },
+  { id: "monitor", label: "Monitor", tech: "Prometheus, Grafana", depth: 1, parent: null },
+  { id: "alert", label: "Alert", tech: "PagerDuty, Opsgenie", depth: 1, parent: null },
+  { id: "incident", label: "Incident", tech: "Runbooks, Statuspage", depth: 1, parent: null },
+  { id: "backup", label: "Backup", tech: "Velero, RDS Snapshot", depth: 1, parent: null },
+  { id: "cost", label: "Cost", tech: "AWS Budgets, Infracost", depth: 1, parent: null },
+  { id: "secure", label: "Secure", tech: "GuardDuty, WAF, IAM", depth: 1, parent: null },
+  { id: "compliance", label: "Compliance", tech: "SOC2, HIPAA, Config", depth: 1, parent: null },
+  { id: "seo", label: "SEO", tech: "Lighthouse, Schema.org", depth: 1, parent: null },
+  { id: "analytics", label: "Analytics", tech: "GA, Plausible, Mixpanel", depth: 1, parent: null },
 ];
 
 const groups = [
@@ -86,7 +87,7 @@ export function PainPointGrid() {
       </h3>
 
       <div
-        className={`font-mono text-xs leading-loose overflow-x-auto max-w-sm mx-auto ${dark ? "bg-gray-900" : "bg-gray-100"}`}
+        className={`font-mono text-xs leading-loose overflow-x-auto max-w-md mx-auto ${dark ? "bg-gray-900" : "bg-gray-100"}`}
         style={{
           maxHeight: "340px",
           minHeight: "200px",
@@ -148,13 +149,18 @@ export function PainPointGrid() {
                           {isLastItem ? "└─" : "├─"}
                         </span>
                         <span
-                          className="text-xs font-bold tracking-wider transition-colors py-1"
+                          className="text-xs font-bold tracking-wider transition-colors py-1 flex-shrink-0"
                           style={{ color: isSel ? selTextClr : textClr }}
                         >
                           {it.label}
                         </span>
+                        {it.tech && (
+                          <span className={`text-[9px] ml-2 truncate ${dark ? "text-gray-600" : "text-gray-400"}`}>
+                            {it.tech}
+                          </span>
+                        )}
                         {isSel && (
-                          <span className={`text-[10px] ml-2 ${dark ? "text-red-400" : "text-red-500"}`}>✕</span>
+                          <span className={`text-[10px] ml-auto flex-shrink-0 ${dark ? "text-red-400" : "text-red-500"}`}>✕</span>
                         )}
                       </button>
                     );
