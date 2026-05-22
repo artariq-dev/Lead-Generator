@@ -71,34 +71,36 @@ export default function LandingPage() {
           </motion.div>
         </section>
 
-        <section id="painpoints" className="max-w-3xl mx-auto w-full px-6 pb-8">
-          <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4 text-center">
-            Where does it hurt?
-          </h2>
-          <PainPointGrid />
-        </section>
+        <section className="max-w-6xl mx-auto w-full px-6 py-16 grid md:grid-cols-2 gap-8 items-start">
+          <div id="painpoints">
+            <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4">
+              Where does it hurt?
+            </h2>
+            <PainPointGrid />
+          </div>
 
-        <section className="max-w-5xl mx-auto w-full px-6 py-16">
-          <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-6 text-center">
-            Choose your assessment
-          </h2>
-          <div className="grid md:grid-cols-3 gap-4">
-            {Object.values(calculators).map((calc) => (
-              <Link
-                key={calc.id}
-                href={`/assess/${calc.id}`}
-                className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-5 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] hover:shadow-[5px_5px_0px_#bfdbfe] dark:hover:shadow-[5px_5px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200"
-              >
-                <div className="flex items-center justify-between mb-1">
-                  <p className="text-[10px] tracking-wider uppercase text-blue-600 font-semibold">
-                    {calc.categories.length} categories
-                  </p>
-                  <span className="text-sm transition-all duration-300 group-hover:text-blue-500 group-hover:scale-[2] group-hover:translate-x-1">→</span>
-                </div>
-                <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1">{calc.name}</h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{calc.tagline}</p>
-              </Link>
-            ))}
+          <div>
+            <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-6">
+              Choose your assessment
+            </h2>
+            <div className="grid gap-4">
+              {Object.values(calculators).map((calc) => (
+                <Link
+                  key={calc.id}
+                  href={`/assess/${calc.id}`}
+                  className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-5 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] hover:shadow-[5px_5px_0px_#bfdbfe] dark:hover:shadow-[5px_5px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <p className="text-[10px] tracking-wider uppercase text-blue-600 font-semibold">
+                      {calc.categories.length} categories
+                    </p>
+                    <span className="text-sm transition-all duration-300 group-hover:text-blue-500 group-hover:scale-[2] group-hover:translate-x-1">→</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1">{calc.name}</h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{calc.tagline}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       </main>
