@@ -65,7 +65,7 @@ export default function LandingPage() {
               </motion.div>
             </motion.div>
 
-            <div id="painpoints">
+            <div id="painpoints" className="min-w-0">
               <PainPointGrid />
             </div>
           </div>
