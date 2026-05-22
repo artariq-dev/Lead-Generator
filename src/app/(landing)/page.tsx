@@ -38,7 +38,7 @@ export default function LandingPage() {
                 Get a scored report with a letter grade, category breakdown, and actionable fixes.
               </motion.p>
 
-              <motion.div variants={fadeUp} className="grid grid-cols-3 gap-3 max-w-xs mb-8 text-xs">
+              <motion.div variants={fadeUp} className="grid grid-cols-3 gap-3 max-w-sm mb-8 text-xs">
                 <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-3 shadow-[2px_2px_0px_#e5e7eb] dark:shadow-[2px_2px_0px_#374151]">
                   <p className="font-bold text-gray-900 dark:text-white">7</p>
                   <p className="text-gray-500 dark:text-gray-400">Questions</p>
@@ -55,10 +55,10 @@ export default function LandingPage() {
 
               <motion.div variants={fadeUp} className="mt-6 max-w-sm">
                 <AssessCarousel />
-                <div className="flex justify-start mt-3">
+                <div className="mt-3">
                   <Link
                     href="/assess"
-                    className="group inline-block text-xs tracking-wider uppercase px-5 py-2.5 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
+                    className="group block w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
                   >
                     Start Your Free Assessment <span className="inline-block transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
                   </Link>
