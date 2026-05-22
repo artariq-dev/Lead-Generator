@@ -83,8 +83,7 @@ export default function LandingPage() {
                   <p className="text-[10px] tracking-wider uppercase text-blue-600 font-semibold">
                     {calc.categories.length} categories
                   </p>
-                  <span className="arrow-pixel text-sm transition-all duration-300 group-hover:text-blue-500 group-hover:scale-125 group-hover:translate-x-1">
-                    →</span>
+                  <span className="text-sm transition-all duration-300 group-hover:text-blue-500 group-hover:scale-[2] group-hover:translate-x-1">→</span>
                 </div>
                 <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1">{calc.name}</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{calc.tagline}</p>
