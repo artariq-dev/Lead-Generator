@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { calculators } from "@/lib/calculators/config";
-import { MatrixRain } from "@/components/MatrixRain";
+import { GridBg } from "@/components/GridBg";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -15,7 +15,7 @@ export default function LandingPage() {
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
       <main className="flex-1 flex flex-col">
         <section className="relative flex-1 flex flex-col justify-center pt-16 pb-6">
-          <MatrixRain />
+          <GridBg />
           <motion.div
             className="relative z-10 max-w-2xl mx-auto w-full px-6 text-center"
             initial="initial"
