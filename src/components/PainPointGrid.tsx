@@ -146,20 +146,20 @@ export function PainPointGrid() {
                         className="flex items-center w-full text-left hover:bg-blue-100 dark:hover:bg-blue-950 transition-colors"
                         style={{ paddingLeft: "1.2rem" }}
                       >
-                        <span className={`w-4 text-xs font-mono select-none flex-shrink-0 ${dark ? "text-gray-600" : "text-gray-300"}`}>
+                        <span className={`w-4 text-sm font-mono select-none flex-shrink-0 ${dark ? "text-gray-600" : "text-gray-300"}`}>
                           {isLastGroup ? "" : pipe}
                         </span>
-                        <span className={`w-4 text-xs font-mono select-none flex-shrink-0 ${dark ? "text-gray-600" : "text-gray-300"}`}>
+                        <span className={`w-4 text-sm font-mono select-none flex-shrink-0 ${dark ? "text-gray-600" : "text-gray-300"}`}>
                           {isLastItem ? "└─" : "├─"}
                         </span>
                         <span
-                          className="text-xs font-bold tracking-wider transition-colors py-1 flex-shrink-0"
+                          className="text-sm font-bold tracking-wider transition-colors py-1 flex-shrink-0"
                           style={{ color: isSel ? selTextClr : textClr }}
                         >
                           {it.label}
                         </span>
                         {it.tech && (
-                          <span className={`text-[9px] ml-2 truncate ${dark ? "text-gray-600" : "text-gray-400"}`}>
+                          <span className={`text-[10px] ml-2 truncate ${dark ? "text-gray-600" : "text-gray-400"}`}>
                             {it.tech}
                           </span>
                         )}
