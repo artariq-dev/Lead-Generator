@@ -14,7 +14,7 @@ const fadeUp = {
 
 export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
+    <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950 overflow-x-hidden">
       <main className="flex-1 flex flex-col">
         <section className="relative min-h-screen flex flex-col md:justify-center pt-16 pb-8">
           <GridBg />
