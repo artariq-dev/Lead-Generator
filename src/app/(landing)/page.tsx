@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { calculators } from "@/lib/calculators/config";
 import { GridBg } from "@/components/GridBg";
+import { PainPointGrid } from "@/components/PainPointGrid";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -56,12 +57,12 @@ export default function LandingPage() {
               >
                 Start Your Free Assessment <span className="inline-block transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
               </Link>
-              <Link
-                href="/assess"
+              <a
+                href="#painpoints"
                 className="group inline-block text-xs tracking-wider uppercase px-5 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 pixel-btn shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#bfdbfe] dark:hover:shadow-[5px_5px_0px_#1e3a5f]"
               >
                 Identify your painpoints <span className="inline-block transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
-              </Link>
+              </a>
             </motion.div>
           </motion.div>
         </section>
@@ -88,6 +89,13 @@ export default function LandingPage() {
               </Link>
             ))}
           </div>
+        </section>
+
+        <section id="painpoints" className="max-w-xl mx-auto w-full px-6 pb-16">
+          <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-6 text-center">
+            Where does it hurt?
+          </h2>
+          <PainPointGrid />
         </section>
       </main>
 
