@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} — ${siteConfig.tagline}`,
   },
   description: siteConfig.description,
+  icons: "/favicon.svg",
 };
 
 export default function RootLayout({
