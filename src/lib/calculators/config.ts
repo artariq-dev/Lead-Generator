@@ -1,6 +1,5 @@
 export interface Question {
   id: string;
-  type?: "choice";
   label: string;
   options: { label: string; value: string; score: number }[];
 }
@@ -8,7 +7,6 @@ export interface Question {
 export interface Category {
   id: string;
   label: string;
-  weight: number;
 }
 
 export interface CalculatorConfig {
@@ -18,7 +16,6 @@ export interface CalculatorConfig {
   description: string;
   questions: Question[];
   categories: Category[];
-  maxScore: number;
 }
 
 export const calculators: Record<string, CalculatorConfig> = {
@@ -28,12 +25,11 @@ export const calculators: Record<string, CalculatorConfig> = {
     tagline: "How healthy is your cloud infrastructure?",
     description: "Answer 7 questions about your AWS setup and get a personalized report with cost-saving opportunities and security fixes.",
     categories: [
-      { id: "cost", label: "Cost Optimization", weight: 30 },
-      { id: "security", label: "Security", weight: 25 },
-      { id: "reliability", label: "Reliability", weight: 25 },
-      { id: "monitoring", label: "Monitoring", weight: 20 },
+      { id: "cost", label: "Cost Optimization" },
+      { id: "security", label: "Security" },
+      { id: "reliability", label: "Reliability" },
+      { id: "monitoring", label: "Monitoring" },
     ],
-    maxScore: 100,
     questions: [
       {
         id: "monthly_spend",
@@ -108,12 +104,11 @@ export const calculators: Record<string, CalculatorConfig> = {
     tagline: "Is your web app production-ready?",
     description: "Answer 7 questions about your application's foundation and get a prioritized roadmap for the features your users expect.",
     categories: [
-      { id: "foundation", label: "App Foundation", weight: 25 },
-      { id: "experience", label: "User Experience", weight: 25 },
-      { id: "growth", label: "Growth Readiness", weight: 25 },
-      { id: "quality", label: "Code Quality", weight: 25 },
+      { id: "foundation", label: "App Foundation" },
+      { id: "experience", label: "User Experience" },
+      { id: "growth", label: "Growth Readiness" },
+      { id: "quality", label: "Code Quality" },
     ],
-    maxScore: 100,
     questions: [
       {
         id: "authentication",
@@ -189,12 +184,11 @@ export const calculators: Record<string, CalculatorConfig> = {
     tagline: "How fast and reliable is your deployment pipeline?",
     description: "Answer 7 questions about your development workflow and discover bottlenecks that slow your team down.",
     categories: [
-      { id: "speed", label: "Deployment Speed", weight: 30 },
-      { id: "quality_gates", label: "Quality Gates", weight: 25 },
-      { id: "observability", label: "Observability", weight: 25 },
-      { id: "process", label: "Process & Docs", weight: 20 },
+      { id: "speed", label: "Deployment Speed" },
+      { id: "quality_gates", label: "Quality Gates" },
+      { id: "observability", label: "Observability" },
+      { id: "process", label: "Process & Docs" },
     ],
-    maxScore: 100,
     questions: [
       {
         id: "deploy_frequency",
