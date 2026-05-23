@@ -140,8 +140,8 @@ export function PainPointGrid() {
 
   return (
     <div className="bg-white/70 dark:bg-gray-950/70 border border-gray-200 dark:border-gray-800 p-6 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] h-full flex flex-col">
-      <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">
-        Identify your <span className="text-red-500 dark:text-red-400">painpoints</span>
+      <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-1">
+        Identify your <span className="text-red-400 dark:text-red-300">painpoints</span>
       </h2>
       <h3 className="text-xs text-gray-500 dark:text-gray-400 mb-4">
         Click a stage name to select it. Expand (▼) to see details.
@@ -256,7 +256,7 @@ export function PainPointGrid() {
 
       <div className="text-center mt-auto pt-4">
         <Link
-          href={`/assess${selected.size > 0 ? `?pains=${Array.from(selected).join(",")}` : ""}`}
+          href={`/analyze?pains=${Array.from(selected).join(",")}`}
           className="group block w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
         >
           Analyze My Pain Points <span className="inline-block text-base transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
