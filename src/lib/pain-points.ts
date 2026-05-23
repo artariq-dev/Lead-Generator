@@ -12,7 +12,7 @@ export interface PainGroup {
   children: SubItem[];
 }
 
-export const groups: PainGroup[] = [
+export const groupsBusiness: PainGroup[] = [
   {
     id: "monitoring",
     label: "You shouldn't hear about downtime from a customer",
@@ -100,7 +100,7 @@ export const groups: PainGroup[] = [
     description: "Velocity shouldn't depend on who's online today",
     children: [
       { id: "onboard", label: "A new developer takes weeks before they can ship anything", severity: "critical", tech: "Docs, Dev Containers" },
-      { id: "knowledge", label: "Everything lives in one person's head — and they're burning out", severity: "critical", tech: "Notion, Confluence, Runbooks" },
+      { id: "knowledge", label: "Everything lives in one person's head — they're burning out", severity: "critical", tech: "Notion, Confluence, Runbooks" },
       { id: "docs", label: "No documentation — we figure things out by reading old code", severity: "warning", tech: "Swagger, Storybook, Wikis" },
     ],
   },
@@ -120,7 +120,7 @@ export const groups: PainGroup[] = [
   ] },
 ];
 
-export const painLabels: Record<string, string> = {
+export const painLabelsBusiness: Record<string, string> = {
   monitor: "We've been down for an hour before anyone on the team noticed",
   incident: "When things break, the team panics — there's no playbook",
   alert: "Alerts either fire constantly or not at all — both are useless",
@@ -147,7 +147,7 @@ export const painLabels: Record<string, string> = {
   cost: "The AWS bill jumped 40% last month and nobody can explain it",
   infra: "Infrastructure exists only in someone's memory — nothing is documented",
   onboard: "A new developer takes weeks before they can ship anything",
-  knowledge: "Everything lives in one person's head — and they're burning out",
+  knowledge: "Everything lives in one person's head — they're burning out",
   docs: "No documentation — we figure things out by reading old code",
   plan: "Nobody agrees on what's being built — until it's already built wrong",
   idea: "Great ideas keep dying in Slack threads and never get built",
@@ -156,7 +156,43 @@ export const painLabels: Record<string, string> = {
   analytics: "No idea what users do on our site",
 };
 
-export const parentLabels: Record<string, string> = {
+export const painLabelsTech: Record<string, string> = {
+  monitor: "No monitoring or observability in place",
+  incident: "No incident response runbook or process",
+  alert: "Alert fatigue — too many false positives",
+  deploy: "Deployments often cause production issues",
+  rollback: "No reliable rollback strategy",
+  verify: "No post-deploy verification checks",
+  secure: "No breach detection or threat monitoring",
+  compliance: "No SOC2 / compliance framework in place",
+  scan: "No security scanning in CI pipeline",
+  release: "Releases blocked by single-person dependency",
+  staging: "Staging environment is unreliable or unused",
+  build: "Slow CI pipeline — hotfixes take too long",
+  registry: "No versioned artifact registry for rollbacks",
+  test: "Testing in production — no automated test suite",
+  bug: "Recurring bugs with no root cause analysis",
+  ci: "Flaky CI pipelines that everyone ignores",
+  slow: "Application slow under load — no profiling data",
+  local: "Works locally but breaks in production consistently",
+  cascade: "No circuit breakers — one slow dependency takes down everything",
+  code: "Single point of failure — only one person knows the codebase",
+  review: "Code reviews are skipped or rubber-stamped",
+  debt: "Technical debt causing regressions on every change",
+  backup: "No disaster recovery plan or backup testing",
+  cost: "Uncontrolled cloud cost growth with no visibility",
+  infra: "No Infrastructure as Code — everything is manual",
+  onboard: "Slow developer onboarding — weeks before first commit",
+  knowledge: "Tribal knowledge — critical context lives in one person's head",
+  docs: "No API docs or architecture documentation",
+  plan: "No aligned requirements — building the wrong thing repeatedly",
+  idea: "Ideas lost in Slack threads with no structured process",
+  design: "No design system or consistent UI/UX patterns",
+  seo: "Poor search rankings — no structured data or SSR",
+  analytics: "No user behavior tracking or event analytics",
+};
+
+export const parentLabelsBusiness: Record<string, string> = {
   monitor: "You shouldn't hear about downtime from a customer",
   incident: "You shouldn't hear about downtime from a customer",
   alert: "You shouldn't hear about downtime from a customer",
