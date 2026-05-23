@@ -69,18 +69,12 @@ export function PainPointGrid() {
         }}
       >
         <div
-          className={`flex items-center px-2 py-1 mb-2 border-b ${dark ? "border-gray-800 text-gray-300" : "border-gray-200 text-gray-700"}`}
+          className={`flex items-start gap-x-2 px-2 py-1 mb-2 border-b flex-wrap ${dark ? "border-gray-800 text-gray-300" : "border-gray-200 text-gray-700"}`}
         >
           <span className="font-bold tracking-wider">▼ Business Problems</span>
-          <span className="ml-auto flex items-center gap-2 text-[9px]">
-            <span className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-              critical
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-              warning
-            </span>
+          <span className="flex items-center gap-2 text-[9px]">
+            <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-red-500" />critical</span>
+            <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-amber-400" />warning</span>
           </span>
         </div>
         <div className="pb-2">
@@ -104,7 +98,7 @@ export function PainPointGrid() {
                   <div className="flex-1 min-w-0 flex">
                     <button
                       onClick={() => toggleGroupSelect(g)}
-                      className={`flex items-center justify-start gap-2 px-2 py-1 cursor-pointer transition-colors ${count > 0 ? "bg-red-50 dark:bg-red-900/20" : "hover:bg-blue-100 dark:hover:bg-blue-950"}`}
+                      className={`flex-1 flex items-start justify-start gap-2 px-2 py-1 cursor-pointer transition-colors ${count > 0 ? "bg-red-50 dark:bg-red-900/20" : "hover:bg-blue-100 dark:hover:bg-blue-950"}`}
                     >
                       <span
                         className={`shrink-0 w-3.5 h-3.5 flex items-center justify-center border text-[8px] font-bold ${count > 0 ? "bg-red-500 border-red-500 text-white" : "border-gray-400 dark:border-gray-500 text-transparent"}`}
@@ -119,7 +113,7 @@ export function PainPointGrid() {
                     </button>
                     <button
                       onClick={() => toggleSet(expanded, setExpanded, g.id)}
-                      className="shrink-0 w-6 flex items-center justify-center cursor-pointer hover:bg-blue-100 dark:hover:bg-blue-950 transition-colors"
+                      className="shrink-0 w-6 flex items-start justify-center pt-1 cursor-pointer hover:bg-blue-100 dark:hover:bg-blue-950 transition-colors"
                       aria-label={isOpen ? "Collapse" : "Expand"}
                     >
                       <span
