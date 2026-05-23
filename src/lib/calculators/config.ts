@@ -22,8 +22,8 @@ export const calculators: Record<string, CalculatorConfig> = {
   cloud: {
     id: "cloud",
     name: "Cloud Mathematician",
-    tagline: "How healthy is your cloud infrastructure?",
-    description: "Answer 7 questions about your AWS setup and get a personalized report with cost-saving opportunities and security fixes.",
+    tagline: "Stop paying for cloud waste. Find out what's silently draining your budget.",
+    description: "You might be burning cash on idle resources, over-provisioned instances, or untracked services. Answer 7 questions and I'll show you where the leaks are — plus what to do about it.",
     categories: [
       { id: "cost", label: "Cost Optimization" },
       { id: "security", label: "Security" },
@@ -101,8 +101,8 @@ export const calculators: Record<string, CalculatorConfig> = {
   fullstack: {
     id: "fullstack",
     name: "FullStack Alchemist",
-    tagline: "Is your web app production-ready?",
-    description: "Answer 7 questions about your application's foundation and get a prioritized roadmap for the features your users expect.",
+    tagline: "Your users notice the bugs before you do. Catch them first.",
+    description: "Authentication gaps, broken payments, poor SEO — these kill conversions. 7 questions to find the weakest link in your app, plus a roadmap to production-readiness.",
     categories: [
       { id: "foundation", label: "App Foundation" },
       { id: "experience", label: "User Experience" },
@@ -181,8 +181,8 @@ export const calculators: Record<string, CalculatorConfig> = {
   pipeline: {
     id: "pipeline",
     name: "Pipeline Plumber",
-    tagline: "How fast and reliable is your deployment pipeline?",
-    description: "Answer 7 questions about your development workflow and discover bottlenecks that slow your team down.",
+    tagline: "Every failed deploy costs you trust. See where yours breaks.",
+    description: "Slow deploys, flaky tests, manual rollbacks — each one chips away at your team's confidence. 7 questions to uncover your pipeline bottlenecks and get back to shipping.",
     categories: [
       { id: "speed", label: "Deployment Speed" },
       { id: "quality_gates", label: "Quality Gates" },

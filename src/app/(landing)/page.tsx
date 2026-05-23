@@ -25,15 +25,14 @@ export default function LandingPage() {
               transition={{ staggerChildren: 0.1 }}
             >
               <motion.p variants={fadeUp} className="text-xs tracking-wider uppercase text-blue-600 dark:text-blue-400 font-bold mb-3">
-                Free Infrastructure Health Check
+                Free Infrastructure Audit
               </motion.p>
               <motion.h1 variants={fadeUp} className="text-xl sm:text-2xl font-bold leading-tight text-gray-900 dark:text-white mb-3">
-                Score your infrastructure<br />
-                <span className="text-blue-600 dark:text-blue-400">in 2 minutes.</span>
+                Find the cracks<br />
+                <span className="text-blue-600 dark:text-blue-400">before they break.</span>
               </motion.h1>
               <motion.p variants={fadeUp} className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-5 font-medium">
-                Answer 7 quick questions about your cloud, app, or deployment pipeline.
-                Get a scored report with a letter grade, category breakdown, and actionable fixes.
+                7 questions. 2 minutes. One honest report on what&apos;s broken — and exactly how to fix it. No fluff, no sales pitch. 5+ years shipping infrastructure across AWS, Azure, and Kubernetes.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-2 sm:gap-3 mb-5 text-xs">
@@ -58,7 +57,7 @@ export default function LandingPage() {
                     href="/assess"
                     className="group block w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
                   >
-                    Start Your Free Assessment <span className="inline-block text-base transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
+                    Run Your Free Audit <span className="inline-block text-base transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
                   </Link>
                 </div>
               </motion.div>
@@ -72,8 +71,8 @@ export default function LandingPage() {
       </main>
 
       <footer className="border-t border-gray-200 dark:border-gray-800 py-8">
-        <div className="max-w-5xl mx-auto px-6 text-center text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400">
-          &copy; {new Date().getFullYear()} Abdur Rehman Tariq
+        <div className="max-w-5xl mx-auto px-6 text-center text-[10px] tracking-wider text-gray-400 dark:text-gray-500">
+          &copy; {new Date().getFullYear()} <span className="text-xs text-gray-600 dark:text-gray-300 font-bold">a</span>bdur <span className="text-xs text-gray-600 dark:text-gray-300 font-bold">r</span>ehman <span className="text-xs text-gray-600 dark:text-gray-300 font-bold">tariq</span>
         </div>
       </footer>
     </div>

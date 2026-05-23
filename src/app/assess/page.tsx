@@ -6,10 +6,10 @@ export default function AssessPage() {
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
       <main className="flex-1 max-w-3xl mx-auto w-full px-6 pt-16 pb-16">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-          Infrastructure Health Check
+          Find the cracks before they break.
         </h1>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">
-          Pick a calculator. Answer 7 questions. Get a scored report with actionable fixes.
+          Pick a calculator. Answer 7 questions. Get an honest report with specific fixes — ranked by impact.
         </p>
 
         <div className="grid gap-4">

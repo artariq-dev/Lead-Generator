@@ -144,7 +144,7 @@ export function PainPointGrid() {
         Identify your <span className="text-red-400 dark:text-red-300">painpoints</span>
       </h2>
       <h3 className="text-xs text-gray-500 dark:text-gray-400 mb-4">
-        Click a stage name to select it. Expand (▼) to see details.
+        Check the boxes where you&apos;re feeling pain. No technical knowledge needed.
       </h3>
 
       <div
@@ -259,7 +259,7 @@ export function PainPointGrid() {
           href={`/analyze?pains=${Array.from(selected).join(",")}`}
           className="group block w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
         >
-          Analyze My Pain Points <span className="inline-block text-base transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
+          Get My Free Analysis <span className="inline-block text-base transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
         </Link>
       </div>
     </div>
