@@ -19,7 +19,7 @@ export default function LandingPage() {
           <GridBg />
           <div className="relative z-10 max-w-6xl mx-auto w-full px-6 grid md:grid-cols-2 gap-10 items-stretch">
             <motion.div
-              className="text-center md:text-left bg-white/70 dark:bg-gray-950/70 border border-gray-200 dark:border-gray-800 p-3 sm:p-5 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] h-full flex flex-col"
+              className="text-left bg-white/70 dark:bg-gray-950/70 border border-gray-200 dark:border-gray-800 p-3 sm:p-5 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] h-full flex flex-col"
               initial="initial"
               animate="animate"
               transition={{ staggerChildren: 0.1 }}
