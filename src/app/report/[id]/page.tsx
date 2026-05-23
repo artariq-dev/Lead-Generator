@@ -22,7 +22,7 @@ function ReportContent() {
 
   const result = calculateScore(id, answers);
 
-  const summaryText = `Infrastructure Health Check — ${config.name}\n\nGrade: ${result.grade}\nScore: ${result.percentage}% (${result.overallScore}/${result.maxScore})\n\nCategory Breakdown:\n${result.categories.map((c) => `  ${c.label}: ${c.percentage}% (${c.score}/${c.maxScore})`).join("\n")}\n\nI'd like a professional analysis and recommendations based on these results.`;
+  const summaryText = `--- Infrastructure Health Check ---\nCalculator: ${config.name}\nGrade: ${result.grade} | Score: ${result.percentage}%\n\nCategory Breakdown:\n${result.categories.map((c) => `  ${c.label}: ${c.percentage}%`).join("\n")}\n\n--- What I Need ---\nI'd like Abdur Rehman to review these results and tell me:\n  1. What's the biggest risk right now?\n  2. What's the cheapest fix with the highest impact?\n  3. What does a realistic improvement look like?\n\nNo strings attached — just an honest assessment.`;
 
   return (
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
@@ -30,14 +30,14 @@ function ReportContent() {
         <ReportCard result={result} />
 
         <div className="border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-5 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] mb-8">
-          <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-1">
-            Your Score Summary
+          <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">
+            Your {config.name} Score
           </h2>
           <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
-            Copy the summary below and email it to me for a free analysis.
+            Copy the summary, email it to me, and I&apos;ll reply within 24 hours with specific fixes — ranked by impact. Zero obligation.
           </p>
 
-          <p className="text-[10px] text-gray-400 dark:text-gray-500 mb-1 font-mono">Copy this:</p>
+          <p className="text-xs text-gray-600 dark:text-gray-300 mb-1 font-mono">Copy this — and feel free to add any other issues you want fixed:</p>
           <div className="relative">
             <textarea
               ref={textRef}
@@ -59,21 +59,23 @@ function ReportContent() {
         </div>
 
         <div className="border border-gray-200 dark:border-gray-800 p-5 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] mb-8">
-          <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-2">
-            Send me the analysis request
+          <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-3">
+            Here&apos;s what happens next
           </h2>
-          <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-4">
-            Copy the summary above, then email it to{" "}
-            <a href="mailto:artariq.dev.1@gmail.com" className="text-blue-600 underline font-semibold">
-              artariq.dev.1@gmail.com
-            </a>
-            . I&apos;ll review your scores and reply with a tailored analysis and recommendations.
+          <ol className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-4 space-y-2 list-decimal list-inside">
+            <li>You email me the summary above at <a href="mailto:artariq.dev.1@gmail.com" className="text-blue-600 underline font-semibold">artariq.dev.1@gmail.com</a></li>
+            <li>I review it within 24 hours</li>
+            <li>I send back 3 specific fixes — ranked by impact</li>
+            <li>You decide if you want my help implementing them</li>
+          </ol>
+          <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">
+            No cost. No commitment. Just an honest opinion from someone who spends their days fixing this stuff.
           </p>
           <a
             href={`mailto:artariq.dev.1@gmail.com?subject=${encodeURIComponent(`Infrastructure Analysis — ${config.name} (${result.grade})`)}&body=${encodeURIComponent(summaryText)}`}
             className="inline-block text-xs tracking-wider uppercase px-4 py-2 bg-blue-600 text-white pixel-btn shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8] cursor-pointer"
           >
-            Open in Email →
+            Email Me This →
           </a>
         </div>
 
