@@ -42,11 +42,11 @@ function ReportContent() {
             </p>
 
             <p className="text-xs text-gray-600 dark:text-gray-300 mb-1 font-mono">Copy this — and feel free to add any other issues you want fixed:</p>
-            <div className="relative">
+            <div>
               <textarea
                 ref={textRef}
                 readOnly
-                rows={7}
+                rows={10}
                 className="w-full text-sm text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-3 resize-none"
                 value={summaryText}
               />
@@ -55,7 +55,7 @@ function ReportContent() {
                   textRef.current?.select();
                   navigator.clipboard.writeText(summaryText);
                 }}
-                className="absolute top-2 right-2 text-[10px] sm:text-xs tracking-wider uppercase px-2 py-1 bg-blue-600 text-white cursor-pointer pixel-btn shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8]"
+                className="mt-2 text-[10px] sm:text-xs tracking-wider uppercase px-3 py-1.5 bg-blue-600 text-white cursor-pointer pixel-btn shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8]"
               >
                 Copy
               </button>
