@@ -66,8 +66,9 @@ export function PainPointGrid() {
             "linear-gradient(to bottom, transparent 0%, black 10px, black calc(100% - 8px), transparent 100%)",
         }}
       >
-        <div
-          className={`flex items-start justify-between gap-x-2 px-2 py-1 mb-2 border-b flex-wrap ${dark ? "border-gray-800 text-gray-300" : "border-gray-200 text-gray-700"}`}
+        <div className="pr-4">
+          <div
+            className={`flex items-start justify-between gap-x-2 px-2 py-1 mb-2 border-b flex-wrap ${dark ? "border-gray-800 text-gray-300" : "border-gray-200 text-gray-700"}`}
         >
           <span className="font-bold tracking-wider">▼ Business Problems</span>
           <span className="flex items-center gap-2 text-[9px]">
@@ -79,8 +80,8 @@ export function PainPointGrid() {
           {groupsBusiness.map((g, gi) => {
             const isLast = gi === groupsBusiness.length - 1;
             return (
-              <div key={g.id}>
-                <div className="flex">
+              <div key={g.id} className="border-b-2 border-gray-300 dark:border-gray-600">
+                <div className={`flex ${groupSelectionCount(g) > 0 ? "bg-white dark:bg-gray-800" : ""}`}>
                   <div
                     className="flex flex-col items-center"
                     style={{ width: "1.2rem" }}
@@ -94,16 +95,17 @@ export function PainPointGrid() {
                   <div className="flex-1 min-w-0 flex">
                     <button
                       onClick={() => toggleGroupSelect(g)}
-                       className={`flex-1 flex items-start justify-start gap-2 px-2 py-2 cursor-pointer transition-colors ${groupSelectionCount(g) > 0 ? "bg-red-50 dark:bg-red-900/20" : "hover:bg-blue-100 dark:hover:bg-blue-950"}`}
+                       className="flex-1 flex items-start justify-start gap-2 px-2 py-2 cursor-pointer transition-colors hover:bg-blue-100 dark:hover:bg-blue-950"
                     >
                       <span
-                        className={`shrink-0 w-3.5 h-3.5 flex items-center justify-center border text-[8px] font-bold ${groupSelectionCount(g) > 0 ? "bg-red-500 border-red-500 text-white" : "border-gray-400 dark:border-gray-500 text-transparent"}`}
+                        className={`shrink-0 w-3.5 h-3.5 flex items-center justify-center border text-[8px] font-bold ${groupSelectionCount(g) > 0 ? "bg-blue-500 border-blue-500 text-white" : "border-gray-400 dark:border-gray-500 text-transparent"}`}
                       >
                         {groupSelectionCount(g) > 0 ? "✓" : ""}
                       </span>
                       <span
-                        className={`text-xs text-left font-bold tracking-wider ${groupSelectionCount(g) > 0 ? "text-red-600 dark:text-red-400" : dark ? "text-gray-400" : "text-gray-500"}`}
+                        className={`text-xs text-left font-bold tracking-wider ${groupSelectionCount(g) > 0 ? "text-gray-900 dark:text-white" : dark ? "text-gray-400" : "text-gray-500"}`}
                       >
+                        <span className={`text-[9px] tracking-wider uppercase block ${groupSelectionCount(g) > 0 ? "text-gray-900 dark:text-white" : "text-blue-600 dark:text-blue-400"}`}>{g.id}</span>
                         {g.label}
                       </span>
                     </button>
@@ -122,13 +124,13 @@ export function PainPointGrid() {
                 </div>
 
                 {expanded.has(g.id) && (
-                  <div>
+                  <div className={groupSelectionCount(g) > 0 ? "bg-white dark:bg-gray-800" : ""}>
                     <div
                       className="px-1 pb-1"
                       style={{ paddingLeft: "1.2rem" }}
                     >
                       <span
-                        className={`text-[10px] ${dark ? "text-gray-500" : "text-gray-400"}`}
+                        className={`text-[10px] ${dark ? "text-gray-300" : "text-gray-600"}`}
                       >
                         {g.description}
                       </span>
@@ -138,9 +140,9 @@ export function PainPointGrid() {
                       const isSel = selected.has(child.id);
                       const isTechOpen = techOpen.has(child.id);
                       return (
-                        <div key={child.id}>
+                        <div key={child.id} className="border-b border-gray-200 dark:border-gray-700">
                           <div
-                            className="flex items-center w-full"
+                            className={`flex items-start w-full ${isSel ? "bg-white dark:bg-gray-800" : ""}`}
                             style={{ paddingLeft: "1.2rem" }}
                           >
                             <span
@@ -164,12 +166,12 @@ export function PainPointGrid() {
                             )}
                               <div className="flex flex-col py-1.5 min-w-0">
                               <span
-                                className={`text-xs sm:text-sm font-bold tracking-wider ${isSel ? "text-red-600 dark:text-red-400" : "text-blue-600 dark:text-blue-400"}`}
+                                className="text-xs sm:text-sm font-bold tracking-wider text-blue-600 dark:text-blue-400"
                               >
                                 {child.label}
                               </span>
                               {painLabelsTech[child.id] && (
-                                <span className={`text-[10px] leading-tight ${dark ? "text-gray-500" : "text-gray-400"}`}>
+                                <span className={`text-[10px] leading-tight ${dark ? "text-gray-300" : "text-gray-600"}`}>
                                   {painLabelsTech[child.id]}
                                 </span>
                               )}
@@ -179,7 +181,7 @@ export function PainPointGrid() {
                                 onClick={() =>
                                   toggleSet(techOpen, setTechOpen, child.id)
                                 }
-                                className={`ml-auto shrink-0 text-[10px] px-1 py-0.5 w-12 text-center border cursor-pointer transition-colors ${isTechOpen ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400" : "border-gray-300 dark:border-gray-600 text-gray-400 dark:text-gray-500 hover:border-blue-300 dark:hover:border-blue-700 hover:text-blue-500"}`}
+                                className={`ml-auto self-end mb-2 mr-2 shrink-0 text-[10px] px-1 py-0.5 w-12 text-center border cursor-pointer transition-colors ${isTechOpen ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400" : "border-gray-300 dark:border-gray-600 text-gray-400 dark:text-gray-500 hover:border-blue-300 dark:hover:border-blue-700 hover:text-blue-500"}`}
                               >
                                 {isTechOpen ? "▲ tech" : "▼ tech"}
                               </button>
@@ -187,7 +189,7 @@ export function PainPointGrid() {
                           </div>
                           {isTechOpen && child.tech && (
                             <div
-                              className="flex flex-wrap gap-1"
+                              className="flex flex-wrap gap-1 mb-2"
                               style={{
                                 paddingLeft: "2.4rem",
                                 paddingTop: "2px",
@@ -196,7 +198,7 @@ export function PainPointGrid() {
                               {child.tech.split(",").map((t, i) => (
                                 <span
                                   key={i}
-                                  className="text-[9px] px-1.5 py-0.5 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400"
+                                  className="text-[9px] px-1.5 py-0.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900"
                                 >
                                   {t.trim()}
                                 </span>
@@ -212,6 +214,7 @@ export function PainPointGrid() {
             );
           })}
         </div>
+      </div>
       </div>
 
       <div className="text-center mt-auto pt-4">
