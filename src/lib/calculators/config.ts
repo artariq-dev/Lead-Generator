@@ -1,10 +1,10 @@
-export interface Question {
+interface Question {
   id: string;
   label: string;
   options: { label: string; value: string; score: number }[];
 }
 
-export interface Category {
+interface Category {
   id: string;
   label: string;
 }

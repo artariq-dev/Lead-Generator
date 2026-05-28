@@ -26,7 +26,7 @@ const categoryQuestionMap: Record<string, Record<string, string[]>> = {
   },
 };
 
-export interface CategoryScore {
+interface CategoryScore {
   id: string;
   label: string;
   score: number;

@@ -1,4 +1,4 @@
-export interface SubItem {
+interface SubItem {
   id: string;
   label: string;
   tech: string;

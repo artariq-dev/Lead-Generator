@@ -3,5 +3,6 @@ export const siteConfig = {
   tagline: "Benchmark your intuition.",
   description:
     "All that investment in software — is it actually delivering? 8 questions. Pick cloud, fullstack, or pipeline. Let's find out.",
+  email: "artariq.dev.1@gmail.com",
 };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { groupsBusiness, painLabelsTech, type PainGroup } from "@/lib/pain-points";
 
@@ -23,15 +23,17 @@ export function PainPointGrid() {
     return () => observer.disconnect();
   }, []);
 
-  const toggleGroupSelect = (g: PainGroup) => {
-    const next = new Set(selected);
-    const ids = g.children.map((c) => c.id);
-    const allSelected = ids.every((id) => next.has(id));
-    ids.forEach((id) => (allSelected ? next.delete(id) : next.add(id)));
-    setSelected(next);
-  };
+  const toggleGroupSelect = useCallback((g: PainGroup) => {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      const ids = g.children.map((c) => c.id);
+      const allSelected = ids.every((id) => next.has(id));
+      ids.forEach((id) => (allSelected ? next.delete(id) : next.add(id)));
+      return next;
+    });
+  }, []);
 
-  const toggleSet = (
+  const toggleSet = useCallback((
     set: Set<string>,
     setter: (s: Set<string>) => void,
     id: string,
@@ -39,7 +41,7 @@ export function PainPointGrid() {
     const next = new Set(set);
     next.has(id) ? next.delete(id) : next.add(id);
     setter(next);
-  };
+  }, []);
 
   const groupSelectionCount = (group: PainGroup) =>
     group.children.filter((c) => selected.has(c.id)).length;
@@ -195,9 +197,9 @@ export function PainPointGrid() {
                                 paddingTop: "2px",
                               }}
                             >
-                              {child.tech.split(",").map((t, i) => (
+                              {child.tech.split(",").map((t) => (
                                 <span
-                                  key={i}
+                                  key={`${child.id}-${t.trim()}`}
                                   className="text-[9px] px-1.5 py-0.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900"
                                 >
                                   {t.trim()}

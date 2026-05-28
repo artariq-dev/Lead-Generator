@@ -7,6 +7,7 @@ import { calculators } from "@/lib/calculators/config";
 import { calculateScore, type Answer } from "@/lib/calculators/engine";
 import { ReportCard } from "@/components/calculators/ReportCard";
 import { reportTemplate } from "@/lib/email-templates";
+import { siteConfig } from "@/lib/metadata";
 
 function ReportContent() {
   const { id } = useParams<{ id: string }>();
@@ -69,7 +70,7 @@ function ReportContent() {
               Here&apos;s what happens next
             </h2>
             <ol className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-4 space-y-2 list-decimal list-inside">
-              <li>You email me the summary above at <a href="mailto:artariq.dev.1@gmail.com" className="text-blue-600 underline font-semibold">artariq.dev.1@gmail.com</a></li>
+              <li>You email me the summary above at <a href={`mailto:${siteConfig.email}`} className="text-blue-600 underline font-semibold">{siteConfig.email}</a></li>
               <li>I review it within 24 hours</li>
               <li>I send back 3 specific fixes — ranked by impact</li>
               <li>You decide if you want my help implementing them</li>
@@ -78,7 +79,7 @@ function ReportContent() {
               No cost. No commitment. Just an honest opinion from someone who spends their days fixing this stuff.
             </p>
             <a
-              href={`mailto:artariq.dev.1@gmail.com?subject=${encodeURIComponent(`Infrastructure Analysis — ${config.name} (${result.grade})`)}&body=${encodeURIComponent(summaryText)}`}
+              href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`Infrastructure Analysis — ${config.name} (${result.grade})`)}&body=${encodeURIComponent(summaryText)}`}
               className="inline-block text-xs tracking-wider uppercase px-4 py-2 bg-blue-600 text-white pixel-btn shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8] cursor-pointer"
             >
               Email Me This →

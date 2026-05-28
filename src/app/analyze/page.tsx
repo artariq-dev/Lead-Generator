@@ -4,6 +4,7 @@ import { Suspense, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { painPointsTemplate } from "@/lib/email-templates";
+import { siteConfig } from "@/lib/metadata";
 
 function AnalyzeContent() {
   const sp = useSearchParams();
@@ -57,7 +58,7 @@ function AnalyzeContent() {
                 Here&apos;s what happens next
               </h2>
               <ol className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-4 space-y-2 list-decimal list-inside">
-                <li>You email me the summary above at <a href="mailto:artariq.dev.1@gmail.com" className="text-blue-600 underline font-semibold">artariq.dev.1@gmail.com</a></li>
+                <li>You email me the summary above at <a href={`mailto:${siteConfig.email}`} className="text-blue-600 underline font-semibold">{siteConfig.email}</a></li>
                 <li>I review it within 24 hours</li>
                 <li>I send back 3 specific fixes — ranked by impact</li>
                 <li>You decide if you want my help implementing them</li>
@@ -66,7 +67,7 @@ function AnalyzeContent() {
                 No cost. No commitment.
               </p>
               <a
-                href={`mailto:artariq.dev.1@gmail.com?subject=Infrastructure Pain Points Analysis&body=${encodeURIComponent(fullTemplate)}`}
+                href={`mailto:${siteConfig.email}?subject=Infrastructure Pain Points Analysis&body=${encodeURIComponent(fullTemplate)}`}
                 className="inline-block text-xs tracking-wider uppercase px-4 py-2 bg-blue-600 text-white pixel-btn shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8] cursor-pointer"
               >
                 Email Me This →

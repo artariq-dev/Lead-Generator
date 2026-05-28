@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import type { CalculatorConfig } from "@/lib/calculators/config";
@@ -17,6 +17,7 @@ export function CalculatorForm({ config }: { config: CalculatorConfig }) {
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
+  const advanceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const question = config.questions[step];
   const isLast = step === config.questions.length - 1;
@@ -29,7 +30,7 @@ export function CalculatorForm({ config }: { config: CalculatorConfig }) {
     router.push(`/report/${config.id}?${params.toString()}`);
   }, [isComplete]);
 
-  const select = (value: string) => {
+  const select = useCallback((value: string) => {
     const existing = answers.findIndex((a) => a.questionId === question.id);
     const next = [...answers];
     if (existing >= 0) {
@@ -42,10 +43,15 @@ export function CalculatorForm({ config }: { config: CalculatorConfig }) {
 
     if (isLast) return;
 
-    setTimeout(() => {
-      setStep(step + 1);
+    clearTimeout(advanceRef.current);
+    advanceRef.current = setTimeout(() => {
+      setStep((s) => s + 1);
     }, 200);
-  };
+  }, [answers, question.id, isLast]);
+
+  useEffect(() => {
+    return () => clearTimeout(advanceRef.current);
+  }, []);
 
   const back = () => {
     setDirection(-1);
