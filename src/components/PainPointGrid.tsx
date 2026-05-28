@@ -1,14 +1,52 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { groupsBusiness, painLabelsTech, type PainGroup } from "@/lib/pain-points";
+
+const fieldGroups: Record<string, string[]> = {
+  all: groupsBusiness.map((g) => g.id),
+  frontend: ["performance", "coding", "growth"],
+  backend: ["building", "coding", "ops"],
+  fullstack: ["shipping", "building", "performance", "planning", "growth", "team"],
+  devops: ["monitoring", "deploying", "shipping", "ops"],
+  cloud: ["monitoring", "security", "ops"],
+  security: ["security"],
+};
+
+const fieldOptions = [
+  { id: "all", label: "All Problems" },
+  { id: "frontend", label: "Frontend" },
+  { id: "backend", label: "Backend" },
+  { id: "fullstack", label: "FullStack" },
+  { id: "devops", label: "DevOps" },
+  { id: "cloud", label: "Cloud" },
+  { id: "security", label: "Security" },
+];
 
 export function PainPointGrid() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [techOpen, setTechOpen] = useState<Set<string>>(new Set());
+  const [field, setField] = useState("all");
+  const [showFieldMenu, setShowFieldMenu] = useState(false);
   const [dark, setDark] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setShowFieldMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const filtered = useMemo(
+    () => groupsBusiness.filter((g) => fieldGroups[field]?.includes(g.id)),
+    [field],
+  );
 
   useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
@@ -69,18 +107,36 @@ export function PainPointGrid() {
         }}
       >
         <div className="pr-4">
-          <div
-            className={`flex items-start justify-between gap-x-2 px-2 py-1 mb-2 border-b flex-wrap ${dark ? "border-gray-800 text-gray-300" : "border-gray-200 text-gray-700"}`}
-        >
-          <span className="font-bold tracking-wider">▼ Business Problems</span>
+          <div className="flex items-start justify-between gap-x-2 px-2 py-1 mb-2 border-b border-gray-200 dark:border-gray-700 flex-wrap relative">
+            <div className="relative" ref={menuRef}>
+              <button
+                onClick={() => setShowFieldMenu((v) => !v)}
+                className="font-bold tracking-wider text-xs cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                ▼ {fieldOptions.find((f) => f.id === field)?.label || "All Problems"}
+              </button>
+              {showFieldMenu && (
+                <div className="absolute top-full left-0 mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg z-20 min-w-[140px]">
+                  {fieldOptions.map((f) => (
+                    <button
+                      key={f.id}
+                      onClick={() => { setField(f.id); setShowFieldMenu(false); }}
+                      className={`block w-full text-left text-xs px-3 py-1.5 cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors ${field === f.id ? "font-bold text-blue-600 dark:text-blue-400" : "text-gray-700 dark:text-gray-300"}`}
+                    >
+                      {f.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           <span className="flex items-center gap-2 text-[9px]">
             <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-red-500" />critical</span>
             <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-amber-400" />warning</span>
           </span>
         </div>
         <div className="pb-2">
-          {groupsBusiness.map((g, gi) => {
-            const isLast = gi === groupsBusiness.length - 1;
+          {filtered.map((g, gi) => {
+            const isLast = gi === filtered.length - 1;
             return (
               <div key={g.id} className="border-b-2 border-gray-300 dark:border-gray-600">
                 <div className={`flex ${groupSelectionCount(g) > 0 ? "bg-white dark:bg-gray-800" : ""}`}>
