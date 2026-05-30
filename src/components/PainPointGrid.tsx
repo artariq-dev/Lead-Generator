@@ -96,16 +96,6 @@ export function PainPointGrid() {
 
   return (
     <div className="bg-white/70 dark:bg-gray-950/70 border border-gray-200 dark:border-gray-800 p-6 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] h-full flex flex-col">
-      <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-1">
-        Identify your{" "}
-        <span className="text-green-600 dark:text-green-400">business</span>{" "}
-        <span className="text-red-500 dark:text-red-400">painpoints</span>
-      </h2>
-      <h3 className="text-xs text-gray-500 dark:text-gray-400 mb-4">
-        Select problems. Hit the button. Copy the message. Send it over —
-        let&apos;s talk.
-      </h3>
-
       {/* Filter bar — outside scrollable area */}
       <div className="flex items-start justify-between gap-x-2 px-2 py-1 mb-3 border-b border-gray-200 dark:border-gray-700 flex-wrap">
         <div className="relative mb-2" ref={menuRef}>
