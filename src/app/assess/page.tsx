@@ -6,7 +6,7 @@ export default function AssessPage() {
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
       <main className="flex-1 max-w-3xl mx-auto w-full px-6 pt-16 pb-16">
         <h1 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-          Benchmark your intuition.
+          Benchmark your intuition. Test your setup
         </h1>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">
           Built from 5+ years of industry experience and shipping software — every question is there for a reason.
@@ -21,6 +21,14 @@ export default function AssessPage() {
             >
               <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">{calc.name}</h2>
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{calc.description}</p>
+              <div className="flex flex-wrap items-center gap-1">
+                <span className="text-[9px] text-gray-900 dark:text-white uppercase tracking-wider">Evaluate:</span>
+                {calc.categories.map((c) => (
+                  <span key={c.id} className="text-[9px] px-1.5 py-0.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400">
+                    {c.label}
+                  </span>
+                ))}
+              </div>
             </Link>
           ))}
         </div>
