@@ -36,9 +36,15 @@ export default function LandingPage() {
       <main className="flex-1 flex flex-col">
         <section className="relative min-h-screen flex flex-col justify-center pt-16 pb-8">
           <GridBg />
-          <div className="relative z-10 max-w-4xl mx-auto w-full px-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="flex flex-col justify-center h-full">
+          <div className="relative z-10 max-w-6xl mx-auto w-full px-6">
+            <div className="mb-8 text-center">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                Not sure if your software is <span className="text-blue-600 dark:text-blue-400">costing</span> or <span className="text-blue-600 dark:text-blue-400">earning</span>?
+              </h1>
+              <p className="text-sm text-gray-900 dark:text-white">Find out in 2 minutes — no sign-up, no sales call.</p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-0">
+            <div className="flex flex-col justify-center sm:flex-1">
               <SectionHeader>
                 <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-tight">
                   <span className="text-blue-600 dark:text-blue-400">Benchmark your intuition. Test your setup</span>
@@ -46,15 +52,23 @@ export default function LandingPage() {
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">Is your software worth what you invested? Cloud, fullstack, or pipeline — instant scorecard. No filter.</p>
               </SectionHeader>
               <div className="bg-white/70 dark:bg-gray-950/70 border border-gray-200 dark:border-gray-800 p-3 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
-                <div className="flex flex-wrap gap-2 sm:gap-3 mb-4">
-                  <StatCard top="Eight" bottom="Questions" />
-                  <StatCard top="Multiple" bottom="audit tracks" />
-                  <StatCard top="Critical" bottom="Evaluations" />
+                <div className="flex flex-col gap-2 mb-4">
+                  <StatCard top="8 questions" bottom="2 minutes to complete" />
+                  <StatCard top="Instant scorecard" bottom="No sign-up required" />
+                  <StatCard top="Ranked fixes" bottom="Sent back within 24h" />
                 </div>
-                <CtaBtn href="/assess" label="Benchmark now" />
+                <CtaBtn href="/assess" label="Take the 2-minute audit" />
               </div>
             </div>
-            <div className="flex flex-col justify-center h-full">
+
+            {/* OR divider */}
+            <div className="hidden sm:flex flex-col items-center justify-center mx-6">
+              <div className="flex-1 w-px bg-gray-300 dark:bg-gray-700" />
+              <span className="text-[10px] font-bold tracking-widest uppercase text-gray-400 dark:text-gray-600 py-2">or</span>
+              <div className="flex-1 w-px bg-gray-300 dark:bg-gray-700" />
+            </div>
+
+            <div className="flex flex-col justify-center sm:flex-1">
               <SectionHeader>
                 <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-tight">
                   Identify your <span className="text-green-600 dark:text-green-400">business</span> <span className="text-red-500 dark:text-red-400">painpoints</span>
