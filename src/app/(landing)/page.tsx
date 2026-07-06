@@ -44,20 +44,44 @@ export default function LandingPage() {
               <p className="text-sm text-gray-900 dark:text-white">Find out in 2 minutes — no sign-up, no sales call.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-0">
-            <div className="flex flex-col justify-center sm:flex-1">
-              <SectionHeader>
-                <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-tight">
-                  <span className="text-blue-600 dark:text-blue-400">Benchmark your intuition. Test your setup</span>
-                </h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">Is your software worth what you invested? Cloud, fullstack, or pipeline — instant scorecard. No filter.</p>
-              </SectionHeader>
-              <div className="bg-white/70 dark:bg-gray-950/70 border border-gray-200 dark:border-gray-800 p-3 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
-                <div className="flex flex-col gap-2 mb-4">
-                  <StatCard top="8 questions" bottom="2 minutes to complete" />
-                  <StatCard top="Instant scorecard" bottom="No sign-up required" />
-                  <StatCard top="Ranked fixes" bottom="Sent back within 24h" />
+            <div className="flex flex-col justify-center sm:flex-1 gap-4">
+              {/* Assess card */}
+              <div>
+                <SectionHeader>
+                  <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-tight">
+                    <span className="text-blue-600 dark:text-blue-400">Benchmark your intuition. Test your setup</span>
+                  </h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">Is your software worth what you invested? Cloud, fullstack, or pipeline — instant scorecard. No filter.</p>
+                </SectionHeader>
+                <div className="bg-white/70 dark:bg-gray-950/70 border border-gray-200 dark:border-gray-800 p-3 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
+                  <div className="hidden sm:flex flex-row gap-2 mb-4">
+                    <StatCard top="8 questions" bottom="2 min to complete" />
+                    <StatCard top="Instant scorecard" bottom="No sign-up" />
+                    <StatCard top="Ranked fixes" bottom="Within 24h" />
+                  </div>
+                  <CtaBtn href="/assess" label="Take the 2-minute audit" />
                 </div>
-                <CtaBtn href="/assess" label="Take the 2-minute audit" />
+              </div>
+
+              {/* Build card */}
+              <div>
+                <div className="px-4 py-2.5 bg-gray-900 dark:bg-white border border-gray-900 dark:border-white shadow-[2px_2px_0px_#374151] dark:shadow-[2px_2px_0px_#d1d5db]">
+                  <h3 className="text-sm font-bold text-white dark:text-gray-900 leading-tight">
+                    Want to build something but <span className="text-gray-300 dark:text-gray-600">don't know where to start?</span>
+                  </h3>
+                  <p className="text-xs text-gray-400 dark:text-gray-600 mt-0.5 leading-snug">Frontend, backend, mobile, automation — pick what you want to build, answer 8 questions, get a clear path forward.</p>
+                </div>
+                <div className="bg-gray-900/70 dark:bg-gray-900/70 border border-gray-900 dark:border-gray-200 p-3 shadow-[3px_3px_0px_#374151] dark:shadow-[3px_3px_0px_#d1d5db]">
+                  <div className="hidden sm:flex flex-row gap-2 mb-4">
+                    <StatCard top="6 build types" bottom="Frontend to mobile" />
+                    <StatCard top="Recommendation" bottom="Clear path forward" />
+                    <StatCard top="Next steps" bottom="Know what to do first" />
+                  </div>
+                  <Link href="/build" className="group block w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 pixel-btn border border-gray-800 dark:border-gray-300 shadow-[3px_3px_0px_#374151] dark:shadow-[3px_3px_0px_#d1d5db] hover:shadow-[5px_5px_0px_#374151] dark:hover:shadow-[5px_5px_0px_#d1d5db]">
+                    Find my path{" "}
+                    <span className="inline-block text-base transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
+                  </Link>
+                </div>
               </div>
             </div>
 
