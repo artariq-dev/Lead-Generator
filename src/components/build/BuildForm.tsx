@@ -1,0 +1,140 @@
+"use client";
+
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import type { BuildConfig } from "@/lib/build/config";
+import type { BuildAnswer } from "@/lib/build/engine";
+
+const slideVariants = {
+  enter: (d: number) => ({ x: d > 0 ? 300 : -300, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (d: number) => ({ x: d > 0 ? -300 : 300, opacity: 0 }),
+};
+
+export function BuildForm({ config }: { config: BuildConfig }) {
+  const router = useRouter();
+  const [step, setStep] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [answers, setAnswers] = useState<BuildAnswer[]>([]);
+  const advanceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  const question = config.questions[step];
+  const isLast = step === config.questions.length - 1;
+  const isComplete = answers.length === config.questions.length;
+
+  useEffect(() => {
+    if (!isComplete) return;
+    const params = new URLSearchParams();
+    answers.forEach((a) => params.set(a.questionId, a.value));
+    router.push(`/build/report/${config.id}?${params.toString()}`);
+  }, [isComplete]);
+
+  const select = useCallback(
+    (value: string) => {
+      const existing = answers.findIndex((a) => a.questionId === question.id);
+      const next = [...answers];
+      if (existing >= 0) {
+        next[existing] = { questionId: question.id, value };
+      } else {
+        next.push({ questionId: question.id, value });
+      }
+      setAnswers(next);
+      setDirection(1);
+
+      if (isLast) return;
+
+      clearTimeout(advanceRef.current);
+      advanceRef.current = setTimeout(() => {
+        setStep((s) => s + 1);
+      }, 200);
+    },
+    [answers, question.id, isLast]
+  );
+
+  useEffect(() => {
+    return () => clearTimeout(advanceRef.current);
+  }, []);
+
+  const back = () => {
+    setDirection(-1);
+    setStep(Math.max(0, step - 1));
+  };
+
+  if (isComplete) {
+    return (
+      <div className="border border-gray-200 dark:border-gray-800 p-6 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] text-center">
+        <p className="text-sm text-gray-500 dark:text-gray-400">Building your recommendation...</p>
+      </div>
+    );
+  }
+
+  const currentAnswer = answers.find((a) => a.questionId === question.id);
+
+  return (
+    <div className="border border-gray-200 dark:border-gray-800 p-6 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
+      <div className="mb-4">
+        <div className="flex items-center justify-between mb-1.5">
+          <span className="text-[10px] tracking-wider uppercase text-gray-400">
+            Question {step + 1} of {config.questions.length}
+          </span>
+          <span className="text-[10px] text-gray-400">
+            {Math.round(((step + 1) / config.questions.length) * 100)}%
+          </span>
+        </div>
+        <div className="w-full h-1 bg-gray-200 dark:bg-gray-800">
+          <div
+            className="h-1 bg-blue-600 transition-all duration-300"
+            style={{ width: `${((step + 1) / config.questions.length) * 100}%` }}
+          />
+        </div>
+      </div>
+
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div
+          key={step}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+        >
+          <h2 className="text-sm lg:text-base font-bold text-gray-900 dark:text-white mb-4">
+            {question.label}
+          </h2>
+
+          <div className="space-y-2">
+            {question.options.map((option) => (
+              <button
+                key={`${question.id}-${option.value}`}
+                onClick={() => select(option.value)}
+                className={`w-full text-left px-4 py-3 text-sm border cursor-pointer transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_#d1d5db] dark:hover:shadow-[2px_2px_0px_#374151] ${
+                  currentAnswer?.value === option.value
+                    ? "border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-gray-900 dark:text-white"
+                    : "border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700"
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="flex items-center justify-between mt-6">
+        <button
+          onClick={back}
+          className={`text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white cursor-pointer transition-colors ${
+            step === 0 ? "invisible" : ""
+          }`}
+        >
+          ← Back
+        </button>
+        <span className="text-xs text-gray-400">
+          {currentAnswer ? "Selected" : "Pick one"}
+        </span>
+      </div>
+    </div>
+  );
+}
