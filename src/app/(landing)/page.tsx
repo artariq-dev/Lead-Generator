@@ -78,7 +78,7 @@ export default function LandingPage() {
                     <StatCard top="Next steps" bottom="Know what to do first" />
                   </div>
                   <Link href="/build" className="group block w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 pixel-btn border border-gray-800 dark:border-gray-300 shadow-[3px_3px_0px_#374151] dark:shadow-[3px_3px_0px_#d1d5db] hover:shadow-[5px_5px_0px_#374151] dark:hover:shadow-[5px_5px_0px_#d1d5db]">
-                    Find my path{" "}
+                    Find path{" "}
                     <span className="inline-block text-base transition-all duration-300 group-hover:scale-[2] group-hover:translate-x-1">→</span>
                   </Link>
                 </div>

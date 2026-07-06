@@ -252,7 +252,7 @@ export function PainPointGrid() {
 
       <div className="text-center mt-auto pt-4">
         {selected.size === 0 ? (
-          <div className="w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-gray-200 dark:bg-gray-800 text-gray-400 dark:text-gray-600 border border-gray-300 dark:border-gray-700 cursor-not-allowed">
+          <div className="w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-gray-200 dark:bg-gray-800 text-gray-400 dark:text-gray-600 border border-gray-300 dark:border-gray-700 pixel-btn shadow-[3px_3px_0px_#d1d5db] dark:shadow-[3px_3px_0px_#374151] cursor-not-allowed">
             Select at least one problem first
           </div>
         ) : (
