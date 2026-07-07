@@ -39,14 +39,15 @@ export default function LandingPage() {
           <div className="relative z-10 max-w-6xl mx-auto w-full px-6">
             <div className="mb-8 text-center">
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
-                Not sure if your software is <span className="text-blue-600 dark:text-blue-400">costing</span> or <span className="text-blue-600 dark:text-blue-400">earning</span>?
+                Something's off with your software, or you <span className="text-blue-600 dark:text-blue-400">haven't built it yet.</span>
               </h1>
-              <p className="text-sm text-gray-900 dark:text-white">Find out in 2 minutes — no sign-up, no sales call.</p>
+              <p className="text-sm text-gray-900 dark:text-white">Either way, get clarity in 8 questions — or just pick your pain points.</p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-6 sm:gap-0">
-            <div className="flex flex-col justify-center sm:flex-1 gap-4">
+            <div className="flex flex-col sm:flex-row gap-8 sm:gap-0">
+            <div className="flex flex-col justify-center sm:flex-1 gap-8 sm:gap-4">
               {/* Assess card */}
               <div>
+                <p className="sm:hidden text-[9px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">[01] Audit</p>
                 <SectionHeader>
                   <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-tight">
                     <span className="text-blue-600 dark:text-blue-400">Benchmark your intuition. Test your setup</span>
@@ -65,6 +66,7 @@ export default function LandingPage() {
 
               {/* Build card */}
               <div>
+                <p className="sm:hidden text-[9px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">[02] Build</p>
                 <div className="px-4 py-2.5 bg-gray-900 dark:bg-white border border-gray-900 dark:border-white shadow-[2px_2px_0px_#374151] dark:shadow-[2px_2px_0px_#d1d5db]">
                   <h3 className="text-sm font-bold text-white dark:text-gray-900 leading-tight">
                     Want to build something but <span className="text-gray-300 dark:text-gray-600">don't know where to start?</span>
@@ -85,7 +87,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* OR divider */}
+            {/* OR divider — vertical on desktop only */}
             <div className="hidden sm:flex flex-col items-center justify-center mx-6">
               <div className="flex-1 w-px bg-gray-300 dark:bg-gray-700" />
               <span className="text-[10px] font-bold tracking-widest uppercase text-gray-400 dark:text-gray-600 py-2">or</span>
@@ -93,6 +95,7 @@ export default function LandingPage() {
             </div>
 
             <div className="flex flex-col justify-center sm:flex-1">
+              <p className="sm:hidden text-[9px] font-bold uppercase tracking-widest text-red-500 dark:text-red-400 mb-2">[03] Diagnose</p>
               <SectionHeader>
                 <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-tight">
                   Identify your <span className="text-green-600 dark:text-green-400">business</span> <span className="text-red-500 dark:text-red-400">painpoints</span>
