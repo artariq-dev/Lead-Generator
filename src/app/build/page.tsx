@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { buildTypes } from "@/lib/build/config";
+
+export const metadata: Metadata = {
+  title: "Build Guide",
+  description: "Have brain clutter, no clear pathway? Pick your build type and get a clear recommendation in 8 questions.",
+};
 
 const icons: Record<string, string> = {
   frontend: "◻",

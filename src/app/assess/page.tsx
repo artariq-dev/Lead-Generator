@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { calculators } from "@/lib/calculators/config";
+
+export const metadata: Metadata = {
+  title: "Software Audit",
+  description: "Find out exactly what's wrong with your software setup. Stop guessing. 8 questions, instant scorecard, ranked fixes.",
+};
 
 export default function AssessPage() {
   return (

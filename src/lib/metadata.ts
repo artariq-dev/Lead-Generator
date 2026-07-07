@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "ask.artariq",
-  tagline: "Find out if your software is costing or earning.",
+  tagline: "Audit it. Fix it. Build it.",
   description:
-    "Not sure if your software is worth what you paid? Pick an area — cloud, fullstack, CRM, or pipeline — answer 8 questions, get a scored report, and find out what to fix first. Free, no sign-up.",
+    "Software that costs more than it earns. Ideas stuck in your head. Problems you can't name. Just answer 8 questions, get instant fixes.",
   email: "artariq.dev.1@gmail.com",
 };
 
