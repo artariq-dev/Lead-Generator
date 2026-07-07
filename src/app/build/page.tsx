@@ -7,15 +7,6 @@ export const metadata: Metadata = {
   description: "Have brain clutter, no clear pathway? Pick your build type and get a clear recommendation in 8 questions.",
 };
 
-const icons: Record<string, string> = {
-  frontend: "◻",
-  backend: "⬡",
-  fullstack: "◈",
-  cloud: "☁",
-  automation: "⟳",
-  internal: "⊞",
-};
-
 const order = ["frontend", "backend", "fullstack", "cloud", "automation", "internal"];
 
 export default function BuildPage() {
@@ -49,9 +40,6 @@ export default function BuildPage() {
                 </span>
               )}
               <div className="flex items-start gap-3">
-                <span className="text-lg text-blue-600 dark:text-blue-400 leading-none mt-0.5 font-mono">
-                  {icons[bt.id] ?? "◻"}
-                </span>
                 <div className="flex-1 min-w-0">
                   <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">{bt.name}</h2>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{bt.tagline}</p>

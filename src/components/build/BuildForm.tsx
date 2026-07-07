@@ -12,6 +12,15 @@ const slideVariants = {
   exit: (d: number) => ({ x: d > 0 ? -300 : 300, opacity: 0 }),
 };
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export function BuildForm({ config }: { config: BuildConfig }) {
   const router = useRouter();
   const [step, setStep] = useState(0);
@@ -19,9 +28,14 @@ export function BuildForm({ config }: { config: BuildConfig }) {
   const [answers, setAnswers] = useState<BuildAnswer[]>([]);
   const advanceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
-  const question = config.questions[step];
-  const isLast = step === config.questions.length - 1;
-  const isComplete = answers.length === config.questions.length;
+  const questions = useMemo(
+    () => config.questions.map((q) => ({ ...q, options: shuffle(q.options) })),
+    [config.questions],
+  );
+
+  const question = questions[step];
+  const isLast = step === questions.length - 1;
+  const isComplete = answers.length === questions.length;
 
   useEffect(() => {
     if (!isComplete) return;
@@ -76,16 +90,16 @@ export function BuildForm({ config }: { config: BuildConfig }) {
       <div className="mb-4">
         <div className="flex items-center justify-between mb-1.5">
           <span className="text-[10px] tracking-wider uppercase text-gray-400">
-            Question {step + 1} of {config.questions.length}
+            Question {step + 1} of {questions.length}
           </span>
           <span className="text-[10px] text-gray-400">
-            {Math.round(((step + 1) / config.questions.length) * 100)}%
+            {Math.round(((step + 1) / questions.length) * 100)}%
           </span>
         </div>
         <div className="w-full h-1 bg-gray-200 dark:bg-gray-800">
           <div
             className="h-1 bg-blue-600 transition-all duration-300"
-            style={{ width: `${((step + 1) / config.questions.length) * 100}%` }}
+            style={{ width: `${((step + 1) / questions.length) * 100}%` }}
           />
         </div>
       </div>
