@@ -37,15 +37,15 @@ export const metadata: Metadata = {
     "software help", "tech consultant UK", "freelance developer advice", "software going wrong",
   ],
   openGraph: {
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: siteConfig.tagline,
     description: siteConfig.description,
     type: "website",
     siteName: siteConfig.name,
     url: "https://ask.artariq.dev",
   },
   twitter: {
-    card: "summary",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    card: "summary_large_image",
+    title: siteConfig.tagline,
     description: siteConfig.description,
   },
 };
