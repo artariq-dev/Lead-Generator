@@ -4,7 +4,7 @@ import { calculators } from "@/lib/calculators/config";
 
 export const metadata: Metadata = {
   title: "Software Audit",
-  description: "Find out exactly what's wrong with your software setup. Stop guessing. 8 questions, instant scorecard, ranked fixes.",
+  description: "Pick your area — cloud, fullstack, or pipeline. 8 questions. Instant scorecard. Find out what's wrong and what to fix first.",
 };
 
 export default function AssessPage() {

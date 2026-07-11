@@ -1,7 +1,22 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { calculators } from "@/lib/calculators/config";
 import { CalculatorForm } from "@/components/calculators/CalculatorForm";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ calculator: string }>;
+}): Promise<Metadata> {
+  const { calculator } = await params;
+  const config = calculators[calculator];
+  if (!config) return {};
+  return {
+    title: config.name,
+    description: `${config.tagline} 8 questions. Instant scorecard. No sign-up.`,
+  };
+}
 
 export default async function CalculatorPage({
   params,

@@ -1,9 +1,20 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { buildTypes } from "@/lib/build/config";
 import { BuildForm } from "@/components/build/BuildForm";
 
 interface Props {
   params: Promise<{ type: string }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { type } = await params;
+  const config = buildTypes[type];
+  if (!config) return {};
+  return {
+    title: config.name,
+    description: `${config.tagline} 8 questions to get a clear recommendation on how to build it.`,
+  };
 }
 
 export default async function BuildTypePage({ params }: Props) {

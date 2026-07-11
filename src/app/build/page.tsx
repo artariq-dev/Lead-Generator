@@ -4,7 +4,7 @@ import { buildTypes } from "@/lib/build/config";
 
 export const metadata: Metadata = {
   title: "Build Guide",
-  description: "Have brain clutter, no clear pathway? Pick your build type and get a clear recommendation in 8 questions.",
+  description: "Don't know where to start? Pick what you want to build. 8 questions to get a clear recommendation — no jargon, no fluff.",
 };
 
 const order = ["frontend", "backend", "fullstack", "cloud", "automation", "internal"];

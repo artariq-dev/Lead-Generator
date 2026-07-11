@@ -1,6 +1,6 @@
 # Cinch — Lead Generator
 
-> **3 calculators → scored report → lead capture.** Deployed at cinch.artariq.dev.
+> **3 calculators → scored report → lead capture.** Deployed at ask.artariq.dev.
 
 ## Stack
 Next.js 16, Tailwind v4, Framer Motion, TypeScript. No database, no auth. Hosted on Vercel.
