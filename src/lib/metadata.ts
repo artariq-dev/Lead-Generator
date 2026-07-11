@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "ask.artariq",
-  tagline: "Audit it. Fix it. Build it.",
+  tagline: "Your software is leaking money. Find out how much.",
   description:
-    "Software that costs more than it earns. Ideas stuck in your head. Problems you can't name. Just answer 8 questions, get instant fixes.",
+    "Answer 8 questions. Find exactly what's wrong and what to fix first.",
   email: "artariq.dev.1@gmail.com",
 };
 
