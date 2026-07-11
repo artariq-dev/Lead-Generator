@@ -5,7 +5,12 @@ export const alt = "Your software is leaking money. Find out how much.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OgImage() {
+export default async function OgImage() {
+  // Fetch Inter font for reliable rendering on Vercel edge
+  const interBold = await fetch(
+    "https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZJhij-Aw4Y.woff"
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -17,7 +22,7 @@ export default function OgImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "64px 72px",
-          fontFamily: "monospace",
+          fontFamily: "Inter",
           position: "relative",
           overflow: "hidden",
         }}
@@ -136,10 +141,9 @@ export default function OgImage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Your software is{" "}
+            {"Your software is "}
             <span style={{ color: "#60a5fa" }}>leaking money.</span>
-            <br />
-            Find out how much.
+            {"\nFind out how much."}
           </div>
 
           <div
@@ -149,7 +153,7 @@ export default function OgImage() {
               letterSpacing: "0.01em",
             }}
           >
-            Answer 8 questions. Find exactly what's wrong and what to fix first.
+            Answer 8 questions. Find exactly what&apos;s wrong and what to fix first.
           </div>
         </div>
 
@@ -193,7 +197,6 @@ export default function OgImage() {
               padding: "12px 28px",
               background: "#2563eb",
               border: "1px solid #1d4ed8",
-              boxShadow: "4px 4px 0px #1d4ed8",
             }}
           >
             Take the free audit →
@@ -201,6 +204,16 @@ export default function OgImage() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        {
+          name: "Inter",
+          data: interBold,
+          style: "normal",
+          weight: 700,
+        },
+      ],
+    }
   );
 }
