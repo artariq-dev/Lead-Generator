@@ -96,13 +96,11 @@ export default async function OgImage() {
               alignItems: "stretch",
               gap: 0,
               marginLeft: 20,
-              background: "#ffffff",
-              border: "1px solid #e5e7eb",
-              boxShadow: "3px 3px 0px #e5e7eb",
+              background: "#2563eb",
+              boxShadow: "3px 3px 0px #1d4ed8",
             }}
           >
-            <div style={{ width: 4, background: "#2563eb", display: "flex", flexShrink: 0 }} />
-            <span style={{ fontSize: 22, fontWeight: 700, color: "#111827", lineHeight: 1.4, padding: "10px 16px" }}>
+            <span style={{ fontSize: 22, fontWeight: 700, color: "#ffffff", lineHeight: 1.4, padding: "10px 16px" }}>
               Answer 8 questions. Find exactly what&apos;s wrong and what to fix first.
             </span>
           </div>
