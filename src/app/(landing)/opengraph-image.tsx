@@ -89,9 +89,20 @@ export default async function OgImage() {
             </div>
           </div>
 
-          {/* Subtext */}
-          <div style={{ display: "flex", marginLeft: 20 }}>
-            <span style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.5 }}>
+          {/* Subtext in box */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "stretch",
+              gap: 0,
+              marginLeft: 20,
+              background: "#ffffff",
+              border: "1px solid #e5e7eb",
+              boxShadow: "3px 3px 0px #e5e7eb",
+            }}
+          >
+            <div style={{ width: 4, background: "#2563eb", display: "flex", flexShrink: 0 }} />
+            <span style={{ fontSize: 22, fontWeight: 700, color: "#111827", lineHeight: 1.4, padding: "10px 16px" }}>
               Answer 8 questions. Find exactly what&apos;s wrong and what to fix first.
             </span>
           </div>
