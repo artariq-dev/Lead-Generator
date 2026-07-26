@@ -18,6 +18,30 @@ const categoryQuestionMap: Record<string, Record<string, string[]>> = {
     growth: ["search_visibility", "user_dropoff"],
     quality: ["deploy_confidence", "bug_resolution"],
   },
+  frontend: {
+    performance: ["load_time", "third_party_deps"],
+    ux: ["ui_consistency", "responsive_quality"],
+    quality: ["accessibility", "dev_velocity"],
+    infrastructure: ["build_deploy", "error_monitoring"],
+  },
+  backend: {
+    api: ["api_reliability", "api_docs"],
+    data: ["db_performance", "dependency_risk"],
+    security: ["data_security", "error_handling"],
+    scalability: ["scaling_plan", "incident_response"],
+  },
+  crm: {
+    lead_mgmt: ["lead_capture", "follow_up"],
+    pipeline: ["pipeline_visibility", "integration"],
+    data_quality: ["data_hygiene", "reporting"],
+    automation: ["automation", "adoption"],
+  },
+  growth: {
+    scaling: ["traffic_handling", "scale_limit"],
+    performance: ["performance_visibility", "codebase_complexity"],
+    reliability: ["change_friction", "outage_confidence"],
+    agility: ["ship_speed", "team_focus"],
+  },
   pipeline: {
     speed: ["time_to_prod", "panic_deploy"],
     quality_gates: ["broken_test_block", "rollback_speed"],
