@@ -14,7 +14,17 @@ export function Card({ problem, sev, persona, icon }: ProblemCard) {
         <p className="text-xs text-gray-700 dark:text-gray-300 leading-snug">{problem}</p>
       </div>
       <div className="flex items-center justify-between mt-3">
-        <span className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">— {persona}</span>
+        <span className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">
+          —{" "}
+          {persona.includes(" · ") ? (
+            <>
+              {persona.split(" · ")[0]}{" · "}
+              <span className="px-1 py-0.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                {persona.split(" · ")[1]}
+              </span>
+            </>
+          ) : persona}
+        </span>
         <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${sev === "critical" ? "bg-red-500" : "bg-amber-400"}`} />
       </div>
     </div>
