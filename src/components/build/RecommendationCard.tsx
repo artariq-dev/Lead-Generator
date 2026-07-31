@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import type { RecommendationResult, RecommendationKey } from "@/lib/build/engine";
 
-const recommendations: Record<
+export const recommendations: Record<
   RecommendationKey,
   {
     title: string;
@@ -51,7 +51,7 @@ const recommendations: Record<
     why: "Your project has real complexity — integrations, scale, security, or growth requirements that need experience to get right the first time. A junior freelancer or no-code tool will get you halfway there and leave you stuck. You need someone who can architect a solution, not just follow instructions.",
     tools: [],
     nextSteps: [
-      "Document your requirements — even rough notes are a starting point",
+      "Send your requirements — even rough notes are a starting point",
       "Have a discovery call before any proposal — the questions they ask reveal their experience",
       "Expect a discovery phase (1–2 weeks) before any code is written",
       "Get it in writing: timeline, deliverables, how changes are handled",
@@ -202,22 +202,6 @@ export function RecommendationCard({ result }: { result: RecommendationResult })
         </div>
       )}
 
-      {/* Next steps */}
-      <div>
-        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-2">
-          Next steps
-        </p>
-        <ol className="space-y-2">
-          {rec.nextSteps.map((step, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <span className="shrink-0 text-[10px] font-bold px-1.5 py-0.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900">
-                {i + 1}
-              </span>
-              <span className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{step}</span>
-            </li>
-          ))}
-        </ol>
-      </div>
     </motion.div>
   );
 }
