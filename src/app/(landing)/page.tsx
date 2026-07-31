@@ -1,18 +1,25 @@
 "use client";
 
+import { useState, useCallback } from "react";
 import Link from "next/link";
 import { GridBg } from "@/components/GridBg";
 import { DiscoverProblems } from "@/components/DiscoverProblems";
+import { SectionDivider } from "@/components/SectionDivider";
 import { DotIcon } from "@/components/DotIcon";
 import { CyclingWord } from "@/components/CyclingWord";
 import { StatNumber } from "@/components/StatNumber";
 
 
 export default function LandingPage() {
+  const [halfHeight, setHalfHeight] = useState(0);
+  const onHeightChange = useCallback((h: number) => setHalfHeight(h), []);
+
   return (
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950 overflow-x-hidden">
       <main className="flex-1 flex flex-col">
-        <section className="relative min-h-screen flex flex-col justify-center pt-24 sm:pt-16 pb-16">
+        <section
+          className="relative min-h-screen flex flex-col justify-center pt-24 sm:pt-16 pb-16"
+        >
           <GridBg />
           <div className="relative z-10 max-w-6xl mx-auto w-full px-6">
 
@@ -94,10 +101,21 @@ export default function LandingPage() {
               </Link>
 
             </div>
+
+            {/* Spacer — pushes hero bottom edge down to make room for the divider overlap */}
+            <div style={{ height: halfHeight || 64 }} />
+
           </div>
         </section>
 
-        <DiscoverProblems />
+        {/* Zero-height seam — SectionDivider is absolutely centered on the border */}
+        <div className="relative" style={{ height: 0 }}>
+          <div className="absolute inset-x-0 top-0 -translate-y-1/2 z-10">
+            <SectionDivider onHeightChange={onHeightChange} />
+          </div>
+        </div>
+
+        <DiscoverProblems paddingTop={halfHeight || 64} />
       </main>
 
       <footer className="border-t border-gray-200 dark:border-gray-800 py-8">

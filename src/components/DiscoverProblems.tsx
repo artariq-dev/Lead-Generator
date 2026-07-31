@@ -4,18 +4,12 @@ import Link from "next/link";
 import { ScrollRow } from "@/components/ProblemCard";
 import { ROW_ONE, ROW_TWO } from "@/lib/discover-problems";
 
-export function DiscoverProblems() {
+export function DiscoverProblems({ paddingTop = 128 }: { paddingTop?: number }) {
   return (
-    <section className="border-t border-gray-100 dark:border-gray-800 py-12 bg-gray-50 dark:bg-gray-900 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 mb-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-          Discover problems other founders face
-        </h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
-          You&apos;re not the only one dealing with this.
-        </p>
-      </div>
-
+    <section
+      className="border-t border-gray-100 dark:border-gray-800 pb-12 bg-gray-50 dark:bg-gray-900 overflow-hidden"
+      style={{ paddingTop: paddingTop + 48 }}
+    >
       <div className="mb-3">
         <ScrollRow items={ROW_ONE} />
       </div>
