@@ -29,8 +29,6 @@ export default function LandingPage() {
               <div className="flex justify-center gap-6 sm:gap-12 mt-8 flex-wrap">
                 <StatNumber value={43} label="audits completed" />
                 <div className="w-px bg-gray-200 dark:bg-gray-700" />
-                <StatNumber value={90} label="response rate" suffix="%" hideplus />
-                <div className="w-px bg-gray-200 dark:bg-gray-700" />
                 <div className="text-center">
                   <p className="text-3xl font-bold text-gray-900 dark:text-white">C+</p>
                   <p className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 mt-1">avg audit grade</p>
