@@ -52,7 +52,7 @@ function ReportContent() {
           <div className="flex flex-col gap-4">
             {/* Editable message */}
             <div className="border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
-              <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-0.5">{config.name} Score</h2>
+              <h2 className="text-base font-bold text-gray-900 dark:text-white mb-0.5">{config.name} Score</h2>
               <p className="text-[10px] text-gray-500 dark:text-gray-400 mb-3">
                 Edit freely — add, remove, or describe any other business problem you want help with.
               </p>
@@ -90,7 +90,7 @@ function ReportContent() {
             <a
               href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`${config.name} — Grade ${result.grade} (${result.percentage}%)${name ? ` — ${name}` : ""}`)}&body=${encodeURIComponent(emailBody)}`}
               onClick={() => setEmailClicked(true)}
-              className="block text-center text-xs tracking-wider uppercase px-5 py-3 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
+              className="block text-center text-sm tracking-wider uppercase px-5 py-3 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
             >
               Email Me This →
             </a>
@@ -102,12 +102,12 @@ function ReportContent() {
 
             {/* What happens next */}
             <div className="border border-gray-200 dark:border-gray-800 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-3">What happens next</h2>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-3">What happens next</h2>
               <ol className="space-y-2.5">
                 {STEPS.map(({ n, text }) => (
                   <li key={n} className="flex items-start gap-3">
                     <span className="shrink-0 text-[10px] font-bold px-1.5 py-0.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900">{n}</span>
-                    <span className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{text}</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{text}</span>
                   </li>
                 ))}
               </ol>
@@ -117,13 +117,12 @@ function ReportContent() {
 
         {/* Try another calculator */}
         <div className="mb-8">
-          <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Each audit covers a different area — your score here doesn&apos;t tell you what&apos;s happening in the others.</p>
           <Link href="/assess" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
             Try another evaluator →
           </Link>
         </div>
 
-        <Link href="/" className="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
+        <Link href="/assess" className="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
           ← Back
         </Link>
       </main>
