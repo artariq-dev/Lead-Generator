@@ -22,18 +22,18 @@ const rowOne: ProblemCard[] = [
   { problem: "The app works fine until more than a few people use it.",           sev: "critical", persona: "CEO · Marketplace",            icon: "audit"    },
   { problem: "We don't know which marketing spend actually brings in customers.", sev: "warning",  persona: "Founder · D2C Brand",          icon: "diagnose" },
   { problem: "Every new feature seems to break something that worked before.",    sev: "warning",  persona: "CTO · FinTech",                icon: "audit"    },
-  { problem: "If our main developer left, we'd be in serious trouble.",           sev: "critical", persona: "Founder · Agency",            icon: "diagnose" },
+  { problem: "We're probably losing deals we don't even know slipped through.",  sev: "critical", persona: "Founder · Agency",            icon: "diagnose" },
 ];
 
 const rowTwo: ProblemCard[] = [
-  { problem: "Onboarding a new team member takes weeks before they're useful.",        sev: "warning",  persona: "CEO · Logistics",        icon: "diagnose" },
+  { problem: "We keep saying we'll fix it next sprint. That was six months ago.",      sev: "warning",  persona: "CEO · Logistics",        icon: "diagnose" },
   { problem: "We built the wrong thing — again — because requirements weren't clear.", sev: "warning",  persona: "Founder · PropTech",     icon: "build"    },
   { problem: "Nobody can tell me where a deal is in the pipeline right now.",          sev: "warning",  persona: "CEO · Consulting Firm",  icon: "diagnose" },
   { problem: "Good ideas die in a Slack thread and never get picked up.",              sev: "warning",  persona: "Founder · EdTech",       icon: "build"    },
   { problem: "Our monthly software bill jumped 40% and nobody knows why.",             sev: "critical", persona: "CTO · Cloud Services",   icon: "audit"    },
   { problem: "Users find bugs on their own and stop trusting the product.",            sev: "critical", persona: "Founder · HealthTech",   icon: "audit"    },
-  { problem: "We're nervous every time we push an update to the live site.",           sev: "critical", persona: "CEO · Media Platform",   icon: "audit"    },
-  { problem: "Everything is in one person's head — they're burning out.",              sev: "critical", persona: "Founder · Mechanical Co.", icon: "diagnose" },
+  { problem: "I found out our checkout was broken because a customer tweeted about it.", sev: "critical", persona: "CEO · Media Platform",   icon: "audit"    },
+  { problem: "Every month I approve a software bill I don't fully understand.",         sev: "critical", persona: "Founder · Mechanical Co.", icon: "diagnose" },
 ];
 
 // Duplicated for seamless infinite loop
