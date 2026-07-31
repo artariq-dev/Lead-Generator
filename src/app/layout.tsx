@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     // Branded
     "ask artariq", "artariq", "AR Tariq", "Abdur Rehman Tariq", "artariq dev",
     "ask.artariq", "artariq software", "artariq developer", "abdur rehman", "abdurrehman tariq",
-    // Audit/assess
+    // Audit/audit
     "software audit tool", "is my software worth it", "software health check",
     "cloud cost audit", "CRM health check", "fullstack audit", "software scorecard",
     "software assessment", "is my app good", "software performance check", "tech audit",

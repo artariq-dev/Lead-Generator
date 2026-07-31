@@ -85,7 +85,7 @@ function ReportContent({ type }: { type: string }) {
           <Link href="/build" className="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
             ← Try a different build type
           </Link>
-          <Link href="/assess" className="text-xs text-gray-500 dark:text-gray-400 underline hover:text-blue-600 transition-colors">
+          <Link href="/audit" className="text-xs text-gray-500 dark:text-gray-400 underline hover:text-blue-600 transition-colors">
             Audit existing software →
           </Link>
         </div>

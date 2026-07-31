@@ -117,12 +117,12 @@ function ReportContent() {
 
         {/* Try another calculator */}
         <div className="mb-8">
-          <Link href="/assess" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+          <Link href="/audit" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
             Try another evaluator →
           </Link>
         </div>
 
-        <Link href="/assess" className="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
+        <Link href="/audit" className="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
           ← Back
         </Link>
       </main>

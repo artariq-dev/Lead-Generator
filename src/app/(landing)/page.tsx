@@ -47,7 +47,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-stretch">
 
               {/* Audit card — primary */}
-              <Link href="/assess" className="group flex flex-col border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[6px_6px_0px_#111827] dark:shadow-[6px_6px_0px_#ffffff] hover:shadow-[8px_8px_0px_#111827] dark:hover:shadow-[8px_8px_0px_#ffffff] hover:-translate-y-1 transition-all duration-200">
+              <Link href="/audit" className="group flex flex-col border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[6px_6px_0px_#111827] dark:shadow-[6px_6px_0px_#ffffff] hover:shadow-[8px_8px_0px_#111827] dark:hover:shadow-[8px_8px_0px_#ffffff] hover:-translate-y-1 transition-all duration-200">
                 <div className="h-1.5 bg-gray-900 dark:bg-white w-full" />
                 <div className="flex flex-col flex-1 p-5 gap-3">
                   <div className="flex items-center justify-between">

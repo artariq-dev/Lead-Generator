@@ -41,7 +41,7 @@ export function CalculatorForm({ config }: { config: CalculatorConfig }) {
     if (!isComplete) return;
     const params = new URLSearchParams();
     answers.forEach((a) => params.set(a.questionId, a.value));
-    router.push(`/assess/report/${config.id}?${params.toString()}`);
+    router.push(`/audit/report/${config.id}?${params.toString()}`);
   }, [isComplete]);
 
   const select = useCallback((value: string) => {

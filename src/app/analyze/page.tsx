@@ -151,7 +151,7 @@ function AnalyzeContent() {
               <Link href="/" className="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
                 ← Back
               </Link>
-              <Link href="/assess" className="text-xs text-gray-500 dark:text-gray-400 underline hover:text-blue-600 transition-colors">
+              <Link href="/audit" className="text-xs text-gray-500 dark:text-gray-400 underline hover:text-blue-600 transition-colors">
                 Want a scored report instead? →
               </Link>
             </div>

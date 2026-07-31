@@ -43,7 +43,7 @@ export default async function CalculatorPage({
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
       <main className="flex-1 max-w-2xl mx-auto w-full px-6 pt-16 pb-16">
         <div className="mb-8">
-          <Link href="/assess" className="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors mb-3 inline-block">← Back</Link>
+          <Link href="/audit" className="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors mb-3 inline-block">← Back</Link>
           <div className="flex items-center gap-3 mb-2">
             <DotIcon id={config.id} color={color} />
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{config.name}</h1>

@@ -97,7 +97,7 @@ export default function AssessPage() {
             return (
               <Link
                 key={calc.id}
-                href={`/assess/${calc.id}`}
+                href={`/audit/${calc.id}`}
                 className={`group flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] ${meta.shadow} ${meta.accentBorder} hover:-translate-y-1 transition-all duration-200`}
               >
                 {/* Accent top bar — thickens on hover */}
