@@ -38,7 +38,7 @@ const fieldOptions = [
   { id: "growth", label: "Growth" },
 ];
 
-export function PainPointGrid() {
+export function PainPointGrid({ height = "280px" }: { height?: string }) {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [field, setField] = useState("all");
@@ -144,7 +144,7 @@ export function PainPointGrid() {
       <div
         className={`text-left ${dark ? "bg-gray-900" : "bg-gray-100"}`}
         style={{
-          height: "280px",
+          height: height,
           overflowY: "auto",
           maskImage:
             "linear-gradient(to bottom, transparent 0%, black 10px, black calc(100% - 8px), transparent 100%)",
@@ -260,7 +260,8 @@ export function PainPointGrid() {
             href={`/analyze?pains=${Array.from(selected).join(",")}`}
             className="block w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
           >
-            {`Send ${selected.size} problem${selected.size !== 1 ? "s" : ""} →`}
+            <span>{`Send ${selected.size} problem${selected.size !== 1 ? "s" : ""} `}</span>
+            <span className="text-base">→</span>
           </Link>
         )}
       </div>
