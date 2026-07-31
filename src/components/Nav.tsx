@@ -16,10 +16,18 @@ export function Nav() {
           <span className="text-gray-400"> ]</span>
         </Link>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <Link href="/assess" className="hidden sm:inline text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Assess</Link>
           <Link href="/diagnose" className="hidden sm:inline text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Diagnose</Link>
           <Link href="/build" className="hidden sm:inline text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Build</Link>
+          <a
+            href="https://artariq.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1 text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            About <span className="text-sm">↗</span>
+          </a>
           <ThemeToggle />
 
           <button
@@ -39,6 +47,15 @@ export function Nav() {
           <Link href="/assess" onClick={() => setOpen(false)} className="text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Assess</Link>
           <Link href="/diagnose" onClick={() => setOpen(false)} className="text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Diagnose</Link>
           <Link href="/build" onClick={() => setOpen(false)} className="text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Build</Link>
+          <a
+            href="https://artariq.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="inline-flex items-center gap-1 text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            About <span className="text-sm">↗</span>
+          </a>
         </div>
       )}
     </nav>
