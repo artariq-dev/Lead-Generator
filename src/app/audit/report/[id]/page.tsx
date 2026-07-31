@@ -50,6 +50,34 @@ function ReportContent() {
 
           {/* Right — action panel */}
           <div className="flex flex-col gap-4">
+            {/* Name field */}
+            <div className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-1.5">
+                Your name <span className="text-gray-400 font-normal normal-case tracking-normal">— so I know who to reply to</span>
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. Sarah"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full text-xs px-3 py-2.5 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-950 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500"
+              />
+            </div>
+
+            {/* Primary CTA */}
+            <a
+              href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`${config.name} — Grade ${result.grade} (${result.percentage}%)${name ? ` — ${name}` : ""}`)}&body=${encodeURIComponent(emailBody)}`}
+              onClick={() => setEmailClicked(true)}
+              className="block text-center text-sm tracking-wider uppercase px-5 py-3 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
+            >
+              Email Me This ↓
+            </a>
+            {emailClicked && (
+              <p className="text-xs text-gray-900 dark:text-white font-semibold text-center border border-gray-300 dark:border-gray-700 px-4 py-2 bg-gray-50 dark:bg-gray-900 mt-2">
+                Your email client should have opened. If not, copy the message above and paste it manually.
+              </p>
+            )}
+
             {/* Editable message */}
             <div className="border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
               <h2 className="text-base font-bold text-gray-900 dark:text-white mb-0.5">{config.name} Score</h2>
@@ -72,34 +100,6 @@ function ReportContent() {
               </div>
             </div>
 
-            {/* Name field */}
-            <div className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
-              <label className="block text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-1.5">
-                Your name <span className="text-gray-400 font-normal normal-case tracking-normal">— so I know who to reply to</span>
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. Sarah"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full text-xs px-3 py-2.5 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-950 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500"
-              />
-            </div>
-
-            {/* Primary CTA */}
-            <a
-              href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`${config.name} — Grade ${result.grade} (${result.percentage}%)${name ? ` — ${name}` : ""}`)}&body=${encodeURIComponent(emailBody)}`}
-              onClick={() => setEmailClicked(true)}
-              className="block text-center text-sm tracking-wider uppercase px-5 py-3 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
-            >
-              Email Me This →
-            </a>
-            {emailClicked && (
-              <p className="text-xs text-gray-900 dark:text-white font-semibold text-center border border-gray-300 dark:border-gray-700 px-4 py-2 bg-gray-50 dark:bg-gray-900 mt-2">
-                Your email client should have opened. If not, copy the message above and paste it manually.
-              </p>
-            )}
-
             {/* What happens next */}
             <div className="border border-gray-200 dark:border-gray-800 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
               <h2 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-3">What happens next</h2>
@@ -118,7 +118,7 @@ function ReportContent() {
         {/* Try another calculator */}
         <div className="mb-8">
           <Link href="/audit" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
-            Try another evaluator →
+            ← Try another evaluator
           </Link>
         </div>
 
