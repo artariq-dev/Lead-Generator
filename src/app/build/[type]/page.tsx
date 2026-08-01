@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { buildTypes } from "@/lib/build/config";
-import { BuildForm } from "@/components/build/BuildForm";
+import { StepForm } from "@/components/StepForm";
 import { DotIcon } from "@/components/DotIcon";
 
 const cardColors: Record<string, { color: string; dotIconId: string }> = {
@@ -47,7 +47,7 @@ export default async function BuildTypePage({ params }: Props) {
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-400">{config.tagline}</p>
         </div>
-        <BuildForm config={config} />
+        <StepForm config={config} reportPath={`/build/report/${config.id}`} loadingText="Building your recommendation..." />
       </main>
     </div>
   );

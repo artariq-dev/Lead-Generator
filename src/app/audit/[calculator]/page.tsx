@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { calculators } from "@/lib/calculators/config";
-import { CalculatorForm } from "@/components/calculators/CalculatorForm";
+import { StepForm } from "@/components/StepForm";
 import { DotIcon } from "@/components/DotIcon";
 
 const cardColors: Record<string, string> = {
@@ -51,7 +51,7 @@ export default async function CalculatorPage({
           <p className="text-sm text-gray-500 dark:text-gray-400">{config.tagline}</p>
         </div>
 
-        <CalculatorForm config={config} />
+        <StepForm config={config} reportPath={`/audit/report/${config.id}`} loadingText="Loading your report..." />
       </main>
     </div>
   );

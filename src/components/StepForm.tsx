@@ -3,8 +3,27 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import type { BuildConfig } from "@/lib/build/config";
-import type { BuildAnswer } from "@/lib/build/engine";
+
+interface StepOption {
+  label: string;
+  value: string;
+}
+
+interface StepQuestion {
+  id: string;
+  label: string;
+  options: StepOption[];
+}
+
+interface StepConfig {
+  id: string;
+  questions: StepQuestion[];
+}
+
+interface StepAnswer {
+  questionId: string;
+  value: string;
+}
 
 const slideVariants = {
   enter: (d: number) => ({ x: d > 0 ? 300 : -300, opacity: 0 }),
@@ -21,11 +40,19 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export function BuildForm({ config }: { config: BuildConfig }) {
+export function StepForm({
+  config,
+  reportPath,
+  loadingText,
+}: {
+  config: StepConfig;
+  reportPath: string;
+  loadingText: string;
+}) {
   const router = useRouter();
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [answers, setAnswers] = useState<BuildAnswer[]>([]);
+  const [answers, setAnswers] = useState<StepAnswer[]>([]);
   const advanceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const questions = useMemo(
@@ -41,8 +68,8 @@ export function BuildForm({ config }: { config: BuildConfig }) {
     if (!isComplete) return;
     const params = new URLSearchParams();
     answers.forEach((a) => params.set(a.questionId, a.value));
-    router.push(`/build/report/${config.id}?${params.toString()}`);
-  }, [isComplete]);
+    router.push(`${reportPath}?${params.toString()}`);
+  }, [isComplete, answers, reportPath, router]);
 
   const select = useCallback(
     (value: string) => {
@@ -63,7 +90,7 @@ export function BuildForm({ config }: { config: BuildConfig }) {
         setStep((s) => s + 1);
       }, 200);
     },
-    [answers, question.id, isLast]
+    [answers, question.id, isLast],
   );
 
   useEffect(() => {
@@ -78,7 +105,7 @@ export function BuildForm({ config }: { config: BuildConfig }) {
   if (isComplete) {
     return (
       <div className="border border-gray-200 dark:border-gray-800 p-6 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] text-center">
-        <p className="text-sm text-gray-500 dark:text-gray-400">Building your recommendation...</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">{loadingText}</p>
       </div>
     );
   }
