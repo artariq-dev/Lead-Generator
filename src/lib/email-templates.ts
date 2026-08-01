@@ -1,5 +1,20 @@
 import { painLabelsBusiness, parentLabelsBusiness } from "./pain-points";
 
+export function emailBodyWithIntro(name: string, line: string, report: string): string {
+  return [
+    "Hi there,",
+    "",
+    ...(name ? [`My name is ${name}.`, ""] : []),
+    line,
+    "",
+    "I'd love a second opinion on the best path forward.",
+    "",
+    "Thanks",
+    "",
+    report,
+  ].join("\n");
+}
+
 export function painPointsTemplate(pains: string[]): string {
   const grouped = new Map<string, string[]>();
   pains.forEach((id) => {
@@ -22,5 +37,17 @@ export function reportTemplate(
 ): string {
   const catLines = categories.map((c) => `  ${c.label}: ${c.percentage}%`).join("\n");
 
-  return `--- Infrastructure Health Check ---\nCalculator: ${name}\nGrade: ${grade} | Score: ${percentage}%\n\nCategory Breakdown:\n${catLines}\n\n--- What I Need ---\nI want Abdur Rehman to look at this and tell me:\n  1. Which of these is quietly costing us the most right now?\n  2. What's the one fix that buys the most breathing room?\n  3. How long before we actually start feeling the difference?\n\nCome as you are. Leave with a direction.`;
+  return `--- Infrastructure Health Check ---\nCalculator: ${name}\nGrade: ${grade} | Score: ${percentage}%\n\nCategory Breakdown:\n${catLines}\n\n--- What I Need ---\nI want Abdur Rehman to look at this and tell me:\n  1. Which of these is quietly costing us the most right now?\n  2. What's the one fix that buys the most breathing room?\n  3. How long before we actually start feeling the difference?`;
+}
+
+export function buildReportTemplate(params: {
+  configName: string;
+  recTitle: string;
+  recSubtitle: string;
+  why: string;
+  categories: { label: string; percentage: number }[];
+}): string {
+  const catLines = params.categories.map((c) => `  ${c.label}: ${c.percentage}%`).join("\n");
+
+  return `--- Build Report ---\nCalculator: ${params.configName}\nRecommendation: ${params.recTitle}${params.recSubtitle ? ` — ${params.recSubtitle}` : ""}\n\nWhy this path:\n${params.why}\n\nCategory Breakdown:\n${catLines}\n\n--- What I Need ---\nI want Abdur Rehman to look at this and tell me:\n  1. Is this the right recommendation for my situation?\n  2. What's the smartest first step to get this off the ground?\n  3. What's a realistic timeline and budget for the path ahead?`;
 }
