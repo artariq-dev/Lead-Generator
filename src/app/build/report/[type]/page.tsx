@@ -1,14 +1,14 @@
 "use client";
 
-import { Suspense, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { Suspense, use, useState } from "react";
+import { useSearchParams, notFound } from "next/navigation";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { buildTypes } from "@/lib/build/config";
 import { calculateBuildResult, type BuildAnswer } from "@/lib/build/engine";
 import { RecommendationCard, recommendations } from "@/components/build/RecommendationCard";
+import { ReportHeader } from "@/components/ReportHeader";
+import { buildReportTemplate, emailBodyWithIntro } from "@/lib/email-templates";
 import { siteConfig } from "@/lib/metadata";
-import { use } from "react";
 
 interface Props {
   params: Promise<{ type: string }>;
@@ -18,7 +18,7 @@ function ReportContent({ type }: { type: string }) {
   const config = buildTypes[type];
   if (!config) notFound();
 
-  const [copied, setCopied] = useState(false);
+  const [name, setName] = useState("");
 
   const sp = useSearchParams();
   const answers: BuildAnswer[] = config.questions
@@ -33,7 +33,7 @@ function ReportContent({ type }: { type: string }) {
       <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
         <main className="flex-1 max-w-2xl mx-auto w-full px-6 pt-16 pb-16">
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-            Incomplete answers — looks like you didn't finish the questionnaire.
+            Incomplete answers — looks like you didn&apos;t finish the questionnaire.
           </p>
           <Link href={`/build/${type}`} className="text-xs text-blue-600 dark:text-blue-400 underline">
             ← Start again
@@ -44,29 +44,30 @@ function ReportContent({ type }: { type: string }) {
   }
 
   const result = calculateBuildResult(type, answers);
-  const nextSteps = recommendations[result.recommendation].nextSteps;
+  const rec = recommendations[result.recommendation];
+  const nextSteps = rec.nextSteps;
+  const reportBody = buildReportTemplate({
+    configName: config.name,
+    recTitle: rec.title,
+    recSubtitle: rec.subtitle,
+    why: rec.why,
+    categories: result.categories,
+  });
 
-  function handleCopyEmail() {
-    navigator.clipboard.writeText(siteConfig.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
+  const emailBody = emailBodyWithIntro(
+    name,
+    `I just completed the ${config.name} build guide on your site and got the recommendation: "${result.recommendation}".`,
+    reportBody,
+  );
 
   return (
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
       <main className="flex-1 max-w-6xl mx-auto w-full px-6 pt-16 pb-16">
-        {/* Header */}
-        <div className="mb-8">
-          <p className="text-[10px] tracking-wider uppercase text-blue-600 dark:text-blue-400 mb-1">
-            Build Guide · {config.name}
-          </p>
-          <h1 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
-            Here's your path forward
-          </h1>
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            Based on your answers, here's what we'd recommend — and why.
-          </p>
-        </div>
+        <ReportHeader
+          eyebrow={`Build Guide · ${config.name}`}
+          title="Here's your path forward"
+          subtitle="Based on your answers, here's what we'd recommend — and why."
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {/* Left — recommendation card */}
@@ -74,8 +75,22 @@ function ReportContent({ type }: { type: string }) {
             <RecommendationCard result={result} />
           </div>
 
-          {/* Right — next steps + CTA */}
+          {/* Right — name + next steps + CTA */}
           <div className="flex flex-col gap-4">
+            {/* Name field */}
+            <div className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-1.5">
+                Your name <span className="text-gray-400 font-normal normal-case tracking-normal">— so I know who to reply to</span>
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. Sarah"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full text-xs px-3 py-2.5 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-950 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500"
+              />
+            </div>
+
             {/* Next steps */}
             <div className="border border-gray-200 dark:border-gray-800 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
               <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-3">
@@ -92,33 +107,26 @@ function ReportContent({ type }: { type: string }) {
                   <span className="shrink-0 text-[10px] font-bold px-1.5 py-0.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900">
                     2
                   </span>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-3">
-                      Send this over — I&apos;ll tell you exactly what I&apos;d do in your position.
-                    </p>
-                    <a
-                      href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`Build advice — ${config.name}`)}&body=${encodeURIComponent(`Hi,\n\nI just completed the ${config.name} build guide on your site and got the recommendation: "${result.recommendation}".\n\nI'd love a second opinion on the best path forward.\n\nThanks`)}`}
-                      className="block text-center text-xs tracking-wider uppercase px-5 py-3 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
-                    >
-                      Email me →
-                    </a>
-                    <div className="flex items-center gap-1 mt-2">
-                      <button
-                        onClick={handleCopyEmail}
-                        className="shrink-0 text-[10px] tracking-wider uppercase px-2 py-1.5 bg-blue-600 text-white pixel-btn shadow-[2px_2px_0px_#1d4ed8] cursor-pointer"
-                      >
-                        {copied ? "Copied!" : "Copy"}
-                      </button>
-                      <input
-                        type="text"
-                        readOnly
-                        value={siteConfig.email}
-                        className="flex-1 min-w-0 text-[10px] font-bold px-2 py-1.5 border-2 border-blue-600 dark:border-blue-400 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 focus:outline-none"
-                      />
-                    </div>
-                  </div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                    Send this over — I&apos;ll tell you exactly what I&apos;d do in your position.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="shrink-0 text-[10px] font-bold px-1.5 py-0.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900">
+                    3
+                  </span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                    Hit the button below — your email app opens with this report and your full build report already pasted in. Just press send.
+                  </span>
                 </li>
               </ol>
+
+              <a
+                href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`Build advice — ${config.name}`)}&body=${encodeURIComponent(emailBody)}`}
+                className="mt-4 block text-center text-xs tracking-wider uppercase px-5 py-3 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
+              >
+                Send report →
+              </a>
             </div>
           </div>
         </div>
