@@ -6,7 +6,8 @@ export function ThemeToggle() {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    setDark(localStorage.getItem("dark") === "true");
+    const id = requestAnimationFrame(() => setDark(localStorage.getItem("dark") === "true"));
+    return () => cancelAnimationFrame(id);
   }, []);
 
   const toggle = () => {

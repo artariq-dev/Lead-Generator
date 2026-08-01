@@ -62,8 +62,9 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
   );
 
   useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
-    setDark(isDark);
+    const id = requestAnimationFrame(() => {
+      setDark(document.documentElement.classList.contains("dark"));
+    });
     const observer = new MutationObserver(() => {
       setDark(document.documentElement.classList.contains("dark"));
     });
@@ -71,7 +72,10 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
       attributes: true,
       attributeFilter: ["class"],
     });
-    return () => observer.disconnect();
+    return () => {
+      cancelAnimationFrame(id);
+      observer.disconnect();
+    };
   }, []);
 
   const toggleGroupSelect = useCallback((g: PainGroup) => {
@@ -87,7 +91,8 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
   const toggleSet = useCallback(
     (set: Set<string>, setter: (s: Set<string>) => void, id: string) => {
       const next = new Set(set);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
       setter(next);
     },
     [],

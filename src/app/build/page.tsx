@@ -89,7 +89,7 @@ export default function BuildPage() {
           </h1>
         </div>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">
-          Pick the type that matches your idea — you'll get a clear recommendation in 8 questions.
+          Pick the type that matches your idea — you&apos;ll get a clear recommendation in 8 questions.
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">

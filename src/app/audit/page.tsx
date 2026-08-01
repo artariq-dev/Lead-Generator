@@ -87,7 +87,7 @@ export default function AssessPage() {
           </h1>
         </div>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">
-          Pick the area that feels shakiest — you'll have a scored report in 2 minutes.
+          Pick the area that feels shakiest — you&apos;ll have a scored report in 2 minutes.
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">

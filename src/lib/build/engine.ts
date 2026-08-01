@@ -91,11 +91,7 @@ function getCategoryMaxScore(config: BuildConfig, categoryId: string): number {
   }, 0);
 }
 
-function deriveRecommendation(
-  categories: CategoryResult[],
-  answers: BuildAnswer[],
-  configId: string
-): RecommendationKey {
+function deriveRecommendation(categories: CategoryResult[]): RecommendationKey {
   const byId = Object.fromEntries(categories.map((c) => [c.id, c.percentage]));
   const clarity = byId["clarity"] ?? 0;
   const complexity = byId["complexity"] ?? 0;
@@ -135,7 +131,7 @@ export function calculateBuildResult(configId: string, answers: BuildAnswer[]): 
   const totalMax = categories.reduce((sum, c) => sum + c.maxScore, 0);
   const percentage = totalMax > 0 ? Math.max(0, Math.round((totalScore / totalMax) * 100)) : 0;
 
-  const recommendation = deriveRecommendation(categories, answers, configId);
+  const recommendation = deriveRecommendation(categories);
 
   return {
     buildTypeId: configId,
