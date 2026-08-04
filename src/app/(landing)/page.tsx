@@ -7,7 +7,6 @@ import { DiscoverProblems } from "@/components/DiscoverProblems";
 import { SectionDivider } from "@/components/SectionDivider";
 import { DotIcon } from "@/components/DotIcon";
 import { CyclingWord } from "@/components/CyclingWord";
-import { StatNumber } from "@/components/StatNumber";
 
 
 export default function LandingPage() {
@@ -26,25 +25,61 @@ export default function LandingPage() {
             {/* Hero headline + stats — frosted panel */}
             <div className="mb-8 text-center bg-white/60 dark:bg-gray-950/60 px-6 py-8 border border-gray-200/50 dark:border-gray-700/50">
               <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-3 leading-tight">
-                Find your software&apos;s <CyclingWord />
+                Find your stack&apos;s <CyclingWord />
               </h1>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Answer 8 questions or pick your pain points directly — you&apos;ll know where to focus in 2 minutes.
-              </p>
-
-              {/* Stat strip */}
-              <div className="flex justify-center gap-6 sm:gap-12 mt-8 flex-wrap">
-                <StatNumber value={43} label="audits completed" />
-                <div className="w-px bg-gray-200 dark:bg-gray-700" />
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-gray-900 dark:text-white">C+</p>
-                  <p className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 mt-1">avg audit grade</p>
-                </div>
+              {/* Flow pipeline */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center mt-6">
+                {[
+                  "Pick your path below",
+                  "Takes 2 minutes",
+                  "Instant report",
+                ].map((step, i, arr) => {
+                  const isLast = i === arr.length - 1;
+                  return (
+                    <div key={i} className="flex flex-col sm:flex-row sm:items-center">
+                      <span className={`flex items-center gap-2 px-4 py-2 border-2 font-bold transition-all ${
+                        isLast
+                          ? "border-blue-600 bg-blue-600 shadow-[3px_3px_0px_#1d4ed8]"
+                          : "border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[3px_3px_0px_#111827] dark:shadow-[3px_3px_0px_#ffffff]"
+                      }`}>
+                        <span className={`text-xs font-bold whitespace-nowrap ${
+                          isLast ? "text-white" : "text-gray-900 dark:text-white"
+                        }`}>
+                          {step}
+                        </span>
+                      </span>
+                      {!isLast && (
+                        <>
+                          <span className="hidden sm:inline text-gray-900 dark:text-white font-black text-base px-2 select-none">⟶</span>
+                          <span className="sm:hidden self-start ml-4 text-gray-400 dark:text-gray-600 leading-none py-0.5 select-none">│</span>
+                        </>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
             {/* Three cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-stretch">
+
+              {/* Diagnose card — secondary */}
+              <Link href="/diagnose" className="group flex flex-col border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#d1d5db] dark:hover:shadow-[6px_6px_0px_#4b5563] hover:-translate-y-1 transition-all duration-200">
+                <div className="h-1 bg-gray-900 dark:bg-white w-full" />
+                <div className="flex flex-col flex-1 p-4 gap-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Diagnose</span>
+                    <span className="text-2xl text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">→</span>
+                  </div>
+                  <span className="text-red-400 dark:text-red-500"><DotIcon id="diagnose" color="currentColor" /></span>
+                  <h3 className="text-base font-bold text-gray-900 dark:text-white leading-snug">
+                    Identify your business pain points.
+                  </h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-snug mt-auto">
+                    Select problems. Hit the button. Copy the message. Send it over — let&apos;s talk.
+                  </p>
+                </div>
+              </Link>
 
               {/* Audit card — primary */}
               <Link href="/audit" className="group flex flex-col border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[6px_6px_0px_#111827] dark:shadow-[6px_6px_0px_#ffffff] hover:shadow-[8px_8px_0px_#111827] dark:hover:shadow-[8px_8px_0px_#ffffff] hover:-translate-y-1 transition-all duration-200">
@@ -60,24 +95,6 @@ export default function LandingPage() {
                   </h3>
                   <p className="text-xs text-gray-500 dark:text-gray-400 leading-snug mt-auto">
                     Same gaps fixed in real client projects.
-                  </p>
-                </div>
-              </Link>
-
-              {/* Diagnose card — secondary */}
-              <Link href="/diagnose" className="group flex flex-col border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#d1d5db] dark:hover:shadow-[6px_6px_0px_#4b5563] hover:-translate-y-1 transition-all duration-200">
-                <div className="h-1 bg-gray-900 dark:bg-white w-full" />
-                <div className="flex flex-col flex-1 p-4 gap-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Diagnose</span>
-                    <span className="text-2xl text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">→</span>
-                  </div>
-                  <span className="text-red-400 dark:text-red-500"><DotIcon id="diagnose" color="currentColor" /></span>
-                  <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-snug">
-                    Identify your business pain points.
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-snug mt-auto">
-                    Select problems. Hit the button. Copy the message. Send it over — let&apos;s talk.
                   </p>
                 </div>
               </Link>
