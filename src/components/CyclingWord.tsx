@@ -23,13 +23,13 @@ export function CyclingWord() {
   }, [index]);
 
   return (
-    <span className="relative inline-block align-bottom px-2 py-0.5 bg-gray-900 dark:bg-white">
+    <span className="relative inline-block align-bottom px-2 bg-gray-900 dark:bg-white overflow-hidden" style={{ paddingTop: "0.08em", paddingBottom: "0.08em" }}>
       {/* invisible spacer — widest word keeps layout stable */}
       <span className="invisible" aria-hidden>pain points</span>
       <span
         key={index}
-        className={`absolute inset-0 px-2 py-0.5 ${WORDS[index].color} ${phase === "in" ? "word-in" : "word-out"}`}
-        style={{ willChange: "transform, opacity" }}
+        className={`absolute inset-0 px-2 flex items-center ${WORDS[index].color} ${phase === "in" ? "word-in" : "word-out"}`}
+        style={{ willChange: "transform, opacity", paddingTop: "0.08em", paddingBottom: "0.08em" }}
       >
         {WORDS[index].text}
       </span>
