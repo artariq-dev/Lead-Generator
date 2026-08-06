@@ -90,7 +90,7 @@ export default function LandingPage() {
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
                           Audit
                         </span>
-                        <span className="text-xs font-bold uppercase tracking-widest text-blue-500 dark:text-blue-400 border border-blue-200 dark:border-blue-800 px-2 py-0.5">
+                        <span className="text-[8px] font-bold uppercase tracking-widest text-blue-500 dark:text-blue-400 border border-blue-200 dark:border-blue-800 px-2 py-0.5">
                           Primary
                         </span>
                       </div>

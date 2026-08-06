@@ -17,9 +17,9 @@ export function Nav() {
         </Link>
 
         <div className="flex items-center gap-6">
-          <Link href="/audit" className="hidden sm:inline text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Audit</Link>
-          <Link href="/diagnose" className="hidden sm:inline text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Diagnose</Link>
-          <Link href="/build" className="hidden sm:inline text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Build</Link>
+          <Link href="/audit" className="hidden sm:inline text-[10px] tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Audit /</Link>
+          <Link href="/diagnose" className="hidden sm:inline text-[10px] tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Diagnose /</Link>
+          <Link href="/build" className="hidden sm:inline text-[10px] tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Build /</Link>
           <a
             href="https://artariq.dev"
             target="_blank"
@@ -44,9 +44,9 @@ export function Nav() {
 
       {open && (
         <div className="sm:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 px-6 py-3 flex flex-col gap-3">
-          <Link href="/audit" onClick={() => setOpen(false)} className="text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Audit</Link>
-          <Link href="/diagnose" onClick={() => setOpen(false)} className="text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Diagnose</Link>
-          <Link href="/build" onClick={() => setOpen(false)} className="text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Build</Link>
+          <Link href="/audit" onClick={() => setOpen(false)} className="text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Audit /</Link>
+          <Link href="/diagnose" onClick={() => setOpen(false)} className="text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Diagnose /</Link>
+          <Link href="/build" onClick={() => setOpen(false)} className="text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Build /</Link>
           <a
             href="https://artariq.dev"
             target="_blank"
