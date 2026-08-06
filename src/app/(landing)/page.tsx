@@ -48,25 +48,25 @@ export default function LandingPage() {
               {/* ── Hero text block with inverted background ── */}
               <motion.div
                 variants={item}
-                className="bg-gray-900 dark:bg-white p-3 mb-8"
+                className="bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 backdrop-blur-sm p-3 mb-8"
               >
                 {/* Headline */}
-                <h1 className="text-white dark:text-gray-900 flex flex-col gap-6">
+                <h1 className="text-gray-900 dark:text-white flex flex-col gap-2">
                   <span className="flex items-baseline gap-x-3 hero-headline font-extrabold">
-                    <span className="text-white dark:text-gray-900" style={{ letterSpacing: "0.15em" }}>LETS</span>
-                    <span className="text-gray-300 dark:text-gray-600 text-xl sm:text-2xl">start</span>
+                    <span className="text-gray-900 dark:text-white" style={{ letterSpacing: "-0.08em" }}>LETS</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>_start</span>
                   </span>
                   <span className="flex flex-wrap items-baseline gap-x-3 gap-y-2 hero-headline font-extrabold">
-                    <span className="text-outline tracking-widest">FIGURING</span>
-                    <span className="text-gray-300 dark:text-gray-600 text-xl sm:text-2xl">your</span>
-                    <span className="hidden lg:inline text-gray-300 dark:text-gray-600 text-sm tracking-widest underline decoration-blue-400 dark:decoration-blue-500 decoration-2 underline-offset-4 ml-6">audit score</span>
-                    <span className="hidden lg:inline text-gray-300 dark:text-gray-600 text-sm tracking-widest underline decoration-emerald-400 dark:decoration-emerald-500 decoration-2 underline-offset-4">build path</span>
-                    <span className="hidden lg:inline text-gray-300 dark:text-gray-600 text-sm tracking-widest underline decoration-red-400 dark:decoration-red-500 decoration-2 underline-offset-4">pain points</span>
+                    <span className="text-outline" style={{ letterSpacing: "-0.08em" }}>FIGURING</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>_your</span>
+                    <span className="hidden lg:inline text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-blue-400 dark:decoration-blue-500 decoration-2 underline-offset-4">audit score</span>
+                    <span className="hidden lg:inline text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-emerald-400 dark:decoration-emerald-500 decoration-2 underline-offset-4">build path</span>
+                    <span className="hidden lg:inline text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-red-400 dark:decoration-red-500 decoration-2 underline-offset-4">pain points</span>
                   </span>
                   <span className="flex lg:hidden flex-wrap gap-x-4 gap-y-2">
-                    <span className="text-gray-300 dark:text-gray-600 text-sm tracking-widest underline decoration-blue-400 dark:decoration-blue-500 decoration-2 underline-offset-4">audit score</span>
-                    <span className="text-gray-300 dark:text-gray-600 text-sm tracking-widest underline decoration-emerald-400 dark:decoration-emerald-500 decoration-2 underline-offset-4">build path</span>
-                    <span className="text-gray-300 dark:text-gray-600 text-sm tracking-widest underline decoration-red-400 dark:decoration-red-500 decoration-2 underline-offset-4">pain points</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-blue-400 dark:decoration-blue-500 decoration-2 underline-offset-4">audit score</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-emerald-400 dark:decoration-emerald-500 decoration-2 underline-offset-4">build path</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-red-400 dark:decoration-red-500 decoration-2 underline-offset-4">pain points</span>
                   </span>
                 </h1>
               </motion.div>
@@ -234,15 +234,15 @@ export default function LandingPage() {
         {/* ── Top row ── */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-10 pb-4 flex flex-wrap items-center justify-between gap-4">
           <nav className="flex gap-6 items-center">
-            <span className="text-[8px] sm:text-[11px] tracking-widest text-gray-500">cloud</span>
-            <span className="text-[8px] sm:text-[11px] text-gray-700">×</span>
-            <span className="text-[8px] sm:text-[11px] tracking-widest text-gray-500">fullstack</span>
+            <span className="text-[8px] sm:text-[9px] tracking-widest text-gray-500">cloud</span>
+            <span className="text-sm sm:text-base text-white/60 font-bold">X</span>
+            <span className="text-[8px] sm:text-[9px] tracking-widest text-gray-500">fullstack</span>
           </nav>
           <a
             href="https://artariq.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[8px] sm:text-[11px] tracking-widest text-gray-500 hover:text-white transition-colors duration-200"
+            className="text-[8px] sm:text-[9px] tracking-widest text-gray-500 hover:text-white transition-colors duration-200"
           >
             about me ↗
           </a>
