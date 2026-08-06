@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import { notFound, useParams, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { calculators } from "@/lib/calculators/config";
@@ -26,14 +26,6 @@ function ReportContent() {
   const result = calculateScore(id, answers);
   const baseBody = reportTemplate(config.name, result.grade, result.percentage, result.categories);
 
-  const [name, setName] = useState("");
-
-  const emailBody = emailBodyWithIntro(
-    name,
-    `I just completed the ${config.name} audit on your site and got the grade: "${result.grade} (${result.percentage}%)".`,
-    baseBody,
-  );
-
   return (
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
       <main className="flex-1 max-w-6xl mx-auto w-full px-6 pt-16 pb-12">
@@ -52,23 +44,22 @@ function ReportContent() {
 
           {/* Right — action panel */}
           <div className="flex flex-col gap-4">
-            {/* Name field */}
-            <div className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
-              <label className="block text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-1.5">
-                Your name <span className="text-gray-400 font-normal normal-case tracking-normal">— so I know who to reply to</span>
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. Sarah"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full text-xs px-3 py-2.5 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-950 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500"
-              />
-            </div>
-
-            {/* What happens next */}
             <WhatHappensNext
-              mailtoHref={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`${config.name} — Grade ${result.grade} (${result.percentage}%)${name ? ` — ${name}` : ""}`)}&body=${encodeURIComponent(emailBody)}`}
+              buildMailtoHref={(name) => {
+                const emailBody = emailBodyWithIntro(
+                  name,
+                  `I just completed the ${config.name} audit on your site and got the grade: "${result.grade} (${result.percentage}%)".`,
+                  baseBody,
+                );
+                return `mailto:${siteConfig.email}?subject=${encodeURIComponent(`${config.name} — Grade ${result.grade} (${result.percentage}%)${name ? ` — ${name}` : ""}`)}&body=${encodeURIComponent(emailBody)}`;
+              }}
+              urgencyLine={
+                result.percentage < 50
+                  ? `Your ${config.name} setup scored ${result.percentage}% — that's a significant gap. Let me show you exactly what to fix first.`
+                  : result.percentage < 75
+                  ? `You scored ${result.percentage}% — there's real room to improve. I can walk you through the highest-impact changes.`
+                  : `Solid score at ${result.percentage}% — but the remaining gaps are where the biggest gains usually hide.`
+              }
             />
           </div>
         </div>

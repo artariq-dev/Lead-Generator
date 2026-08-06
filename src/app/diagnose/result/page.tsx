@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ReportHeader } from "@/components/ReportHeader";
@@ -13,13 +13,6 @@ function AnalyzeContent() {
   const sp = useSearchParams();
   const pains = sp.get("pains")?.split(",").filter(Boolean) ?? [];
   const fullTemplate = painPointsTemplate(pains);
-  const [name, setName] = useState("");
-
-  const emailBody = emailBodyWithIntro(
-    name,
-    `I've flagged ${pains.length} problem${pains.length !== 1 ? "s" : ""} with our software.`,
-    fullTemplate,
-  );
 
   // Group selected pains by parent label
   const grouped = new Map<string, string[]>();
@@ -67,25 +60,24 @@ function AnalyzeContent() {
                 ))}
               </div>
 
-              {/* Right — name + what happens next */}
+              {/* Right — what happens next */}
               <div className="flex flex-col gap-4">
-                {/* Name field */}
-                <div className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-1.5">
-                    Your name <span className="text-gray-400 font-normal normal-case tracking-normal">— so I know who to reply to</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Sarah"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full text-xs px-3 py-2.5 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-950 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500"
-                  />
-                </div>
-
-                {/* What happens next */}
                 <WhatHappensNext
-                  mailtoHref={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`${pains.length} problems flagged${name ? ` — ${name}` : ""}`)}&body=${encodeURIComponent(emailBody)}`}
+                  buildMailtoHref={(name) => {
+                    const emailBody = emailBodyWithIntro(
+                      name,
+                      `I've flagged ${pains.length} problem${pains.length !== 1 ? "s" : ""} with our software.`,
+                      fullTemplate,
+                    );
+                    return `mailto:${siteConfig.email}?subject=${encodeURIComponent(`${pains.length} problems flagged${name ? ` — ${name}` : ""}`)}&body=${encodeURIComponent(emailBody)}`;
+                  }}
+                  urgencyLine={
+                    pains.length >= 5
+                      ? `You flagged ${pains.length} problems — that's a lot of friction dragging on your business. Let's fix the most critical ones first.`
+                      : pains.length >= 2
+                      ? `You flagged ${pains.length} problems. Each one is costing you time or money — I can tell you exactly where to start.`
+                      : `Even one unresolved problem can stall growth. I can help you cut through it fast.`
+                  }
                 />
               </div>
             </div>
