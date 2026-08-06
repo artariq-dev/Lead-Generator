@@ -64,6 +64,24 @@ body {
 .word-in  { animation: word-in  0.35s cubic-bezier(0.22,1,0.36,1) forwards; }
 .word-out { animation: word-out 0.35s cubic-bezier(0.22,1,0.36,1) forwards; }
 
+/* ── Outline text for LETS ── */
+.text-outline {
+  -webkit-text-stroke: 2px #ffffff;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+:where(.dark, .dark *) .text-outline {
+  -webkit-text-stroke: 2px #111827;
+}
+
+/* ── Editorial hero headline ── */
+.hero-headline {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
 .pixel-btn {
   position: relative;
   transition: box-shadow 0.1s, transform 0.1s;
