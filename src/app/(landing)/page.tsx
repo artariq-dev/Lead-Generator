@@ -25,7 +25,7 @@ export default function LandingPage() {
             {/* Hero headline + stats — frosted panel */}
             <div className="mb-8 text-center bg-white/60 dark:bg-gray-950/60 px-6 py-8 border border-gray-200/50 dark:border-gray-700/50">
               <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-3 leading-tight">
-                Let&apos;s find your
+                Let&apos;s see your
                 <br />
                 <span className="inline-block text-[10px] sm:text-2xl font-semibold text-white dark:text-gray-900 mt-1 mb-2 tracking-normal px-6 py-2 bg-gray-900 dark:bg-white whitespace-nowrap">audit score · build path · pain points</span>
               </h1>
