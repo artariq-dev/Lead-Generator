@@ -6,7 +6,7 @@ import { GridBg } from "@/components/GridBg";
 import { DiscoverProblems } from "@/components/DiscoverProblems";
 import { SectionDivider } from "@/components/SectionDivider";
 import { DotIcon } from "@/components/DotIcon";
-import { CyclingWord } from "@/components/CyclingWord";
+import { FlippingScore } from "@/components/FlippingScore";
 
 
 export default function LandingPage() {
@@ -25,13 +25,15 @@ export default function LandingPage() {
             {/* Hero headline + stats — frosted panel */}
             <div className="mb-8 text-center bg-white/60 dark:bg-gray-950/60 px-6 py-8 border border-gray-200/50 dark:border-gray-700/50">
               <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-3 leading-tight">
-                Find your stack&apos;s <CyclingWord />
+                What&apos;s your
+                <br />
+                <span className="inline-block text-[10px] sm:text-2xl font-semibold text-white dark:text-gray-900 mt-1 mb-2 tracking-normal px-6 py-2 bg-gray-900 dark:bg-white whitespace-nowrap">audit score · build path · pain points</span>
               </h1>
               {/* Flow pipeline */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center mt-6">
                 {[
                   "Pick your path below",
-                  "Takes 2 minutes",
+                  "Pick your stack",
                   "Instant report",
                 ].map((step, i, arr) => {
                   const isLast = i === arr.length - 1;
@@ -58,39 +60,25 @@ export default function LandingPage() {
                   );
                 })}
               </div>
+              {/* Counter */}
+              <div className="flex justify-center mt-6">
+                <FlippingScore />
+              </div>
             </div>
 
             {/* Three cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-stretch">
 
-              {/* Diagnose card — secondary */}
-              <Link href="/diagnose" className="group flex flex-col border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#d1d5db] dark:hover:shadow-[6px_6px_0px_#4b5563] hover:-translate-y-1 transition-all duration-200">
-                <div className="h-1 bg-gray-900 dark:bg-white w-full" />
-                <div className="flex flex-col flex-1 p-4 gap-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Diagnose</span>
-                    <span className="text-2xl text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">→</span>
-                  </div>
-                  <span className="text-red-400 dark:text-red-500"><DotIcon id="diagnose" color="currentColor" /></span>
-                  <h3 className="text-base font-bold text-gray-900 dark:text-white leading-snug">
-                    Identify your business pain points.
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-snug mt-auto">
-                    Select problems. Hit the button. Copy the message. Send it over — let&apos;s talk.
-                  </p>
-                </div>
-              </Link>
-
               {/* Audit card — primary */}
               <Link href="/audit" className="group flex flex-col border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[6px_6px_0px_#111827] dark:shadow-[6px_6px_0px_#ffffff] hover:shadow-[8px_8px_0px_#111827] dark:hover:shadow-[8px_8px_0px_#ffffff] hover:-translate-y-1 transition-all duration-200">
                 <div className="h-1.5 bg-gray-900 dark:bg-white w-full" />
-                <div className="flex flex-col flex-1 p-5 gap-3">
+                <div className="flex flex-col flex-1 p-4 gap-3">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Audit</span>
                     <span className="text-2xl text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">→</span>
                   </div>
                   <span className="text-blue-400 dark:text-blue-600"><DotIcon id="audit" color="currentColor" /></span>
-                  <h3 className="text-base font-bold text-gray-900 dark:text-white leading-snug">
+                  <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-snug">
                     Benchmark your intuition. Test your setup.
                   </h3>
                   <p className="text-xs text-gray-500 dark:text-gray-400 leading-snug mt-auto">
@@ -113,6 +101,24 @@ export default function LandingPage() {
                   </h3>
                   <p className="text-xs text-gray-500 dark:text-gray-400 leading-snug mt-auto">
                     Budget, timeline, team — the calculator qualifies everything before we talk.
+                  </p>
+                </div>
+              </Link>
+
+              {/* Diagnose card — secondary */}
+              <Link href="/diagnose" className="group flex flex-col border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#d1d5db] dark:hover:shadow-[6px_6px_0px_#4b5563] hover:-translate-y-1 transition-all duration-200">
+                <div className="h-1 bg-gray-900 dark:bg-white w-full" />
+                <div className="flex flex-col flex-1 p-4 gap-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Diagnose</span>
+                    <span className="text-2xl text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">→</span>
+                  </div>
+                  <span className="text-red-400 dark:text-red-500"><DotIcon id="diagnose" color="currentColor" /></span>
+                  <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-snug">
+                    Identify your business pain points.
+                  </h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-snug mt-auto">
+                    Select problems. Hit the button. Copy the message. Send it over — let&apos;s talk.
                   </p>
                 </div>
               </Link>

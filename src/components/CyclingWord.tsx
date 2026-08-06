@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 
 const WORDS = [
-  { text: "hidden costs", color: "text-blue-400 dark:text-blue-600"     },
-  { text: "pain points",  color: "text-red-400 dark:text-red-500"       },
-  { text: "build path",   color: "text-emerald-400 dark:text-emerald-600" },
+  { text: "score",       color: "text-blue-400 dark:text-blue-500"        },
+  { text: "build path",  color: "text-emerald-400 dark:text-emerald-500"  },
+  { text: "pain points", color: "text-red-400 dark:text-red-500"          },
 ];
 const INTERVAL = 2800;
 
@@ -24,8 +24,8 @@ export function CyclingWord() {
 
   return (
     <span className="relative inline-block align-bottom px-2 py-0.5 bg-gray-900 dark:bg-white">
-      {/* invisible spacer keeps width stable */}
-      <span className="invisible" aria-hidden>hidden costs</span>
+      {/* invisible spacer — widest word keeps layout stable */}
+      <span className="invisible" aria-hidden>pain points</span>
       <span
         key={index}
         className={`absolute inset-0 px-2 py-0.5 ${WORDS[index].color} ${phase === "in" ? "word-in" : "word-out"}`}

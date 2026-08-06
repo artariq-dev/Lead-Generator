@@ -26,7 +26,7 @@ export function Nav() {
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1 text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
-            About <span className="text-sm">↗</span>
+            About me <span className="text-sm">↗</span>
           </a>
           <ThemeToggle />
 
@@ -54,7 +54,7 @@ export function Nav() {
             onClick={() => setOpen(false)}
             className="inline-flex items-center gap-1 text-xs tracking-wider uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
-            About <span className="text-sm">↗</span>
+            About me <span className="text-sm">↗</span>
           </a>
         </div>
       )}
