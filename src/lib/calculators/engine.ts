@@ -37,10 +37,10 @@ const categoryQuestionMap: Record<string, Record<string, string[]>> = {
     automation: ["automation", "adoption"],
   },
   growth: {
-    scaling: ["traffic_handling", "scale_limit"],
-    performance: ["performance_visibility", "codebase_complexity"],
-    reliability: ["change_friction", "outage_confidence"],
-    agility: ["ship_speed", "team_focus"],
+    outreach: ["software_growth", "outreach_speed"],
+    visibility: ["ad_spend", "conversion_visibility"],
+    automation: ["manual_work", "performance_visibility"],
+    investment: ["growth_investment", "codebase_complexity"],
   },
   pipeline: {
     speed: ["time_to_prod", "panic_deploy"],

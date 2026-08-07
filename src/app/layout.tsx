@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/metadata";
 import { Nav } from "@/components/Nav";
 import { Analytics } from "@vercel/analytics/react";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -56,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
+    <html lang="en" className={`h-full ${montserrat.variable}`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

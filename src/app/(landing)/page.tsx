@@ -53,7 +53,7 @@ export default function LandingPage() {
                 {/* Headline */}
                 <h1 className="text-gray-900 dark:text-white flex flex-col gap-2">
                   <span className="flex items-baseline gap-x-0 hero-headline font-extrabold">
-                    <span className="text-gray-900 dark:text-white" style={{ letterSpacing: "-0.08em" }}>LETS</span>
+                    <span className="text-gray-900 dark:text-white">LETS</span>
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>_start</span>
                   </span>
                   <span className="flex flex-wrap items-baseline gap-x-3 gap-y-2 hero-headline font-extrabold">
@@ -265,6 +265,7 @@ export default function LandingPage() {
           <span
             className="block w-full text-transparent font-extrabold leading-none cursor-default hover:text-white transition-colors duration-500"
             style={{
+              fontFamily: "var(--font-montserrat), sans-serif",
               WebkitTextStroke: "1px rgba(255,255,255,0.18)",
               fontSize: "clamp(4rem, 22vw, 18rem)",
               letterSpacing: "-0.04em",

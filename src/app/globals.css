@@ -5,6 +5,7 @@
 @theme inline {
   --font-sans: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
   --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+  --font-montserrat: var(--font-montserrat);
 }
 
 :root {
@@ -34,6 +35,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   letter-spacing: 0.01em;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-montserrat), sans-serif;
+  letter-spacing: -0.02em;
 }
 
 [class*="rounded"]:not(.rounded-full) {
