@@ -51,15 +51,15 @@ export default function LandingPage() {
                 className="bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 backdrop-blur-sm p-3 mb-8"
               >
                 {/* Headline */}
-                <h1 className="text-gray-900 dark:text-white flex flex-col gap-2">
-                  <span className="flex flex-wrap items-baseline gap-x-3 gap-y-2 hero-headline font-extrabold">
+                <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2">
+                  <span className="flex flex-wrap items-baseline gap-x-3 gap-y-0 sm:gap-y-2 hero-headline font-extrabold">
                     <span className="text-gray-900 dark:text-white">LETS</span>
                     <span className="text-outline text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>_figure</span>
-                    <span className="sm:hidden w-full" />
+                    <span className="sm:hidden w-full h-0" />
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>out</span>
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>your</span>
                   </span>
-                  <span className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                  <span className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 sm:mt-0">
                     <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-blue-400 dark:decoration-blue-500 decoration-2 underline-offset-4">audit score</span>
                     <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-emerald-400 dark:decoration-emerald-500 decoration-2 underline-offset-4">build path</span>
                     <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-red-400 dark:decoration-red-500 decoration-2 underline-offset-4">pain points</span>
