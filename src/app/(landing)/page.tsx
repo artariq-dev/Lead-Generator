@@ -55,6 +55,7 @@ export default function LandingPage() {
                   <span className="flex flex-wrap items-baseline gap-x-3 gap-y-2 hero-headline font-extrabold">
                     <span className="text-gray-900 dark:text-white">LETS</span>
                     <span className="text-outline text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>_figure</span>
+                    <span className="sm:hidden w-full" />
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>out</span>
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>your</span>
                   </span>
