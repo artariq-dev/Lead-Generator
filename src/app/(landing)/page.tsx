@@ -57,11 +57,8 @@ export default function LandingPage() {
                     <span className="text-outline" style={{ letterSpacing: "-0.08em" }}>FIGURE</span>
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>_out</span>
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>your</span>
-                    <span className="hidden lg:inline text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-blue-400 dark:decoration-blue-500 decoration-2 underline-offset-4">audit score</span>
-                    <span className="hidden lg:inline text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-emerald-400 dark:decoration-emerald-500 decoration-2 underline-offset-4">build path</span>
-                    <span className="hidden lg:inline text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-red-400 dark:decoration-red-500 decoration-2 underline-offset-4">pain points</span>
                   </span>
-                  <span className="flex lg:hidden flex-wrap gap-x-4 gap-y-2">
+                  <span className="flex flex-col gap-1">
                     <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-blue-400 dark:decoration-blue-500 decoration-2 underline-offset-4">audit score</span>
                     <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-emerald-400 dark:decoration-emerald-500 decoration-2 underline-offset-4">build path</span>
                     <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-red-400 dark:decoration-red-500 decoration-2 underline-offset-4">pain points</span>
