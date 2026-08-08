@@ -53,7 +53,7 @@ export default function LandingPage() {
                 {/* Headline */}
                 <h1 className="text-gray-900 dark:text-white flex flex-col gap-2">
                   <span className="flex flex-wrap items-baseline gap-x-3 gap-y-2 hero-headline font-extrabold">
-                    <span className="text-gray-900 dark:text-white">lets</span>
+                    <span className="text-gray-900 dark:text-white">LETS</span>
                     <span className="text-outline text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>figure</span>
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>_out</span>
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>your</span>
