@@ -4,7 +4,7 @@ import { DotIcon } from "@/components/DotIcon";
 
 export const metadata: Metadata = {
   title: "Diagnose — Identify your pain points",
-  description: "Select your business pain points. Hit the button. Send it over — let's talk.",
+  description: "Select your business pain points and get a summary you can send over.",
 };
 
 export default function DiagnosePage() {
@@ -20,7 +20,7 @@ export default function DiagnosePage() {
           </h1>
         </div>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">
-          Select the problems that feel familiar. Hit the button. Copy the message. Send it over — let&apos;s talk.
+          Select the problems that feel familiar, then copy the summary and send it over.
         </p>
         <PainPointGrid height="calc(100vh - 380px)" />
       </main>

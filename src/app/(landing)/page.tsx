@@ -137,7 +137,7 @@ export default function LandingPage() {
                           Want to build something but don&apos;t know where to start?
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                          Budget, timeline, team — qualified before we talk.
+                          Get a clear build path ahead.
                         </p>
                       </div>
                       <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
@@ -176,7 +176,7 @@ export default function LandingPage() {
                           Identify your business pain points.
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                          Select problems. Send the message. Let&apos;s talk.
+                          Spot the problems that keep coming up.
                         </p>
                       </div>
                       <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
