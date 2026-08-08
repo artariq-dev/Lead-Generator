@@ -98,8 +98,7 @@ export default function LandingPage() {
                           <br />Test your setup.
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                          Pick a stack, answer 8 pain-driven questions, get an instant letter-grade
-                          scorecard across 4 sub-categories. Same gaps fixed in real client projects.
+                          Pick a stack, get an instant audit report.
                         </p>
                       </div>
                       <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
