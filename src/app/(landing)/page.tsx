@@ -54,10 +54,9 @@ export default function LandingPage() {
                 <h1 className="text-gray-900 dark:text-white flex flex-col gap-2">
                   <span className="flex items-baseline gap-x-0 hero-headline font-extrabold">
                     <span className="text-gray-900 dark:text-white">LETS</span>
-                    <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>_start</span>
                   </span>
                   <span className="flex flex-wrap items-baseline gap-x-3 gap-y-2 hero-headline font-extrabold">
-                    <span className="text-outline" style={{ letterSpacing: "-0.08em" }}>FIGURING</span>
+                    <span className="text-outline" style={{ letterSpacing: "-0.08em" }}>FIGURE</span>
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>_out</span>
                     <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>your</span>
                     <span className="hidden lg:inline text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-blue-400 dark:decoration-blue-500 decoration-2 underline-offset-4">audit score</span>
