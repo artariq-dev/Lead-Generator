@@ -71,18 +71,21 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "WebSite",
+              "@type": "SoftwareApplication",
               "name": "ask.artariq",
-              "alternateName": [
-                "ask artariq", "Ask AR Tariq", "artariq", "AR Tariq",
-                "Abdur Rehman Tariq", "artariq dev", "abdurrehman tariq"
-              ],
               "url": "https://ask.artariq.dev",
-              "description": siteConfig.description,
+              "description": "Free software audit tool. Pick a stack, answer 8 questions, get an instant scorecard. Covers cloud, full-stack, CRM, frontend, backend, and pipeline audits — plus a build guide and pain point diagnosis.",
+              "applicationCategory": "DeveloperApplication",
+              "operatingSystem": "Web",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
               "author": {
                 "@type": "Person",
-                "name": "Abdur Rehman Tariq",
-                "alternateName": ["AR Tariq", "artariq", "abdur rehman tariq"],
+                "name": "AbdurRehman Tariq",
+                "alternateName": ["Abdur Rehman Tariq", "AR Tariq", "artariq"],
                 "url": "https://artariq.dev",
               },
             }),
