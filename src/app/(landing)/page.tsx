@@ -47,14 +47,14 @@ export default function LandingPage() {
 
               {/* ── Eyebrow — Software Audit Tool ── */}
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-px w-8 bg-gray-400/60 dark:bg-gray-500/50" />
-                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400 select-none">
+                <span className="h-0.5 w-10 bg-gray-700 dark:bg-white/70" />
+                <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.3em] text-gray-800 dark:text-white select-none">
                   Software Audit Tool
                 </span>
-                <span className="flex items-center gap-1">
-                  <span className="w-1 h-1 bg-blue-400 dark:bg-blue-500" />
-                  <span className="w-1 h-1 bg-emerald-400 dark:bg-emerald-500" />
-                  <span className="w-1 h-1 bg-red-400 dark:bg-red-500" />
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-blue-500 dark:bg-blue-400" />
+                  <span className="w-1.5 h-1.5 bg-emerald-500 dark:bg-emerald-400" />
+                  <span className="w-1.5 h-1.5 bg-red-500 dark:bg-red-400" />
                 </span>
               </div>
 

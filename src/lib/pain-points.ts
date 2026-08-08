@@ -26,6 +26,30 @@ export const groupsBusiness: PainGroup[] = [
       { id: "crm_roi", label: "Can't measure which marketing channels actually produce revenue", severity: "warning", tech: "Attribution, Analytics" },
     ],
   },
+  { id: "growth",     label: "If Google can't find you, neither can your users", description: "SEO, analytics, and business visibility", children: [
+    { id: "seo", label: "Nobody can find us on Google", severity: "critical", tech: "Lighthouse, Schema.org" },
+    { id: "analytics", label: "No user behavior tracking — decisions are made blind", severity: "warning", tech: "GA, Plausible, Mixpanel" },
+  ] },
+  {
+    id: "planning",
+    label: "Too many ideas, too few shipped — sound familiar?",
+    description: "Good ideas are worthless without a system to ship them",
+    children: [
+      { id: "plan", label: "Requirements aren't aligned — features get built wrong repeatedly", severity: "critical", tech: "Jira, Linear" },
+      { id: "idea", label: "Great ideas keep dying in Slack threads and never get built", severity: "warning", tech: "" },
+      { id: "design", label: "No design system — every screen looks inconsistent", severity: "warning", tech: "Figma, Lucidchart" },
+    ],
+  },
+  {
+    id: "team",
+    label: "If one person quit tomorrow, would your whole operation stall?",
+    description: "Velocity shouldn't depend on who's online today",
+    children: [
+      { id: "onboard", label: "A new developer takes weeks before they can ship anything", severity: "critical", tech: "Docs, Dev Containers" },
+      { id: "knowledge", label: "Everything lives in one person's head — they're burning out", severity: "critical", tech: "Notion, Confluence, Runbooks" },
+      { id: "docs", label: "No documentation — knowledge is lost whenever someone leaves", severity: "warning", tech: "Swagger, Storybook, Wikis" },
+    ],
+  },
   {
     id: "performance",
     label: "Every second of slowness is a customer who might leave",
@@ -44,6 +68,16 @@ export const groupsBusiness: PainGroup[] = [
       { id: "secure", label: "A breach could go undetected for days — no monitoring in place", severity: "critical", tech: "GuardDuty, WAF, IAM" },
       { id: "compliance", label: "Enterprise clients ask for SOC2 proof — the deal dies there", severity: "critical", tech: "SOC2, HIPAA, Config" },
       { id: "scan", label: "Security vulnerabilities exist in the codebase — no scanning in place", severity: "critical", tech: "Trivy, Snyk, SonarQube" },
+    ],
+  },
+  {
+    id: "building",
+    label: "Bugs that reach your users are bugs you're paying for twice",
+    description: "If users find it first, you've already lost their trust",
+    children: [
+      { id: "test", label: "Bugs reach production because there's no automated testing", severity: "critical", tech: "Jest, Playwright, k6" },
+      { id: "bug", label: "The same bugs keep recurring — no root cause analysis in place", severity: "critical", tech: "Sentry, Linear" },
+      { id: "ci", label: "CI pipelines are flaky — builds just get rerun until they pass", severity: "warning", tech: "GitHub Actions, CircleCI" },
     ],
   },
   {
@@ -78,16 +112,6 @@ export const groupsBusiness: PainGroup[] = [
     ],
   },
   {
-    id: "building",
-    label: "Bugs that reach your users are bugs you're paying for twice",
-    description: "If users find it first, you've already lost their trust",
-    children: [
-      { id: "test", label: "Bugs reach production because there's no automated testing", severity: "critical", tech: "Jest, Playwright, k6" },
-      { id: "bug", label: "The same bugs keep recurring — no root cause analysis in place", severity: "critical", tech: "Sentry, Linear" },
-      { id: "ci", label: "CI pipelines are flaky — builds just get rerun until they pass", severity: "warning", tech: "GitHub Actions, CircleCI" },
-    ],
-  },
-  {
     id: "ops",
     label: "You're probably paying too much for cloud — and too little for backup",
     description: "One bad day shouldn't erase everything you've built",
@@ -107,30 +131,6 @@ export const groupsBusiness: PainGroup[] = [
       { id: "debt", label: "Tech debt is so bad that new features break old ones constantly", severity: "warning", tech: "SonarQube, Refactoring" },
     ],
   },
-  {
-    id: "team",
-    label: "If one person quit tomorrow, would your whole operation stall?",
-    description: "Velocity shouldn't depend on who's online today",
-    children: [
-      { id: "onboard", label: "A new developer takes weeks before they can ship anything", severity: "critical", tech: "Docs, Dev Containers" },
-      { id: "knowledge", label: "Everything lives in one person's head — they're burning out", severity: "critical", tech: "Notion, Confluence, Runbooks" },
-      { id: "docs", label: "No documentation — knowledge is lost whenever someone leaves", severity: "warning", tech: "Swagger, Storybook, Wikis" },
-    ],
-  },
-  {
-    id: "planning",
-    label: "Too many ideas, too few shipped — sound familiar?",
-    description: "Good ideas are worthless without a system to ship them",
-    children: [
-      { id: "plan", label: "Requirements aren't aligned — features get built wrong repeatedly", severity: "critical", tech: "Jira, Linear" },
-      { id: "idea", label: "Great ideas keep dying in Slack threads and never get built", severity: "warning", tech: "" },
-      { id: "design", label: "No design system — every screen looks inconsistent", severity: "warning", tech: "Figma, Lucidchart" },
-    ],
-  },
-  { id: "growth",     label: "If Google can't find you, neither can your users", description: "SEO, analytics, and business visibility", children: [
-    { id: "seo", label: "Nobody can find us on Google", severity: "critical", tech: "Lighthouse, Schema.org" },
-    { id: "analytics", label: "No user behavior tracking — decisions are made blind", severity: "warning", tech: "GA, Plausible, Mixpanel" },
-  ] },
 ];
 
 export const painLabelsBusiness: Record<string, string> = {
