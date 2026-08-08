@@ -30,12 +30,12 @@ const fieldGroups: Record<string, string[]> = {
 const fieldOptions = [
   { id: "all", label: "All Problems" },
   { id: "crm", label: "CRM" },
-  { id: "cloud", label: "Cloud" },
+  { id: "growth", label: "Growth" },
   { id: "fullstack", label: "FullStack" },
   { id: "frontend", label: "Frontend" },
   { id: "backend", label: "Backend" },
   { id: "devops", label: "DevOps" },
-  { id: "growth", label: "Growth" },
+  { id: "cloud", label: "Cloud" },
 ];
 
 export function PainPointGrid({ height = "280px" }: { height?: string }) {
