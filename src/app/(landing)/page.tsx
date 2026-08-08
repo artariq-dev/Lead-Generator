@@ -70,11 +70,11 @@ export default function LandingPage() {
               {/* ── Cards ── */}
               <motion.div
                 variants={container}
-                className="grid grid-cols-1 sm:grid-cols-5 gap-3 items-stretch"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch"
               >
 
-                {/* Audit — dominant, spans 3 cols */}
-                <motion.div variants={itemFast} className="sm:col-span-3">
+                {/* Audit */}
+                <motion.div variants={itemFast}>
                   <Link
                     href="/audit"
                     className="group flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[6px_6px_0px_#111827] dark:shadow-[6px_6px_0px_#ffffff] hover:shadow-[10px_10px_0px_#111827] dark:hover:shadow-[10px_10px_0px_#ffffff] hover:-translate-y-1 transition-all duration-200"
@@ -113,70 +113,82 @@ export default function LandingPage() {
                   </Link>
                 </motion.div>
 
-                {/* Build + Diagnose — stack in remaining 2 cols */}
-                <motion.div
-                  variants={container}
-                  className="sm:col-span-2 flex flex-col gap-3"
-                >
-
-                  {/* Build */}
-                  <motion.div variants={itemFast} className="flex-1">
-                    <Link
-                      href="/build"
-                      className="group flex flex-col h-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#d1d5db] dark:hover:shadow-[6px_6px_0px_#4b5563] hover:-translate-y-0.5 transition-all duration-200"
-                    >
-                      <div className="h-1 bg-gray-900 dark:bg-white w-full" />
-                      <div className="flex flex-col flex-1 p-4 gap-2">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
-                            Build
-                          </span>
-                          <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">
-                            →
-                          </span>
-                        </div>
-                        <span className="text-emerald-400 dark:text-emerald-600">
-                          <DotIcon id="build" color="currentColor" />
+                {/* Build */}
+                <motion.div variants={itemFast}>
+                  <Link
+                    href="/build"
+                    className="group flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[6px_6px_0px_#111827] dark:shadow-[6px_6px_0px_#ffffff] hover:shadow-[10px_10px_0px_#111827] dark:hover:shadow-[10px_10px_0px_#ffffff] hover:-translate-y-1 transition-all duration-200"
+                  >
+                    <div className="h-1.5 bg-gray-900 dark:bg-white w-full" />
+                    <div className="flex flex-col flex-1 p-6 gap-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
+                          Build
                         </span>
-                        <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-snug">
+                        <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">
+                          →
+                        </span>
+                      </div>
+                      <span className="text-emerald-400 dark:text-emerald-600">
+                        <DotIcon id="build" color="currentColor" scale={1.5} />
+                      </span>
+                      <div>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-snug mb-2">
                           Want to build something but don&apos;t know where to start?
                         </h3>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-snug mt-auto">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                           Budget, timeline, team — qualified before we talk.
                         </p>
                       </div>
-                    </Link>
-                  </motion.div>
-
-                  {/* Diagnose */}
-                  <motion.div variants={itemFast} className="flex-1">
-                    <Link
-                      href="/diagnose"
-                      className="group flex flex-col h-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#d1d5db] dark:hover:shadow-[6px_6px_0px_#4b5563] hover:-translate-y-0.5 transition-all duration-200"
-                    >
-                      <div className="h-1 bg-gray-900 dark:bg-white w-full" />
-                      <div className="flex flex-col flex-1 p-4 gap-2">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
-                            Diagnose
-                          </span>
-                          <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">
-                            →
-                          </span>
-                        </div>
-                        <span className="text-red-400 dark:text-red-500">
-                          <DotIcon id="diagnose" color="currentColor" />
+                      <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
+                        <span className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+                          Start guide
                         </span>
-                        <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-snug">
+                        <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
+                          →
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+
+                {/* Diagnose */}
+                <motion.div variants={itemFast}>
+                  <Link
+                    href="/diagnose"
+                    className="group flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[6px_6px_0px_#111827] dark:shadow-[6px_6px_0px_#ffffff] hover:shadow-[10px_10px_0px_#111827] dark:hover:shadow-[10px_10px_0px_#ffffff] hover:-translate-y-1 transition-all duration-200"
+                  >
+                    <div className="h-1.5 bg-gray-900 dark:bg-white w-full" />
+                    <div className="flex flex-col flex-1 p-6 gap-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
+                          Diagnose
+                        </span>
+                        <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">
+                          →
+                        </span>
+                      </div>
+                      <span className="text-red-400 dark:text-red-500">
+                        <DotIcon id="diagnose" color="currentColor" scale={1.5} />
+                      </span>
+                      <div>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-snug mb-2">
                           Identify your business pain points.
                         </h3>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-snug mt-auto">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                           Select problems. Send the message. Let&apos;s talk.
                         </p>
                       </div>
-                    </Link>
-                  </motion.div>
-
+                      <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
+                        <span className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+                          Diagnose
+                        </span>
+                        <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
+                          →
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
                 </motion.div>
 
               </motion.div>
