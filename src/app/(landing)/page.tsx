@@ -45,6 +45,19 @@ export default function LandingPage() {
               className="flex flex-col gap-0"
             >
 
+              {/* ── Eyebrow — Software Audit Tool ── */}
+              <div className="flex items-center gap-3 mb-3">
+                <span className="h-px w-8 bg-gray-400/60 dark:bg-gray-500/50" />
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400 select-none">
+                  Software Audit Tool
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="w-1 h-1 bg-blue-400 dark:bg-blue-500" />
+                  <span className="w-1 h-1 bg-emerald-400 dark:bg-emerald-500" />
+                  <span className="w-1 h-1 bg-red-400 dark:bg-red-500" />
+                </span>
+              </div>
+
               {/* ── Hero text block with inverted background ── */}
               <motion.div
                 variants={item}
