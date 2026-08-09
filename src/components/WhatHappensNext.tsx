@@ -18,27 +18,33 @@ export function WhatHappensNext({
       <div className="h-0.5 w-full bg-blue-600" />
 
       <div className="p-4">
+        {/* Heading */}
+        <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-3">
+          Get a second opinion — free. No catch.
+        </h2>
+
         {/* Face + identity */}
-        <div className="flex items-center gap-3 mb-3">
+        <a
+          href="https://artariq.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-2.5 mb-3 w-fit px-3 py-2 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-[2px_2px_0px_#e5e7eb] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[4px_4px_0px_#bfdbfe] dark:hover:shadow-[4px_4px_0px_#1e3a5f] hover:-translate-y-0.5 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-150"
+        >
           <img
             src="/portfolio.jpeg"
             alt="Abdur Rehman Tariq"
-            className="w-10 h-10 object-cover border-2 border-blue-500/20 shrink-0"
+            className="w-8 h-8 object-cover border-2 border-blue-500/20 group-hover:border-blue-500/50 transition-colors shrink-0"
           />
-          <div>
-            <p className="text-xs font-bold text-gray-900 dark:text-white leading-tight">
+          <span className="text-left leading-tight">
+            <span className="block text-xs font-bold text-gray-900 dark:text-white leading-tight">
               Abdur Rehman Tariq
-            </p>
-            <p className="text-[10px] text-gray-500 dark:text-gray-400">
+            </span>
+            <span className="block text-[10px] text-gray-500 dark:text-gray-400">
               6 yrs · cloud x full-stack
-            </p>
-          </div>
-        </div>
-
-        {/* Heading */}
-        <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-2">
-          Need my personal assistance?
-        </h2>
+            </span>
+          </span>
+          <span className="text-sm text-gray-400 dark:text-gray-500 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">↗</span>
+        </a>
 
         {/* Personalized urgency line */}
         {urgencyLine && (
@@ -52,7 +58,7 @@ export function WhatHappensNext({
           Hit the button — your email app opens with this report already attached.
           Just press send.{" "}
           <span className="font-semibold text-gray-700 dark:text-gray-300">
-            Free 30-min call. No pitch, no obligation.
+            I reply within 24 hours with 3 specific fixes. Free 30-min call. No pitch, no obligation.
           </span>
         </p>
 
