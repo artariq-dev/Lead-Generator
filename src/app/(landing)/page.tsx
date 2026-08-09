@@ -47,9 +47,8 @@ export default function LandingPage() {
 
               {/* ── Eyebrow — Software Audit Tool ── */}
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-10 bg-gray-700 dark:bg-white/70" />
                 <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.3em] text-gray-800 dark:text-white select-none">
-                  Software Audit Tool
+                  Free Software Audit
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-blue-500 dark:bg-blue-400" />
@@ -64,20 +63,19 @@ export default function LandingPage() {
                 className="bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 backdrop-blur-sm p-3 mb-8"
               >
                 {/* Headline */}
-                <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2">
-                  <span className="flex flex-wrap items-baseline gap-x-3 gap-y-0 sm:gap-y-2 hero-headline font-extrabold">
-                    <span className="text-gray-900 dark:text-white">LETS</span>
-                    <span className="text-outline text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>_figure</span>
-                    <span className="sm:hidden w-full h-0" />
-                    <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>out</span>
-                    <span className="text-gray-500 dark:text-gray-400 text-base sm:text-2xl" style={{ letterSpacing: "0.3em" }}>your</span>
+                <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2 text-3xl sm:text-4xl font-extrabold leading-tight">
+                  <span className="flex flex-wrap items-baseline gap-x-3">
+                    <span className="text-gray-900 dark:text-white">Your software is leaking money.</span>
                   </span>
-                  <span className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 sm:mt-0">
-                    <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-blue-400 dark:decoration-blue-500 decoration-2 underline-offset-4">audit score</span>
-                    <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-emerald-400 dark:decoration-emerald-500 decoration-2 underline-offset-4">build path</span>
-                    <span className="text-gray-500 dark:text-gray-400 text-sm font-bold tracking-widest underline decoration-red-400 dark:decoration-red-500 decoration-2 underline-offset-4">pain points</span>
+                  <span className="flex flex-wrap items-baseline gap-x-3">
+                    <span className="text-gray-500 dark:text-gray-400">Find out how much — in 2 minutes.</span>
                   </span>
                 </h1>
+
+                {/* Subhead */}
+                <p className="mt-3 text-xs sm:text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
+                  8 questions. Instant scorecard. Pick a path below and see exactly where you stand — and what to fix first.
+                </p>
               </motion.div>
 
               {/* ── Cards ── */}
@@ -102,21 +100,29 @@ export default function LandingPage() {
                           Primary
                         </span>
                       </div>
-                      <span className="text-blue-400 dark:text-blue-600">
-                        <DotIcon id="audit" color="currentColor" scale={1.5} />
-                      </span>
+                      <div className="flex items-start gap-3">
+                        <span className="text-blue-400 dark:text-blue-600 shrink-0">
+                          <DotIcon id="audit" color="currentColor" scale={1.5} />
+                        </span>
+                        <div className="flex flex-wrap gap-1">
+                          {["Growth", "Cloud", "Fullstack", "Frontend", "Backend", "CRM", "Pipeline"].map((tag) => (
+                            <span key={tag} className="text-[9px] px-1.5 py-0.5 bg-gray-800 text-gray-100 dark:bg-gray-200 dark:text-gray-800">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                       <div>
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-snug mb-2">
-                          Benchmark your intuition.
-                          <br />Test your setup.
+                          Get your audit score.
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                          Pick a stack, get an instant audit report.
+                          Answer 8 questions. See where you stand — and what to fix first.
                         </p>
                       </div>
                       <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
                         <span className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
-                          Start audit
+                          Get my score
                         </span>
                         <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
                           →
@@ -138,24 +144,30 @@ export default function LandingPage() {
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
                           Build
                         </span>
-                        <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">
-                          →
-                        </span>
                       </div>
-                      <span className="text-emerald-400 dark:text-emerald-600">
-                        <DotIcon id="build" color="currentColor" scale={1.5} />
-                      </span>
+                      <div className="flex items-start gap-3">
+                        <span className="text-emerald-400 dark:text-emerald-600 shrink-0">
+                          <DotIcon id="build" color="currentColor" scale={1.5} />
+                        </span>
+                        <div className="flex flex-wrap gap-1">
+                          {["Frontend", "Backend", "Fullstack", "Cloud", "Automation", "Internal"].map((tag) => (
+                            <span key={tag} className="text-[9px] px-1.5 py-0.5 bg-gray-800 text-gray-100 dark:bg-gray-200 dark:text-gray-800">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                       <div>
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-snug mb-2">
-                          Want to build something but don&apos;t know where to start?
+                          Not sure what to build? Get a plan.
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                          Get a clear build path ahead.
+                          A clear build path, budget range, and timeline — matched to you.
                         </p>
                       </div>
                       <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
                         <span className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
-                          Start guide
+                          Get my build plan
                         </span>
                         <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
                           →
@@ -177,24 +189,30 @@ export default function LandingPage() {
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
                           Diagnose
                         </span>
-                        <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1">
-                          →
-                        </span>
                       </div>
-                      <span className="text-red-400 dark:text-red-500">
-                        <DotIcon id="diagnose" color="currentColor" scale={1.5} />
-                      </span>
+                      <div className="flex items-start gap-3">
+                        <span className="text-red-400 dark:text-red-500 shrink-0">
+                          <DotIcon id="diagnose" color="currentColor" scale={1.5} />
+                        </span>
+                        <div className="flex flex-wrap gap-1">
+                          {["CRM", "Growth", "Security", "Performance", "Ops", "Deployments"].map((tag) => (
+                            <span key={tag} className="text-[9px] px-1.5 py-0.5 bg-gray-800 text-gray-100 dark:bg-gray-200 dark:text-gray-800">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                       <div>
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-snug mb-2">
-                          Identify your business pain points.
+                          Find what&apos;s quietly hurting.
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                          Spot the problems that keep coming up.
+                          Pick your problems. Get a clear summary you can send over.
                         </p>
                       </div>
                       <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
                         <span className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
-                          Diagnose
+                          Flag my problems
                         </span>
                         <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
                           →

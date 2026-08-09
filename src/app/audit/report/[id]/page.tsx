@@ -31,8 +31,8 @@ function ReportContent() {
       <main className="flex-1 max-w-6xl mx-auto w-full px-6 pt-16 pb-12">
         <ReportHeader
           eyebrow={`Software Audit · ${config.name}`}
-          title="Here's your score"
-          subtitle="Based on your answers, here's where your setup stands — and what to fix first."
+          title="Here's where you stand"
+          subtitle={`Your grade: ${result.grade} (${result.percentage}%). Here's what's costing you — and what to fix first.`}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">

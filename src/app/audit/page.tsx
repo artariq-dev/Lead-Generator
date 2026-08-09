@@ -83,11 +83,11 @@ export default function AssessPage() {
             <DotIcon id="audit" color="currentColor" />
           </span>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-            Benchmark your intuition. Test your setup.
+            Which area is costing you the most?
           </h1>
         </div>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">
-          Pick the area that feels shakiest — you&apos;ll have a scored report in 2 minutes.
+          Pick the one that feels shakiest — you&apos;ll get a scored report in 2 minutes, with clear next steps.
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
