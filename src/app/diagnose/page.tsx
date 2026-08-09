@@ -20,7 +20,7 @@ export default function DiagnosePage() {
           </h1>
         </div>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">
-          Select the problems that feel familiar, then copy the summary and send it over.
+          Select the problems that feel familiar, send them over.
         </p>
         <PainPointGrid height="calc(100vh - 380px)" />
       </main>

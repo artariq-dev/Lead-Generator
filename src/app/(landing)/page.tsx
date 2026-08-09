@@ -73,9 +73,19 @@ export default function LandingPage() {
                 </h1>
 
                 {/* Subhead */}
-                <p className="mt-3 text-xs sm:text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
-                  8 questions. Instant scorecard. Pick a path below and see exactly where you stand — and what to fix first.
+                <p className="mt-3 text-xs sm:text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                  Pick a path below and see exactly where you stand — and what to fix first.
                 </p>
+
+                {/* What you get */}
+                <ul className="mt-4 flex flex-wrap gap-1.5">
+                  {["Free — no sign-up, no forms", "Instant scorecard", "Clear next steps"].map((item) => (
+                    <li key={item} className="flex items-center gap-1.5 px-2 py-1 bg-gray-800 text-gray-100 dark:bg-gray-200 dark:text-gray-800 text-[10px] sm:text-xs font-semibold">
+                      <span className="text-emerald-400 dark:text-emerald-600">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
 
               {/* ── Cards ── */}
@@ -88,7 +98,7 @@ export default function LandingPage() {
                 <motion.div variants={itemFast}>
                   <Link
                     href="/audit"
-                    className="group flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[6px_6px_0px_#111827] dark:shadow-[6px_6px_0px_#ffffff] hover:shadow-[10px_10px_0px_#111827] dark:hover:shadow-[10px_10px_0px_#ffffff] hover:-translate-y-1 transition-all duration-200"
+                    className="group flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[0_8px_32px_rgba(0,0,0,0.3)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-200"
                   >
                     <div className="h-1.5 bg-gray-900 dark:bg-white w-full" />
                     <div className="flex flex-col flex-1 p-6 gap-4">
@@ -114,15 +124,15 @@ export default function LandingPage() {
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-snug mb-2">
-                          Get your audit score.
+                          Run an instant audit on your business tech stack.
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                           Answer 8 questions. See where you stand — and what to fix first.
                         </p>
                       </div>
                       <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
-                        <span className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
-                          Get my score
+                        <span className="text-xs font-bold text-gray-900 dark:text-white tracking-wider">
+                          Get your audit score
                         </span>
                         <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
                           →
@@ -136,7 +146,7 @@ export default function LandingPage() {
                 <motion.div variants={itemFast}>
                   <Link
                     href="/build"
-                    className="group flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[6px_6px_0px_#111827] dark:shadow-[6px_6px_0px_#ffffff] hover:shadow-[10px_10px_0px_#111827] dark:hover:shadow-[10px_10px_0px_#ffffff] hover:-translate-y-1 transition-all duration-200"
+                    className="group flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[0_8px_32px_rgba(0,0,0,0.3)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-200"
                   >
                     <div className="h-1.5 bg-gray-900 dark:bg-white w-full" />
                     <div className="flex flex-col flex-1 p-6 gap-4">
@@ -166,8 +176,8 @@ export default function LandingPage() {
                         </p>
                       </div>
                       <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
-                        <span className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
-                          Get my build plan
+                        <span className="text-xs font-bold text-gray-900 dark:text-white tracking-wider">
+                          Get your build plan
                         </span>
                         <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
                           →
@@ -181,7 +191,7 @@ export default function LandingPage() {
                 <motion.div variants={itemFast}>
                   <Link
                     href="/diagnose"
-                    className="group flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[6px_6px_0px_#111827] dark:shadow-[6px_6px_0px_#ffffff] hover:shadow-[10px_10px_0px_#111827] dark:hover:shadow-[10px_10px_0px_#ffffff] hover:-translate-y-1 transition-all duration-200"
+                    className="group flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[0_8px_32px_rgba(0,0,0,0.3)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-200"
                   >
                     <div className="h-1.5 bg-gray-900 dark:bg-white w-full" />
                     <div className="flex flex-col flex-1 p-6 gap-4">
@@ -204,15 +214,15 @@ export default function LandingPage() {
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-snug mb-2">
-                          Find what&apos;s quietly hurting.
+                          Flag problems you are facing.
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                           Pick your problems. Get a clear summary you can send over.
                         </p>
                       </div>
                       <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
-                        <span className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
-                          Flag my problems
+                        <span className="text-xs font-bold text-gray-900 dark:text-white tracking-wider">
+                          Flag your problems
                         </span>
                         <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
                           →
