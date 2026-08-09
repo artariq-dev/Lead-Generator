@@ -20,7 +20,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="w-8 h-8 flex items-center justify-center pixel-btn shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[4px_4px_0px_#bfdbfe] dark:hover:shadow-[4px_4px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 transition-all duration-200"
+      className="w-6 h-6 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-900 transition-colors shrink-0"
       aria-label="Toggle dark mode"
     >
       {dark ? (
