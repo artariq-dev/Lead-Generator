@@ -53,11 +53,19 @@ export function StepForm({
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(0);
   const [answers, setAnswers] = useState<StepAnswer[]>([]);
+  const [mounted, setMounted] = useState(false);
   const advanceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const questions = useMemo(
-    () => config.questions.map((q) => ({ ...q, options: shuffle(q.options) })),
-    [config.questions],
+    () =>
+      mounted
+        ? config.questions.map((q) => ({ ...q, options: shuffle(q.options) }))
+        : config.questions,
+    [config.questions, mounted],
   );
 
   const question = questions[step];
