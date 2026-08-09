@@ -71,6 +71,7 @@ function ReportContent({ type }: { type: string }) {
           {/* Right — name + next steps + CTA */}
           <div className="flex flex-col gap-4">
             <WhatHappensNext
+              heading="Let&apos;s build this tailored to your requirements."
               buildMailtoHref={(name) => {
                 const emailBody = emailBodyWithIntro(
                   name,

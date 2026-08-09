@@ -63,6 +63,7 @@ function AnalyzeContent() {
               {/* Right — what happens next */}
               <div className="flex flex-col gap-4">
                 <WhatHappensNext
+                  heading="Let&apos;s fix them one by one..."
                   buildMailtoHref={(name) => {
                     const emailBody = emailBodyWithIntro(
                       name,
