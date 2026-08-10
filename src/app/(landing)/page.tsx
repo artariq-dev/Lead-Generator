@@ -46,7 +46,7 @@ export default function LandingPage() {
             >
 
               {/* ── Eyebrow — Software Audit Tool ── */}
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-3 justify-end">
                 <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.3em] text-gray-800 dark:text-white select-none">
                   Free Software Audit
                 </span>
@@ -60,15 +60,15 @@ export default function LandingPage() {
               {/* ── Hero text block with inverted background ── */}
               <motion.div
                 variants={item}
-                className="bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 backdrop-blur-sm p-3 mb-8"
+                className="bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 backdrop-blur-sm p-3 mb-8 text-right"
               >
                 {/* Headline */}
-                <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2 text-3xl sm:text-4xl font-extrabold leading-tight">
-                  <span className="flex flex-wrap items-baseline gap-x-3">
-                    <span className="text-gray-900 dark:text-white">Your software is leaking money.</span>
+                <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2 text-4xl sm:text-5xl font-extrabold leading-tight">
+                  <span className="flex flex-wrap items-baseline gap-x-3 justify-end">
+                    <span className="text-gray-900 dark:text-white">Is your software leaking money?</span>
                   </span>
-                  <span className="flex flex-wrap items-baseline gap-x-3">
-                    <span className="text-gray-500 dark:text-gray-400">Find out how much — in 2 minutes.</span>
+                  <span className="flex flex-wrap items-baseline gap-x-3 justify-end">
+                    <span className="text-gray-500 dark:text-gray-400 text-xl sm:text-2xl">Lets find out how much — in 1 minute.</span>
                   </span>
                 </h1>
 
@@ -78,11 +78,15 @@ export default function LandingPage() {
                 </p>
 
                 {/* What you get */}
-                <ul className="mt-4 flex flex-wrap gap-1.5">
-                  {["Free — no sign-up, no forms", "Instant scorecard", "Clear next steps"].map((item) => (
-                    <li key={item} className="flex items-center gap-1.5 px-2 py-1 bg-gray-800 text-gray-100 dark:bg-gray-200 dark:text-gray-800 text-[10px] sm:text-xs font-semibold">
-                      <span className="text-emerald-400 dark:text-emerald-600">✓</span>
-                      {item}
+                <ul className="mt-4 flex flex-wrap gap-1.5 justify-end">
+                  {[
+                    ["Free — no sign-up, no forms", "bg-blue-500"],
+                    ["Instant scorecard", "bg-emerald-500"],
+                    ["Personalized action plan", "bg-red-500"],
+                  ].map(([text, color]) => (
+                    <li key={text} className="flex items-center gap-1.5 px-2 py-1 bg-gray-800 text-gray-100 dark:bg-gray-200 dark:text-gray-800 text-[10px] sm:text-xs font-semibold">
+                      <span className={`w-2 h-2 ${color}`} />
+                      {text}
                     </li>
                   ))}
                 </ul>

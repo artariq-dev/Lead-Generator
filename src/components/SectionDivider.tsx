@@ -22,9 +22,9 @@ export function SectionDivider({ onHeightChange }: Props) {
   return (
     <div
       ref={ref}
-      className="relative z-10 max-w-6xl mx-auto w-full px-6"
+      className="relative z-10 max-w-7xl mx-auto w-full px-6"
     >
-      <div className="bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 px-6 py-8">
+      <div className="bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 px-6 py-8 text-right">
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white leading-tight mb-2">
           Discover problems other{" "}
           <span className="inline-block px-2 py-0.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900">
