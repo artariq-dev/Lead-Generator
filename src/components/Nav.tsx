@@ -59,7 +59,7 @@ export function Nav() {
                 href={link.href}
                 className="text-[10px] sm:text-xs font-medium sm:font-bold tracking-wider uppercase text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-900 transition-colors"
               >
-                {link.label} /
+                {link.label}/
               </Link>
             ))}
           </nav>
