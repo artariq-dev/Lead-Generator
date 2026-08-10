@@ -134,12 +134,10 @@ export default function LandingPage() {
                           Answer 8 questions. See where you stand — and what to fix first.
                         </p>
                       </div>
-                      <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
-                        <span className="text-xs font-bold text-gray-900 dark:text-white tracking-wider">
-                          Get your audit score
-                        </span>
-                        <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
-                          →
+                      <div className="flex items-center gap-2 mt-auto pt-2 border-t border-gray-100 dark:border-gray-800 justify-end">
+                        <span className="text-sm font-bold text-white dark:text-gray-900 tracking-wider px-4 bg-gray-800 dark:bg-gray-200 inline-flex items-center">
+                          Instant score
+                          <span className="ml-3 -mr-4 px-3 py-2.5 bg-blue-400 text-white">→</span>
                         </span>
                       </div>
                     </div>
@@ -179,12 +177,10 @@ export default function LandingPage() {
                           A clear build path, budget range, and timeline — matched to you.
                         </p>
                       </div>
-                      <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
-                        <span className="text-xs font-bold text-gray-900 dark:text-white tracking-wider">
-                          Get your build plan
-                        </span>
-                        <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
-                          →
+                      <div className="flex items-center gap-2 mt-auto pt-2 border-t border-gray-100 dark:border-gray-800 justify-end">
+                        <span className="text-sm font-bold text-white dark:text-gray-900 tracking-wider px-4 bg-gray-800 dark:bg-gray-200 inline-flex items-center">
+                          Instant build plan
+                          <span className="ml-3 -mr-4 px-3 py-2.5 bg-emerald-400 text-white">→</span>
                         </span>
                       </div>
                     </div>
@@ -224,12 +220,10 @@ export default function LandingPage() {
                           Pick your problems. Get a clear summary you can send over.
                         </p>
                       </div>
-                      <div className="flex items-center gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
-                        <span className="text-xs font-bold text-gray-900 dark:text-white tracking-wider">
-                          Flag your problems
-                        </span>
-                        <span className="text-lg text-gray-900 dark:text-white transition-transform duration-200 group-hover:translate-x-1.5">
-                          →
+                      <div className="flex items-center gap-2 mt-auto pt-2 border-t border-gray-100 dark:border-gray-800 justify-end">
+                        <span className="text-sm font-bold text-white dark:text-gray-900 tracking-wider px-4 bg-gray-800 dark:bg-gray-200 inline-flex items-center">
+                          Flag similiar problems
+                          <span className="ml-3 -mr-4 px-3 py-2.5 bg-red-400 text-white">→</span>
                         </span>
                       </div>
                     </div>
