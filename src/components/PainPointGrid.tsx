@@ -2,10 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import {
-  groupsBusiness,
-  type PainGroup,
-} from "@/lib/pain-points";
+import { groupsBusiness, type PainGroup } from "@/lib/pain-points";
+import { PainFilterBar } from "@/components/pain/PainFilterBar";
+import { PainGroupItem } from "@/components/pain/PainGroupItem";
 
 const fieldGroups: Record<string, string[]> = {
   all: groupsBusiness.map((g) => g.id),
@@ -98,53 +97,32 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
     [],
   );
 
-  const groupSelectionCount = (group: PainGroup) =>
-    group.children.filter((c) => selected.has(c.id)).length;
+  const toggleExpand = useCallback(
+    (id: string) => toggleSet(expanded, setExpanded, id),
+    [expanded, toggleSet],
+  );
+
+  const toggleItem = useCallback(
+    (id: string) => toggleSet(selected, setSelected, id),
+    [selected, toggleSet],
+  );
+
+  const selectField = useCallback((id: string) => {
+    setField(id);
+    setShowFieldMenu(false);
+  }, []);
 
   return (
     <div className="bg-white/70 dark:bg-gray-950/70 border border-gray-200 dark:border-gray-800 p-3 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
       {/* Filter bar — outside scrollable area */}
-      <div className="flex items-start justify-between gap-x-2 px-2 py-1 mb-3 border-b border-gray-200 dark:border-gray-700 flex-wrap">
-        <div className="relative mb-2" ref={menuRef}>
-          <button
-            onClick={() => setShowFieldMenu((v) => !v)}
-            className="font-bold tracking-wider text-xs cursor-pointer transition-colors flex items-center gap-1.5 px-2 py-0.5 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200"
-          >
-            {fieldOptions.find((f) => f.id === field)?.label || "All Problems"}
-            <span
-              className={`inline-block transition-transform duration-200 ${showFieldMenu ? "rotate-180" : ""}`}
-            >
-              ▼
-            </span>
-          </button>
-          {showFieldMenu && (
-            <div className="absolute top-full left-0 mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg z-20 min-w-[140px]">
-              {fieldOptions.map((f) => (
-                <button
-                  key={f.id}
-                  onClick={() => {
-                    setField(f.id);
-                    setShowFieldMenu(false);
-                  }}
-                  className={`block w-full text-left text-xs px-3 py-1.5 cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors ${field === f.id ? "font-bold text-blue-600 dark:text-blue-400" : "text-gray-700 dark:text-gray-300"}`}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-        <span className="flex items-center gap-2 text-[9px]">
-          <span className="flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-            critical
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-            warning
-          </span>
-        </span>
-      </div>
+      <PainFilterBar
+        field={field}
+        fieldOptions={fieldOptions}
+        showFieldMenu={showFieldMenu}
+        menuRef={menuRef}
+        onToggleMenu={() => setShowFieldMenu((v) => !v)}
+        onSelectField={selectField}
+      />
 
       <div
         className={`text-left ${dark ? "bg-gray-900" : "bg-gray-100"}`}
@@ -158,100 +136,18 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
         }}
       >
         <div className="pr-4 pt-4 pb-2 min-h-auto">
-          {filtered.map((g) => {
-            return (
-              <div
-                key={g.id}
-                className="border-b-2 border-gray-300 dark:border-gray-600"
-              >
-                <div
-                  className={`flex ${groupSelectionCount(g) > 0 ? "bg-white dark:bg-gray-800" : ""}`}
-                >
-                  <div className="flex-1 min-w-0 flex">
-                    <button
-                      onClick={() => toggleGroupSelect(g)}
-                      className="flex-1 flex items-start justify-start gap-2 px-2 py-2 cursor-pointer transition-colors hover:bg-blue-100 dark:hover:bg-blue-950"
-                    >
-                      <span
-                        className={`shrink-0 w-3.5 h-3.5 flex items-center justify-center border text-[8px] font-bold ${groupSelectionCount(g) > 0 ? "bg-blue-500 border-blue-500 text-white" : "border-gray-400 dark:border-gray-500 text-transparent"}`}
-                      >
-                        {groupSelectionCount(g) > 0 ? "✓" : ""}
-                      </span>
-                      <span
-                        className={`text-xs text-left font-bold tracking-wider ${groupSelectionCount(g) > 0 ? "text-gray-900 dark:text-white" : dark ? "text-gray-400" : "text-gray-500"}`}
-                      >
-                        {g.label}
-                      </span>
-                    </button>
-                    <button
-                      onClick={() => toggleSet(expanded, setExpanded, g.id)}
-                      className="shrink-0 w-6 flex items-start justify-center pt-1 cursor-pointer hover:bg-blue-100 dark:hover:bg-blue-950 transition-colors"
-                      aria-label={expanded.has(g.id) ? "Collapse" : "Expand"}
-                    >
-                      <span
-                        className={`text-xs ${dark ? "text-gray-600" : "text-gray-400"}`}
-                      >
-                        {expanded.has(g.id) ? "▲" : "▼"}
-                      </span>
-                    </button>
-                  </div>
-                </div>
-
-                {expanded.has(g.id) && (
-                  <div
-                    className={
-                      groupSelectionCount(g) > 0
-                        ? "bg-white dark:bg-gray-800"
-                        : ""
-                    }
-                  >
-                    <div
-                      className="px-1 pb-1"
-                      style={{ paddingLeft: "1.2rem" }}
-                    >
-                      <span
-                        className={`text-[10px] ${dark ? "text-gray-300" : "text-gray-600"}`}
-                      >
-                        {g.description}
-                      </span>
-                    </div>
-                    {g.children.map((child) => {
-                      const isSel = selected.has(child.id);
-                      return (
-                        <div
-                          key={child.id}
-                          className="border-b border-gray-200 dark:border-gray-700"
-                        >
-                          <button
-                            onClick={() => toggleSet(selected, setSelected, child.id)}
-                            className={`flex items-start w-full px-3 py-1.5 cursor-pointer transition-colors hover:bg-blue-50 dark:hover:bg-blue-950 ${isSel ? "bg-white dark:bg-gray-800" : ""}`}
-                          >
-                            <span
-                              className={`shrink-0 w-3.5 h-3.5 mt-0.5 flex items-center justify-center border text-[8px] font-bold mr-2 ${isSel ? "bg-blue-500 border-blue-500 text-white" : "border-gray-400 dark:border-gray-500 text-transparent"}`}
-                            >
-                              {isSel ? "✓" : ""}
-                            </span>
-                            {child.severity && (
-                              <span
-                                className={`w-1.5 h-1.5 rounded-full mr-1.5 mt-1 flex-shrink-0 ${
-                                  child.severity === "critical"
-                                    ? "bg-red-500"
-                                    : "bg-amber-400"
-                                }`}
-                              />
-                            )}
-                            <span className="text-xs sm:text-sm font-bold tracking-wider text-blue-600 dark:text-blue-400 text-left">
-                              {child.label}
-                            </span>
-                          </button>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          {filtered.map((g) => (
+            <PainGroupItem
+              key={g.id}
+              group={g}
+              selected={selected}
+              expanded={expanded}
+              dark={dark}
+              onToggleGroup={toggleGroupSelect}
+              onToggleExpand={toggleExpand}
+              onToggleItem={toggleItem}
+            />
+          ))}
         </div>
       </div>
 
