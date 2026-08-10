@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { GridBg } from "@/components/GridBg";
+import { HeroBg } from "@/components/HeroBg";
 import { DiscoverProblems } from "@/components/DiscoverProblems";
 import { SectionDivider } from "@/components/SectionDivider";
 import { HeroCard } from "@/components/HeroCard";
@@ -35,7 +35,7 @@ export default function LandingPage() {
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950 overflow-x-hidden">
       <main className="flex-1 flex flex-col">
         <section className="relative min-h-screen flex flex-col justify-center pt-28 pb-20">
-          <GridBg />
+          <HeroBg />
 
           <div className="relative z-10 max-w-7xl mx-auto w-full px-6">
             <motion.div
@@ -60,12 +60,12 @@ export default function LandingPage() {
               {/* ── Hero text block with inverted background ── */}
               <motion.div
                 variants={item}
-                className="bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 backdrop-blur-sm p-3 mb-8 text-right"
+                className="p-3 mb-8 text-right"
               >
                 {/* Headline */}
                 <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2 text-4xl sm:text-5xl font-extrabold leading-tight">
                   <span className="flex flex-wrap items-baseline gap-x-3 justify-end">
-                    <span className="text-gray-900 dark:text-white">Is your software leaking money?</span>
+                    <span className="text-gray-900 dark:text-white" style={{ letterSpacing: "0.12em" }}>Is your software leaking money?</span>
                   </span>
                   <span className="flex flex-wrap items-baseline gap-x-3 justify-end">
                     <span className="text-gray-500 dark:text-gray-400 text-xl sm:text-2xl">Lets find out how much — in 1 minute.</span>

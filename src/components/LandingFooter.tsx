@@ -64,7 +64,7 @@ export function LandingFooter() {
         className="relative z-10 px-4 pb-0 select-none"
       >
         <span
-          className="block w-full text-transparent font-extrabold leading-none cursor-default hover:text-white transition-colors duration-500"
+          className="block w-full text-right text-transparent font-extrabold leading-none cursor-default hover:text-white transition-colors duration-500"
           style={{
             fontFamily: "var(--font-montserrat), sans-serif",
             WebkitTextStroke: "1px rgba(255,255,255,0.18)",
