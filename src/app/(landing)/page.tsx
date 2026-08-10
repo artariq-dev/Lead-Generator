@@ -128,7 +128,6 @@ export default function LandingPage() {
                       arrow: "bg-emerald-400",
                     }}
                     tags={["Frontend", "Backend", "Fullstack", "Cloud", "Automation", "Internal"]}
-                    title="Not sure what to build? Get a plan."
                     title="Got scattered ideas, need execution?"
                     body="A clear build path, budget range, and timeline — matched to you."
                     cta="Instant build plan"
