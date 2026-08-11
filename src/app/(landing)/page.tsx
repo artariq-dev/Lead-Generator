@@ -70,7 +70,7 @@ export default function LandingPage() {
                 </h1>
 
                 {/* Subhead with dark bg */}
-                <p className="mt-4 bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 px-4 py-4 text-gray-900 dark:text-white text-xl sm:text-2xl">Let's find out if it's working the way you want.</p>
+                <p className="mt-4 inline-block bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 px-4 py-2 text-gray-900 dark:text-white text-sm sm:text-base font-bold">Let's find out if it's working the way you want.</p>
 
                 {/* Tags */}
                 <ul className="mt-3 flex flex-wrap gap-1.5">
