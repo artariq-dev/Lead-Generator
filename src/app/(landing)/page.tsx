@@ -70,7 +70,7 @@ export default function LandingPage() {
                 </h1>
 
                 {/* Subhead with dark bg */}
-                <p className="mt-4 bg-gray-800 dark:bg-gray-200 text-gray-100 dark:text-gray-800 p-4 text-xl sm:text-2xl">Let's find if your software is doing what you want it to do.</p>
+                <p className="mt-4 bg-gray-200/60 dark:bg-white/10 border border-gray-300/50 dark:border-gray-600/50 px-4 py-4 text-gray-900 dark:text-white text-xl sm:text-2xl">Let's find out if it's working the way you want.</p>
 
                 {/* Tags */}
                 <ul className="mt-3 flex flex-wrap gap-1.5">
