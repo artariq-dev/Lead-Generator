@@ -138,7 +138,7 @@ export default function LandingPage() {
                       arrow: "bg-red-400",
                       underline: "decoration-red-400 group-hover:decoration-white dark:decoration-red-500 dark:group-hover:decoration-gray-900",
                     }}
-                    tags={["Growth", "Performance", "User Experience", "Security"]}
+                    tags={["User Experience", "Security", "Growth", "Performance"]}
                     title="Facing problems with your business software? Flag what feels similar."
                     body="Pick your problems. Get a clear summary & send over. Let's talk."
                     cta="Flag problems"
