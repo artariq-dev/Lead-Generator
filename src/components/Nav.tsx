@@ -6,8 +6,8 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const LINKS = [
   { href: "/audit", label: "Audit" },
-  { href: "/diagnose", label: "Diagnose" },
   { href: "/build", label: "Build" },
+  { href: "/diagnose", label: "Diagnose" },
 ];
 
 export function Nav() {

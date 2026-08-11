@@ -34,7 +34,7 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950 overflow-x-hidden">
       <main className="flex-1 flex flex-col">
-        <section className="relative min-h-screen flex flex-col justify-center pt-28 pb-20 bg-[#f5eee2] dark:bg-gray-950">
+        <section className="relative min-h-screen flex flex-col justify-center pt-28 pb-20 bg-[#faf7f0] dark:bg-gray-950">
           <HeroBg />
 
           <div className="relative z-10 max-w-7xl mx-auto w-full px-6">
@@ -65,7 +65,7 @@ export default function LandingPage() {
                 {/* Headline */}
                 <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2 text-4xl sm:text-5xl font-extrabold leading-tight">
                   <span className="text-gray-900 dark:text-white text-4xl sm:text-6xl" style={{ letterSpacing: "0.12em" }}>Is your software leaking money?</span>
-                  <span className="text-gray-900 dark:text-white text-xl sm:text-2xl" style={{ letterSpacing: "0.12em" }}>Let's find out in 1 minute — is it working the way you want?</span>
+                  <span className="text-gray-900 dark:text-white text-xl sm:text-2xl" style={{ letterSpacing: "0.12em" }}>Let&apos;s find out in 1 minute — is it working the way you want?</span>
                 </h1>
 
                 {/* Tags */}
@@ -102,7 +102,7 @@ export default function LandingPage() {
                       arrow: "bg-blue-400",
                       underline: "decoration-blue-400 group-hover:decoration-white dark:decoration-blue-600 dark:group-hover:decoration-gray-900",
                     }}
-                    tags={["Growth", "Cloud", "Fullstack", "Frontend", "Backend", "CRM", "Pipeline"]}
+                    tags={["Growth", "Performance", "User Experience", "Security"]}
                     title="Are you satisfied with your software? Thrilled? Delighted?"
                     body="Let's find out the problems and what to fix first."
                     cta="Instant report"
@@ -138,8 +138,8 @@ export default function LandingPage() {
                       arrow: "bg-red-400",
                       underline: "decoration-red-400 group-hover:decoration-white dark:decoration-red-500 dark:group-hover:decoration-gray-900",
                     }}
-                    tags={["CRM", "Growth", "Security", "Performance", "Ops", "Deployments"]}
-                    title="Facing problems? Flag what feels similar."
+                    tags={["Growth", "Performance", "User Experience", "Security"]}
+                    title="Facing problems with your business software? Flag what feels similar."
                     body="Pick your problems. Get a clear summary & send over. Let's talk."
                     cta="Flag problems"
                   />

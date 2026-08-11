@@ -129,7 +129,8 @@ export function calculateBuildResult(configId: string, answers: BuildAnswer[]): 
 
   const totalScore = categories.reduce((sum, c) => sum + c.score, 0);
   const totalMax = categories.reduce((sum, c) => sum + c.maxScore, 0);
-  const percentage = totalMax > 0 ? Math.max(0, Math.round((totalScore / totalMax) * 100)) : 0;
+  const overallScore = Math.max(0, totalScore);
+  const percentage = totalMax > 0 ? Math.max(0, Math.round((overallScore / totalMax) * 100)) : 0;
 
   const recommendation = deriveRecommendation(categories);
 
@@ -137,7 +138,7 @@ export function calculateBuildResult(configId: string, answers: BuildAnswer[]): 
     buildTypeId: configId,
     recommendation,
     categories,
-    overallScore: totalScore,
+    overallScore,
     maxScore: totalMax,
     percentage,
   };
