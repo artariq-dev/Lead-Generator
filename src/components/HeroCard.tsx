@@ -45,7 +45,7 @@ export function HeroCard({
       <div className="relative z-10 h-1.5 bg-gray-900 dark:bg-white transition-colors duration-500 group-hover:bg-white dark:group-hover:bg-gray-900 w-full" />
       <div className="relative z-10 flex flex-col flex-1 p-6 gap-4">
         <div className="flex items-center justify-between">
-          <span className={`text-sm font-bold uppercase tracking-[0.2em] text-gray-900 dark:text-white underline decoration-2 underline-offset-4 transition-colors duration-500 group-hover:text-white dark:group-hover:text-gray-900 ${accent.underline ?? ""}`}>
+          <span className={`text-xs font-bold uppercase tracking-[0.2em] text-gray-900 dark:text-white underline decoration-2 underline-offset-4 transition-colors duration-500 group-hover:text-white dark:group-hover:text-gray-900 ${accent.underline ?? ""}`}>
             {label}
           </span>
           {badge && (
