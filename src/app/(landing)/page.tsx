@@ -76,8 +76,8 @@ export default function LandingPage() {
                 <ul className="mt-3 flex flex-wrap gap-1.5">
                   {[
                     ["8 Questions", "bg-blue-500"],
-                    ["Instant result", "bg-emerald-500"],
-                    ["Clear plan", "bg-red-500"],
+                      ["Instant Evaluation", "bg-red-500"],
+                    ["Clear plan", "bg-emerald-500"],
                   ].map(([text, color]) => (
                     <li key={text} className="flex items-center gap-1.5 px-2 py-1 bg-gray-800 text-gray-100 dark:bg-gray-200 dark:text-gray-800 text-[10px] sm:text-xs font-semibold">
                       <span className={`w-2 h-2 ${color}`} />
