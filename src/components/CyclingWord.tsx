@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const WORDS = ["Satisfied", "Thrilled", "Delighted", "Content"];
-const INTERVAL = 2800;
+const INTERVAL = 2000;
 
 export function CyclingWord() {
   const [index, setIndex] = useState(0);
