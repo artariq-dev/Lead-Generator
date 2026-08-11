@@ -67,11 +67,13 @@ export default function LandingPage() {
                 <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2 text-4xl sm:text-5xl font-extrabold leading-tight">
                   <span className="text-gray-900 dark:text-white text-5xl sm:text-7xl" style={{ letterSpacing: "0.12em" }}><CyclingWord /></span>
                   <span className="text-gray-900 dark:text-white text-3xl sm:text-4xl" style={{ letterSpacing: "0.12em" }}>with your software — are you?</span>
-                  <span className="text-gray-500 dark:text-gray-400 text-xl sm:text-2xl">Lets find if your software doing what you want it to do.</span>
                 </h1>
 
+                {/* Subhead with dark bg */}
+                <p className="mt-4 bg-gray-800 dark:bg-gray-200 text-gray-100 dark:text-gray-800 p-4 text-xl sm:text-2xl">Let's find if your software is doing what you want it to do.</p>
+
                 {/* Tags */}
-                <ul className="mt-4 flex flex-wrap gap-1.5">
+                <ul className="mt-3 flex flex-wrap gap-1.5">
                   {[
                     ["8 Questions", "bg-blue-500"],
                     ["Instant result", "bg-emerald-500"],
