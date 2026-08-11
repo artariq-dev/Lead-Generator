@@ -33,7 +33,7 @@ export function PainGroupItem({
             className="flex-1 flex items-start justify-start gap-2 px-2 py-2 cursor-pointer transition-colors hover:bg-blue-100 dark:hover:bg-blue-950"
           >
             <span
-              className={`shrink-0 w-3.5 h-3.5 flex items-center justify-center border text-[8px] font-bold ${selectedCount > 0 ? "bg-blue-500 border-blue-500 text-white" : "border-gray-400 dark:border-gray-500 text-transparent"}`}
+              className={`shrink-0 w-3.5 h-3.5 flex items-center justify-center border text-[8px] font-bold ${selectedCount > 0 ? "bg-gray-900 border-gray-900 text-white dark:bg-white dark:border-white dark:text-gray-900" : "border-gray-400 dark:border-gray-500 text-transparent"}`}
             >
               {selectedCount > 0 ? "✓" : ""}
             </span>
@@ -74,7 +74,7 @@ export function PainGroupItem({
                   className={`flex items-start w-full px-3 py-1.5 cursor-pointer transition-colors hover:bg-blue-50 dark:hover:bg-blue-950 ${isSel ? "bg-white dark:bg-gray-800" : ""}`}
                 >
                   <span
-                    className={`shrink-0 w-3.5 h-3.5 mt-0.5 flex items-center justify-center border text-[8px] font-bold mr-2 ${isSel ? "bg-blue-500 border-blue-500 text-white" : "border-gray-400 dark:border-gray-500 text-transparent"}`}
+                    className={`shrink-0 w-3.5 h-3.5 mt-0.5 flex items-center justify-center border text-[8px] font-bold mr-2 ${isSel ? "bg-gray-900 border-gray-900 text-white dark:bg-white dark:border-white dark:text-gray-900" : "border-gray-400 dark:border-gray-500 text-transparent"}`}
                   >
                     {isSel ? "✓" : ""}
                   </span>

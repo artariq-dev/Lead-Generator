@@ -16,7 +16,7 @@ export default function DiagnosePage() {
             <DotIcon id="diagnose" color="currentColor" />
           </span>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-            Identify your business pain points
+            Identify your business software&apos;s pain points
           </h1>
         </div>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">

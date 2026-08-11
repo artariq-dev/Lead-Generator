@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { groupsBusiness, type PainGroup } from "@/lib/pain-points";
 import { PainFilterBar } from "@/components/pain/PainFilterBar";
@@ -8,52 +8,25 @@ import { PainGroupItem } from "@/components/pain/PainGroupItem";
 
 const fieldGroups: Record<string, string[]> = {
   all: groupsBusiness.map((g) => g.id),
-  frontend: ["performance", "coding", "growth"],
-  backend: ["building", "coding", "ops"],
-  fullstack: [
-    "shipping",
-    "building",
-    "performance",
-    "planning",
-    "growth",
-    "team",
-    "crm",
-  ],
-  devops: ["monitoring", "deploying", "shipping", "ops"],
-  cloud: ["monitoring", "security", "ops"],
+  growth: ["growth", "crm", "planning", "team"],
+  performance: ["performance", "monitoring", "deploying", "ops"],
+  ux: ["building", "coding", "planning"],
   security: ["security"],
-  crm: ["crm", "growth", "planning", "team"],
-  growth: ["growth", "crm"],
 };
 
 const fieldOptions = [
-  { id: "all", label: "All Problems" },
-  { id: "crm", label: "CRM" },
+  { id: "all", label: "All" },
   { id: "growth", label: "Growth" },
-  { id: "fullstack", label: "FullStack" },
-  { id: "frontend", label: "Frontend" },
-  { id: "backend", label: "Backend" },
-  { id: "devops", label: "DevOps" },
-  { id: "cloud", label: "Cloud" },
+  { id: "performance", label: "Performance" },
+  { id: "ux", label: "User Experience" },
+  { id: "security", label: "Security" },
 ];
 
 export function PainPointGrid({ height = "280px" }: { height?: string }) {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [field, setField] = useState("all");
-  const [showFieldMenu, setShowFieldMenu] = useState(false);
   const [dark, setDark] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setShowFieldMenu(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
 
   const filtered = useMemo(
     () => groupsBusiness.filter((g) => fieldGroups[field]?.includes(g.id)),
@@ -109,7 +82,6 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
 
   const selectField = useCallback((id: string) => {
     setField(id);
-    setShowFieldMenu(false);
   }, []);
 
   return (
@@ -118,10 +90,9 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
       <PainFilterBar
         field={field}
         fieldOptions={fieldOptions}
-        showFieldMenu={showFieldMenu}
-        menuRef={menuRef}
-        onToggleMenu={() => setShowFieldMenu((v) => !v)}
         onSelectField={selectField}
+        total={filtered.length}
+        totalGroups={groupsBusiness.length}
       />
 
       <div
@@ -159,7 +130,7 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
         ) : (
           <Link
             href={`/diagnose/result?pains=${Array.from(selected).join(",")}`}
-            className="block w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-blue-600 text-white pixel-btn border border-blue-700 shadow-[3px_3px_0px_#1d4ed8] hover:shadow-[5px_5px_0px_#1d4ed8]"
+            className="block w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-[#f0e6d4] text-gray-900 pixel-btn border border-[#e0d2b4] shadow-[3px_3px_0px_#d4c5a8] hover:shadow-[5px_5px_0px_#d4c5a8]"
           >
             <span>{`Send ${selected.size} problem${selected.size !== 1 ? "s" : ""} `}</span>
             <span className="text-base">→</span>
