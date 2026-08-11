@@ -1,38 +1,31 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-const WORDS = [
-  { text: "score",       color: "text-blue-400 dark:text-blue-500"        },
-  { text: "build path",  color: "text-emerald-400 dark:text-emerald-500"  },
-  { text: "pain points", color: "text-red-400 dark:text-red-500"          },
-];
+const WORDS = ["Satisfied", "Thrilled", "Delighted", "Content"];
 const INTERVAL = 2800;
 
 export function CyclingWord() {
   const [index, setIndex] = useState(0);
-  const [phase, setPhase] = useState<"in" | "out">("in");
 
   useEffect(() => {
-    const outTimer  = setTimeout(() => setPhase("out"), INTERVAL - 400);
-    const nextTimer = setTimeout(() => {
-      setIndex((i) => (i + 1) % WORDS.length);
-      setPhase("in");
-    }, INTERVAL);
-    return () => { clearTimeout(outTimer); clearTimeout(nextTimer); };
+    const t = setTimeout(() => setIndex((i) => (i + 1) % WORDS.length), INTERVAL);
+    return () => clearTimeout(t);
   }, [index]);
 
   return (
-    <span className="relative inline-block align-bottom px-2 bg-gray-900 dark:bg-white overflow-hidden" style={{ paddingTop: "0.08em", paddingBottom: "0.08em" }}>
-      {/* invisible spacer — widest word keeps layout stable */}
-      <span className="invisible" aria-hidden>pain points</span>
-      <span
-        key={index}
-        className={`absolute inset-0 px-2 flex items-center ${WORDS[index].color} ${phase === "in" ? "word-in" : "word-out"}`}
-        style={{ willChange: "transform, opacity", paddingTop: "0.08em", paddingBottom: "0.08em" }}
+    <AnimatePresence mode="wait">
+      <motion.span
+        key={WORDS[index]}
+        className="inline-block text-blue-600 dark:text-blue-400"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4 }}
       >
-        {WORDS[index].text}
-      </span>
-    </span>
+        {WORDS[index]}
+      </motion.span>
+    </AnimatePresence>
   );
 }
