@@ -7,6 +7,7 @@ export interface HeroCardAccent {
   icon: string;
   badge?: string;
   arrow: string;
+  underline?: string;
 }
 
 export interface HeroCardProps {
@@ -44,7 +45,7 @@ export function HeroCard({
       <div className="relative z-10 h-1.5 bg-gray-900 dark:bg-white transition-colors duration-500 group-hover:bg-white dark:group-hover:bg-gray-900 w-full" />
       <div className="relative z-10 flex flex-col flex-1 p-6 gap-4">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 transition-colors duration-500 group-hover:text-gray-300 dark:group-hover:text-gray-400">
+          <span className={`text-sm font-bold uppercase tracking-[0.2em] text-gray-900 dark:text-white underline decoration-2 underline-offset-4 transition-colors duration-500 group-hover:text-white dark:group-hover:text-gray-900 ${accent.underline ?? ""}`}>
             {label}
           </span>
           {badge && (
@@ -79,7 +80,7 @@ export function HeroCard({
           </p>
         </div>
         <div className="flex items-center gap-2 mt-auto pt-2 border-t border-gray-100 dark:border-gray-800 transition-colors duration-500 group-hover:border-gray-700 dark:group-hover:border-gray-300 justify-end">
-          <span className="text-sm font-bold text-white dark:text-gray-900 tracking-wider px-4 bg-gray-800 dark:bg-gray-200 inline-flex items-center transition-colors duration-500 group-hover:bg-white group-hover:text-gray-900 dark:group-hover:bg-gray-900 dark:group-hover:text-white">
+          <span className="text-xs font-bold text-white dark:text-gray-900 tracking-wider px-4 bg-gray-800 dark:bg-gray-200 inline-flex items-center transition-colors duration-500 group-hover:bg-white group-hover:text-gray-900 dark:group-hover:bg-gray-900 dark:group-hover:text-white">
             {cta}
             <span className={`ml-3 -mr-4 px-3 py-2.5 text-white ${accent.arrow}`}>→</span>
           </span>
