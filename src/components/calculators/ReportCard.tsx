@@ -26,18 +26,22 @@ function sev(pct: number): { label: string; badge: string } {
 }
 
 const worstCategoryMessages: Record<string, string> = {
-  cost: "Unchecked cloud costs leak 20–35% of your bill into idle resources and over-provisioned instances.",
-  security: "A breach at this level goes undiscovered for weeks on average — and costs 6 figures to clean up.",
-  reliability: "Every hour of downtime costs mid-size companies $260K. Without a recovery plan, that number gets ugly fast.",
-  monitoring: "If users find outages before you do, you're losing trust with every incident. Silent failures are the most expensive kind.",
-  foundation: "If users can't sign up smoothly, you're losing 10–15% of potential users before they even see your product.",
-  experience: "60% of traffic is mobile. If your app feels broken on a phone, you're invisible to more than half your audience.",
-  growth: "Invisible apps don't grow. If you can't be found or measured, you can't be improved.",
-  quality: "Every untested deploy is a future incident waiting for the worst possible moment to strike.",
-  speed: "Slow deploys compound into slow companies. Every extra day in the pipeline is a day competitors ship features your users don't have.",
-  quality_gates: "Without quality gates, you're shipping known-broken code. It's not 'if' it becomes an incident — it's 'when.'",
-  observability: "No audit trail = no ability to answer 'what broke?' after an incident. You're flying blind.",
-  process: "Single-point-of-failure engineers put your entire pipeline at risk. If only one person can deploy, you're one resignation away from chaos.",
+  attract: "If you don't know which channels bring in paying customers, you're spending money blind. That's money you could put back into the business.",
+  capture: "Leads that go cold are deals you already paid to get. A small follow-up gap quietly costs you customers every single week.",
+  automate: "Every hour spent on copy-paste and chasing is an hour you're not growing the business. This is the easiest place to win time back.",
+  invest: "Marketing you can't measure is marketing you can't trust. If you don't know what works, you can't double down on what does.",
+  speed: "Slow software is expensive software. Every second of waiting is a customer deciding whether you're worth the trouble.",
+  stability: "Outages are silent customer losses. If you can't get back up fast, every minute down is trust you can't easily rebuild.",
+  visibility: "If users find problems before you do, you're always one step behind. Silent failures are the most expensive kind.",
+  capacity: "If you can't handle growth or recover data, you're one accident away from losing everything you've built.",
+  onboarding: "If new customers can't figure it out on their own, you're losing them before they ever see what you offer.",
+  usability: "Confusing software makes customers blame themselves — then leave. The fix is often smaller than you think.",
+  mobile: "Most people use a phone. If it's awkward there, you're invisible to more than half your audience.",
+  feedback: "If you can't hear what's annoying users, you can't fix it — and they'll stop telling you long before they leave.",
+  protection: "A data leak you can't detect is a leak you can't contain. Trust takes years to build and seconds to lose.",
+  access: "Unknown access is an open door. You can't protect data if you don't know who can reach it.",
+  monitoring: "You can't respond to a threat you can't see. Unnoticed break-ins are the ones that hurt the most.",
+  recovery: "Without a tested plan and backups, a bad day becomes a business-ending one. Hope is not a strategy.",
 };
 
 function getWorstCategory(result: CalculatorResult) {

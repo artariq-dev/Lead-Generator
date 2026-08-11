@@ -6,13 +6,10 @@ import { StepForm } from "@/components/StepForm";
 import { DotIcon } from "@/components/DotIcon";
 
 const cardColors: Record<string, string> = {
-  cloud:    "#3b82f6",
-  fullstack:"#8b5cf6",
-  frontend: "#10b981",
-  backend:  "#ef4444",
-  crm:      "#f59e0b",
-  pipeline: "#f97316",
-  growth:   "#14b8a6",
+  growth:      "#14b8a6",
+  performance: "#3b82f6",
+  ux:          "#8b5cf6",
+  security:    "#ef4444",
 };
 
 export async function generateMetadata({
@@ -25,7 +22,7 @@ export async function generateMetadata({
   if (!config) return {};
   return {
     title: config.name,
-    description: `${config.tagline} 8 questions. Instant scorecard. No sign-up.`,
+    description: `${config.tagline} 8 plain questions. Instant scorecard. No sign-up.`,
   };
 }
 

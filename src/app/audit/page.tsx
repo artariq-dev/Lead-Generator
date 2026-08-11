@@ -6,17 +6,14 @@ import { accents, type Accent } from "@/lib/accents";
 
 export const metadata: Metadata = {
   title: "Software Audit",
-  description: "Pick your area — cloud, fullstack, or pipeline. 8 questions. Instant scorecard. Find out what's wrong and what to fix first.",
+  description: "Pick the area that matters most — growth, performance, user experience, or security. 8 plain questions. Instant scorecard. Find out what's wrong and what to fix first.",
 };
 
 const cardMeta: Record<string, { accent: Accent; badge: string }> = {
-  cloud:     { accent: accents.blue,     badge: "High Stakes" },
-  fullstack: { accent: accents.violet,   badge: "Popular" },
-  frontend:  { accent: accents.emerald,  badge: "Quick Win" },
-  backend:   { accent: accents.red,      badge: "Critical" },
-  crm:       { accent: accents.amber,    badge: "Revenue" },
-  pipeline:  { accent: accents.orange,   badge: "Speed" },
-  growth:    { accent: accents.teal,     badge: "Scale Up" },
+  growth:      { accent: accents.teal,     badge: "Scale Up" },
+  performance: { accent: accents.blue,     badge: "Speed" },
+  ux:          { accent: accents.violet,   badge: "Experience" },
+  security:    { accent: accents.red,      badge: "Critical" },
 };
 
 export default function AssessPage() {
