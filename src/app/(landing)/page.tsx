@@ -64,7 +64,7 @@ export default function LandingPage() {
               >
                 {/* Headline */}
                 <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2 text-4xl sm:text-5xl font-extrabold leading-tight">
-                  <span className="text-gray-900 dark:text-white text-4xl sm:text-6xl" style={{ letterSpacing: "0.12em" }}>Is your software leaking money?</span>
+                  <span className="text-gray-900 dark:text-white text-4xl sm:text-6xl" style={{ letterSpacing: "0.12em" }}>What&apos;s your software quietly costing you?</span>
                   <span className="text-gray-900 dark:text-white text-xl sm:text-2xl" style={{ letterSpacing: "0.12em" }}>Let&apos;s find out in 1 minute — is it working the way you want?</span>
                 </h1>
 
