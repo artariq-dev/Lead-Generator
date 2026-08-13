@@ -7,7 +7,9 @@ import { HeroBg } from "@/components/HeroBg";
 import { DiscoverProblems } from "@/components/DiscoverProblems";
 import { SectionDivider } from "@/components/SectionDivider";
 import { HeroCard } from "@/components/HeroCard";
+import { MiniCard } from "@/components/MiniCard";
 import { LandingFooter } from "@/components/LandingFooter";
+import { calculators } from "@/lib/calculators/config";
 
 // Framer Motion requires a typed tuple for cubic-bezier ease
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -26,6 +28,34 @@ const itemFast: Variants = {
   hidden: { opacity: 0, y: 14 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.4, ease: EASE } },
 };
+
+const AUDIT_ORDER = ["growth", "ux", "performance", "security"] as const;
+
+const AUDIT_ACCENTS: Record<string, { icon: string }> = {
+  growth: {
+    icon: "text-teal-400 dark:text-teal-600 group-hover:text-teal-300 dark:group-hover:text-teal-700",
+  },
+  ux: {
+    icon: "text-violet-400 dark:text-violet-600 group-hover:text-violet-300 dark:group-hover:text-violet-700",
+  },
+  performance: {
+    icon: "text-blue-400 dark:text-blue-600 group-hover:text-blue-300 dark:group-hover:text-blue-700",
+  },
+  security: {
+    icon: "text-red-400 dark:text-red-500 group-hover:text-red-300 dark:group-hover:text-red-700",
+  },
+};
+
+const AUDIT_CARDS = AUDIT_ORDER.map((id) => {
+  const config = calculators[id];
+  return {
+    href: `/audit/${config.id}`,
+    label: config.name,
+    iconId: config.id,
+    tags: config.categories.map((c) => c.short),
+    accent: AUDIT_ACCENTS[id],
+  };
+});
 
 export default function LandingPage() {
   const [halfHeight, setHalfHeight] = useState(0);
@@ -86,27 +116,16 @@ export default function LandingPage() {
               {/* ── Cards ── */}
               <motion.div
                 variants={container}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch scroll-mt-24"
               >
 
-                {/* Audit */}
+                {/* Audit — 4 mini evaluators */}
                 <motion.div variants={itemFast}>
-                  <HeroCard
-                    href="/audit"
-                    label="Audit"
-                    badge="Primary"
-                    iconId="audit"
-                    accent={{
-                      icon: "text-blue-400 dark:text-blue-600 group-hover:text-blue-300 dark:group-hover:text-blue-700",
-                      badge: "text-blue-500 dark:text-blue-400 border-blue-200 dark:border-blue-800 group-hover:text-white group-hover:border-white/60 dark:group-hover:text-blue-800 dark:group-hover:border-blue-900",
-                      arrow: "bg-blue-400",
-                      underline: "decoration-blue-400 group-hover:decoration-white dark:decoration-blue-600 dark:group-hover:decoration-gray-900",
-                    }}
-                    tags={["Growth", "Performance", "User Experience", "Security"]}
-                    title="Are you satisfied with your software? Thrilled? Delighted?"
-                    body="Let's find out the problems and what to fix first."
-                    cta="Instant report"
-                  />
+                  <div className="grid grid-cols-2 gap-2 h-full">
+                    {AUDIT_CARDS.map((card) => (
+                      <MiniCard key={card.href} {...card} />
+                    ))}
+                  </div>
                 </motion.div>
 
                 {/* Build */}
