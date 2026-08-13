@@ -5,6 +5,7 @@ import { DotIcon } from "@/components/DotIcon";
 
 export interface MiniCardAccent {
   icon: string;
+  arrow: string;
 }
 
 export interface MiniCardProps {
@@ -31,7 +32,7 @@ export function MiniCard({ href, label, iconId, accent, tags }: MiniCardProps) {
             <span className={`shrink-0 transition-colors duration-500 ${accent.icon}`}>
               <DotIcon id={iconId} color="currentColor" scale={1.15} />
             </span>
-            <span className="text-gray-400 dark:text-gray-600 text-base leading-none transition-colors duration-500 group-hover:text-white dark:group-hover:text-gray-900">
+            <span className={`flex items-center justify-center w-6 h-6 text-white ${accent.arrow}`}>
               →
             </span>
           </div>

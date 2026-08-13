@@ -31,18 +31,22 @@ const itemFast: Variants = {
 
 const AUDIT_ORDER = ["growth", "ux", "performance", "security"] as const;
 
-const AUDIT_ACCENTS: Record<string, { icon: string }> = {
+const AUDIT_ACCENTS: Record<string, { icon: string; arrow: string }> = {
   growth: {
     icon: "text-teal-400 dark:text-teal-600 group-hover:text-teal-300 dark:group-hover:text-teal-700",
+    arrow: "bg-teal-400",
   },
   ux: {
     icon: "text-violet-400 dark:text-violet-600 group-hover:text-violet-300 dark:group-hover:text-violet-700",
+    arrow: "bg-violet-400",
   },
   performance: {
     icon: "text-blue-400 dark:text-blue-600 group-hover:text-blue-300 dark:group-hover:text-blue-700",
+    arrow: "bg-blue-400",
   },
   security: {
     icon: "text-red-400 dark:text-red-500 group-hover:text-red-300 dark:group-hover:text-red-700",
+    arrow: "bg-red-400",
   },
 };
 
