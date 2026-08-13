@@ -78,10 +78,10 @@ function ReportContent() {
 
         {/* Try another calculator */}
         <div className="flex flex-col gap-2">
-          <Link href="/audit" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+          <Link href="/" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
             ← Try another evaluator
           </Link>
-          <Link href="/audit" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+          <Link href="/" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
             ← Back
           </Link>
         </div>

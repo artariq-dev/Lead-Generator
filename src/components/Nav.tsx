@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 
 const LINKS = [
-  { href: "/audit", label: "Audit" },
   { href: "/build", label: "Build" },
   { href: "/diagnose", label: "Diagnose" },
 ];
