@@ -7,6 +7,7 @@ interface Question {
 interface Category {
   id: string;
   label: string;
+  short: string;
 }
 
 export interface CalculatorConfig {
@@ -25,10 +26,10 @@ export const calculators: Record<string, CalculatorConfig> = {
     tagline: "Is your business set up to grow — or quietly holding itself back?",
     description: "8 questions to find out if you're attracting customers, following up fast enough, and spending where it actually pays off.",
     categories: [
-      { id: "attract", label: "Attracting Customers" },
-      { id: "capture", label: "Turning Interest Into Sales" },
-      { id: "automate", label: "Doing the Busywork" },
-      { id: "invest", label: "Spending & Tracking" },
+      { id: "attract", label: "Attracting Customers", short: "Attract" },
+      { id: "capture", label: "Turning Interest Into Sales", short: "Convert" },
+      { id: "automate", label: "Doing the Busywork", short: "Automate" },
+      { id: "invest", label: "Spending & Tracking", short: "Track" },
     ],
     questions: [
       {
@@ -120,10 +121,10 @@ export const calculators: Record<string, CalculatorConfig> = {
     tagline: "Is your software fast enough — or is slowness quietly costing you customers?",
     description: "8 questions to find out if your software is fast, stays up, and can handle growth — or if problems are piling up behind the scenes.",
     categories: [
-      { id: "speed", label: "Speed" },
-      { id: "stability", label: "Stays Online" },
-      { id: "visibility", label: "Knows When It Breaks" },
-      { id: "capacity", label: "Keeps Up With Growth" },
+      { id: "speed", label: "Speed", short: "Speed" },
+      { id: "stability", label: "Stays Online", short: "Stability" },
+      { id: "visibility", label: "Knows When It Breaks", short: "Monitoring" },
+      { id: "capacity", label: "Keeps Up With Growth", short: "Scale" },
     ],
     questions: [
       {
@@ -215,10 +216,10 @@ export const calculators: Record<string, CalculatorConfig> = {
     tagline: "Do people actually enjoy using it — or do they give up in frustration?",
     description: "8 questions to find out if your software is easy, pleasant, and mobile-friendly — or quietly driving people away.",
     categories: [
-      { id: "onboarding", label: "Getting Started" },
-      { id: "usability", label: "Everyday Use" },
-      { id: "mobile", label: "On a Phone" },
-      { id: "feedback", label: "What Users Tell You" },
+      { id: "onboarding", label: "Getting Started", short: "Onboarding" },
+      { id: "usability", label: "Everyday Use", short: "Usability" },
+      { id: "mobile", label: "On a Phone", short: "Mobile" },
+      { id: "feedback", label: "What Users Tell You", short: "Feedback" },
     ],
     questions: [
       {
@@ -310,10 +311,10 @@ export const calculators: Record<string, CalculatorConfig> = {
     tagline: "Is your customer data safe — and would you know if it wasn't?",
     description: "8 questions to find out if your data and your customers' trust are protected — or if a breach could go unnoticed until it's too late.",
     categories: [
-      { id: "protection", label: "Keeping Data Safe" },
-      { id: "access", label: "Who Can Get In" },
-      { id: "monitoring", label: "Watching For Trouble" },
-      { id: "recovery", label: "If The Worst Happens" },
+      { id: "protection", label: "Keeping Data Safe", short: "Data" },
+      { id: "access", label: "Who Can Get In", short: "Access" },
+      { id: "monitoring", label: "Watching For Trouble", short: "Monitoring" },
+      { id: "recovery", label: "If The Worst Happens", short: "Recovery" },
     ],
     questions: [
       {
