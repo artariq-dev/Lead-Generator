@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: baseUrl, lastModified: new Date() },
-    { url: `${baseUrl}/audit`, lastModified: new Date() },
     ...calculatorRoutes,
   ];
 }

@@ -11,16 +11,16 @@ const nextConfig: NextConfig = {
     }));
 
     return [
-      // Top-level /assess → /audit
+      // Top-level /assess → home
       {
         source: "/assess",
-        destination: "/audit",
+        destination: "/",
         permanent: true,
       },
-      // /assess/report/* → /audit (reports require query params, can't redirect directly)
+      // /assess/report/* → home (reports require query params, can't redirect directly)
       {
         source: "/assess/report/:id",
-        destination: "/audit",
+        destination: "/",
         permanent: true,
       },
       // Individual calculator redirects
