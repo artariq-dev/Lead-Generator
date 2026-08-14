@@ -21,7 +21,7 @@ export function MiniCard({ href, label, iconId, accent, tags }: MiniCardProps) {
   return (
     <Link
       href={href}
-      className="group relative flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 shadow-[0_4px_16px_rgba(0,0,0,0.25)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-200 overflow-hidden"
+      className="group relative flex flex-col h-full border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-900 rounded-[4px] shadow-[0_8px_24px_rgba(0,0,0,0.3)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.15)] hover:-translate-y-1 transition-all duration-200 overflow-hidden"
     >
       <div
         aria-hidden

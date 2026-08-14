@@ -44,10 +44,6 @@ h1, h2, h3 {
   letter-spacing: -0.02em;
 }
 
-[class*="rounded"]:not(.rounded-full) {
-  border-radius: 0;
-}
-
 /* ── Hero grid background ── */
 @keyframes grid-drift {
   from { background-position: 0 0; }

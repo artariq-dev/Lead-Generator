@@ -98,7 +98,7 @@ export default function LandingPage() {
               {/* ── Hero text block with inverted background ── */}
               <motion.div
                 variants={item}
-                className="my-6 text-left"
+                className="mt-8 mb-12 text-left"
               >
                 {/* Headline */}
                 <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2 text-4xl sm:text-5xl font-extrabold leading-tight">
@@ -106,13 +106,13 @@ export default function LandingPage() {
                   <span className="text-gray-900 dark:text-white text-xl sm:text-2xl" style={{ letterSpacing: "0.12em" }}>Let&apos;s find out, pick a path below.</span>
                 </h1>
 
-
+                <div className="mt-6 mb-0 h-px w-full bg-gray-900 dark:bg-white" />
               </motion.div>
 
               {/* ── Cards ── */}
               <motion.div
                 variants={container}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch scroll-mt-24"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-stretch scroll-mt-24"
               >
 
                 {/* Audit — 4 mini evaluators */}
