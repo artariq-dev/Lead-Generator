@@ -16,7 +16,7 @@ export function Nav() {
   if (!isHome) {
     return (
       <div className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none px-4">
-        <div className="pointer-events-auto flex items-center gap-3 bg-gray-950 dark:bg-white rounded-2xl px-4 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
+        <div className="pointer-events-auto flex items-center gap-3 bg-gray-950 dark:bg-white px-4 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
           <Link href="/" className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-900 transition-colors">
             <span className="text-sm">←</span> Go to start
           </Link>
@@ -29,7 +29,7 @@ export function Nav() {
 
   return (
     <div className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none px-4">
-      <div className="pointer-events-auto relative w-full max-w-max bg-gray-950 dark:bg-white rounded-2xl px-4 py-2.5 sm:px-5 sm:py-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
+      <div className="pointer-events-auto relative w-full max-w-max bg-gray-950 dark:bg-white px-4 py-2.5 sm:px-5 sm:py-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
         <div className="flex items-center gap-4 sm:gap-6">
           {/* Portfolio button */}
           <a
