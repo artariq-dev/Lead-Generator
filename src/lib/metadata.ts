@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "ask.artariq",
-  tagline: "Your software is leaking money. Find out how much.",
+  tagline: "Is your software working the way you want?",
   description:
-    "Free software audit tool by AbdurRehman Tariq. Pick a stack, answer 8 questions, get an instant scorecard. Covers cloud, full-stack, CRM, frontend, backend, and pipeline audits — plus a build guide and pain point diagnosis.",
+    "Free software audit tool by AbdurRehman Tariq. Is your software working the way you want? Pick a path — audit your cloud, full-stack, CRM, frontend, backend, or pipeline; get a build plan; or diagnose your pain points. 8 questions, instant scorecard, no sign-up.",
   email: "artariq.dev.1@gmail.com",
 };
 

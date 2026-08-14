@@ -74,7 +74,7 @@ export default function RootLayout({
               "@type": "SoftwareApplication",
               "name": "ask.artariq",
               "url": "https://ask.artariq.dev",
-              "description": "Free software audit tool. Pick a stack, answer 8 questions, get an instant scorecard. Covers cloud, full-stack, CRM, frontend, backend, and pipeline audits — plus a build guide and pain point diagnosis.",
+              "description": "Free software audit tool. Is your software working the way you want? Pick a path — audit your cloud, full-stack, CRM, frontend, backend, or pipeline; get a build plan; or diagnose your pain points. 8 questions, instant scorecard, no sign-up.",
               "applicationCategory": "DeveloperApplication",
               "operatingSystem": "Web",
               "offers": {

@@ -31,22 +31,26 @@ const itemFast: Variants = {
 
 const AUDIT_ORDER = ["growth", "ux", "performance", "security"] as const;
 
-const AUDIT_ACCENTS: Record<string, { icon: string; arrow: string }> = {
+const AUDIT_ACCENTS: Record<string, { icon: string; arrow: string; bar: string }> = {
   growth: {
     icon: "text-teal-400 dark:text-teal-600 group-hover:text-teal-300 dark:group-hover:text-teal-700",
     arrow: "bg-teal-400",
+    bar: "bg-teal-400",
   },
   ux: {
     icon: "text-violet-400 dark:text-violet-600 group-hover:text-violet-300 dark:group-hover:text-violet-700",
     arrow: "bg-violet-400",
+    bar: "bg-violet-400",
   },
   performance: {
     icon: "text-blue-400 dark:text-blue-600 group-hover:text-blue-300 dark:group-hover:text-blue-700",
     arrow: "bg-blue-400",
+    bar: "bg-blue-400",
   },
   security: {
     icon: "text-red-400 dark:text-red-500 group-hover:text-red-300 dark:group-hover:text-red-700",
     arrow: "bg-red-400",
+    bar: "bg-red-400",
   },
 };
 
@@ -80,7 +84,7 @@ export default function LandingPage() {
             >
 
               {/* ── Eyebrow — Software Audit Tool ── */}
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3">
                 <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.3em] text-gray-800 dark:text-white select-none">
                   Free Software Audit
                 </span>
@@ -94,27 +98,15 @@ export default function LandingPage() {
               {/* ── Hero text block with inverted background ── */}
               <motion.div
                 variants={item}
-                className="mb-6 text-left"
+                className="my-6 text-left"
               >
                 {/* Headline */}
                 <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2 text-4xl sm:text-5xl font-extrabold leading-tight">
-                  <span className="text-gray-900 dark:text-white text-4xl sm:text-6xl" style={{ letterSpacing: "0.12em" }}>What&apos;s your software quietly costing you?</span>
-                  <span className="text-gray-900 dark:text-white text-xl sm:text-2xl" style={{ letterSpacing: "0.12em" }}>Let&apos;s find out in 1 minute — is it working the way you want?</span>
+                  <span className="text-gray-900 dark:text-white text-3xl sm:text-4xl" style={{ letterSpacing: "0.12em" }}>Is your software working the way you want?</span>
+                  <span className="text-gray-900 dark:text-white text-xl sm:text-2xl" style={{ letterSpacing: "0.12em" }}>Let&apos;s find out, pick a path below.</span>
                 </h1>
 
-                {/* Tags */}
-                <ul className="mt-3 flex flex-wrap gap-1.5">
-                  {[
-                    ["8 Questions", "bg-blue-500"],
-                      ["Instant Evaluation", "bg-red-500"],
-                    ["Clear plan", "bg-emerald-500"],
-                  ].map(([text, color]) => (
-                    <li key={text} className="flex items-center gap-1.5 px-2 py-1 bg-gray-800 text-gray-100 dark:bg-gray-200 dark:text-gray-800 text-[10px] sm:text-xs font-semibold">
-                      <span className={`w-2 h-2 ${color}`} />
-                      {text}
-                    </li>
-                  ))}
-                </ul>
+
               </motion.div>
 
               {/* ── Cards ── */}

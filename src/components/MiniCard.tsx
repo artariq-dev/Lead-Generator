@@ -6,6 +6,7 @@ import { DotIcon } from "@/components/DotIcon";
 export interface MiniCardAccent {
   icon: string;
   arrow: string;
+  bar: string;
 }
 
 export interface MiniCardProps {
@@ -26,6 +27,7 @@ export function MiniCard({ href, label, iconId, accent, tags }: MiniCardProps) {
         aria-hidden
         className="absolute inset-0 bg-gray-900 dark:bg-white origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
       />
+      <div aria-hidden className={`relative z-10 h-1.5 w-full ${accent.bar}`} />
       <div className="relative z-10 flex flex-col flex-1 justify-between p-3.5 gap-3">
         <div className="flex flex-col gap-2.5">
           <div className="flex items-center justify-between">
