@@ -30,16 +30,16 @@ function ReportContent({ type }: { type: string }) {
 
   if (answers.length < config.questions.length) {
     return (
-      <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
-        <main className="flex-1 max-w-2xl mx-auto w-full px-6 pt-16 pb-16">
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <section className="py-20 bg-gray-100 min-h-screen">
+        <main className="max-w-2xl mx-auto w-full px-6">
+          <p className="text-sm text-gray-500 mb-4">
             Incomplete answers — looks like you didn&apos;t finish the questionnaire.
           </p>
-          <Link href={`/build/${type}`} className="text-xs text-blue-600 dark:text-blue-400 underline">
+          <Link href={`/build/${type}`} className="text-xs text-blue-600 underline">
             ← Start again
           </Link>
         </main>
-      </div>
+      </section>
     );
   }
 
@@ -55,8 +55,8 @@ function ReportContent({ type }: { type: string }) {
   });
 
   return (
-    <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
-      <main className="flex-1 max-w-6xl mx-auto w-full px-6 pt-16 pb-16">
+    <section className="py-20 bg-gray-100 min-h-screen">
+      <main className="max-w-6xl mx-auto w-full px-6">
         <ReportHeader
           eyebrow={`Build Guide · ${config.name}`}
           title="Here's your path forward"
@@ -65,7 +65,7 @@ function ReportContent({ type }: { type: string }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {/* Left — recommendation card */}
-          <div className="border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-5 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
+          <div className="border border-gray-200 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
             <RecommendationCard result={result} />
           </div>
 
@@ -88,15 +88,15 @@ function ReportContent({ type }: { type: string }) {
 
         {/* Navigation */}
         <div className="flex flex-col gap-2">
-          <Link href="/build" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+          <Link href="/build" className="text-xs text-blue-600 underline hover:text-blue-800 transition-colors">
             ← Try a different build type
           </Link>
-          <Link href="/" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+          <Link href="/" className="text-xs text-blue-600 underline hover:text-blue-800 transition-colors">
             ← Audit existing software
           </Link>
         </div>
       </main>
-    </div>
+    </section>
   );
 }
 

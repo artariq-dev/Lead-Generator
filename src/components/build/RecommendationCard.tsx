@@ -21,7 +21,7 @@ function ScoreBar({ percentage }: { percentage: number }) {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.15, delay: 0.02 * i }}
-          className={`w-3 h-3 shrink-0 ${i < filled ? color : "bg-gray-200 dark:bg-gray-800"}`}
+          className={`w-3 h-3 shrink-0 ${i < filled ? color : "bg-gray-200 "}`}
         />
       ))}
     </div>
@@ -51,14 +51,14 @@ export function RecommendationCard({ result }: { result: RecommendationResult })
           </motion.span>
           <div>
             <h2 className={`text-base font-bold ${rec.accent}`}>{rec.title}</h2>
-            <p className="text-xs text-gray-500 dark:text-gray-400">{rec.subtitle}</p>
+            <p className="text-xs text-gray-500 ">{rec.subtitle}</p>
           </div>
         </div>
-        <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">{rec.why}</p>
+        <p className="text-xs text-gray-700  leading-relaxed">{rec.why}</p>
       </div>
 
       {/* Category breakdown */}
-      <div className="border border-gray-200 dark:border-gray-800 p-4 shadow-[2px_2px_0px_#e5e7eb] dark:shadow-[2px_2px_0px_#374151]">
+      <div className="border border-gray-200  p-4 shadow-[0_1px_3px_rgba(0,0,0,0.06)] ">
         <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-3">
           How we got there
         </p>
@@ -71,11 +71,11 @@ export function RecommendationCard({ result }: { result: RecommendationResult })
               transition={{ duration: 0.2, delay: 0.06 * i }}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="text-xs font-bold text-gray-900 dark:text-white">{cat.label}</span>
+                <span className="text-xs font-bold text-gray-900 ">{cat.label}</span>
                 <span className="text-[10px] text-gray-400">{cat.percentage}%</span>
               </div>
               <ScoreBar percentage={cat.percentage} />
-              <p className="text-[10px] text-gray-500 dark:text-gray-400 mt-1 leading-snug">
+              <p className="text-[10px] text-gray-500  mt-1 leading-snug">
                 {getInsight(cat.id, cat.percentage)}
               </p>
             </motion.div>
@@ -93,7 +93,7 @@ export function RecommendationCard({ result }: { result: RecommendationResult })
             {rec.tools.map((tool) => (
               <span
                 key={tool}
-                className="text-[10px] px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700"
+                className="text-[10px] px-2 py-1 bg-gray-100  text-gray-600  border border-gray-200 "
               >
                 {tool}
               </span>

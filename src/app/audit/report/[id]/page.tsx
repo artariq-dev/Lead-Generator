@@ -27,30 +27,30 @@ function ReportContent() {
   const g = gradeConfig[result.grade] || gradeConfig.F;
 
   return (
-    <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
-      <main className="flex-1 max-w-6xl mx-auto w-full px-6 pt-20 pb-12">
+    <section className="py-20 bg-gray-100 min-h-screen">
+      <main className="max-w-6xl mx-auto w-full px-6">
 
         {/* Header */}
         <div className="mb-8">
-          <p className="text-[10px] tracking-wider uppercase text-blue-600 dark:text-blue-400 mb-2">
+          <p className="text-[10px] tracking-wider uppercase text-blue-600 mb-2">
             Software Audit · {config.name}
           </p>
           <div className="flex flex-wrap items-center gap-3 mb-2">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight">
               Here&apos;s where you stand
             </h1>
             <span className={`text-xs font-bold px-2 py-1 ${g.color}`}>
               {result.grade} · {result.percentage}%
             </span>
           </div>
-          <p className="text-sm text-gray-500 dark:text-gray-400 max-w-2xl">
+          <p className="text-sm text-gray-500 max-w-2xl">
             Your grade: {result.grade} ({result.percentage}%). Here&apos;s what&apos;s costing you — and what to fix first.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
           {/* Left — score card */}
-          <div className="lg:col-span-3 border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-5 sm:p-6 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
+          <div className="lg:col-span-3 border border-gray-200 bg-white p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
             <ReportCard result={result} />
           </div>
 
@@ -78,15 +78,15 @@ function ReportContent() {
 
         {/* Try another calculator */}
         <div className="flex flex-col gap-2">
-          <Link href="/" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+          <Link href="/" className="text-xs text-blue-600 underline hover:text-blue-800 transition-colors">
             ← Try another evaluator
           </Link>
-          <Link href="/" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+          <Link href="/" className="text-xs text-blue-600 underline hover:text-blue-800 transition-colors">
             ← Back
           </Link>
         </div>
       </main>
-    </div>
+    </section>
   );
 }
 
