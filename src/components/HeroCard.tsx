@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Icon } from "@/components/Icon";
+import { iconColor, type IconId } from "@/lib/discover-problems";
 
 export interface HeroCardProps {
   href: string;
@@ -30,8 +31,10 @@ export function HeroCard({
     >
       <div className="flex flex-col flex-1">
         <div className="flex items-center justify-between mb-4">
-          <span className="flex items-center justify-center w-10 h-10 bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-white group-hover:text-black">
-            <Icon id={iconId} size={20} />
+          <span className="flex items-center justify-center w-10 h-10 bg-blue-50 transition-colors duration-300 group-hover:bg-white">
+            <span className={iconColor[iconId as IconId]}>
+              <Icon id={iconId} size={20} />
+            </span>
           </span>
           <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-400  transition-colors duration-300 group-hover:text-blue-100">
             {label}

@@ -12,7 +12,7 @@ export default function DiagnosePage() {
     <section className="py-20 bg-black min-h-screen">
       <main className="max-w-3xl mx-auto w-full px-6">
         <div className="flex items-center gap-3 mb-2">
-          <span className="text-blue-400 shrink-0">
+          <span className="text-red-400 shrink-0">
             <Icon id="diagnose" size={24} />
           </span>
           <h1 className="text-xl font-bold text-white">

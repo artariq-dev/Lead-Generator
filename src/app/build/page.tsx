@@ -25,7 +25,7 @@ export default function BuildPage() {
     <section className="py-20 bg-black min-h-screen">
       <div className="max-w-5xl mx-auto w-full px-6">
         <div className="flex items-center gap-3 mb-2">
-          <span className="text-blue-400 shrink-0">
+          <span className="text-emerald-400 shrink-0">
             <Icon id="build" size={24} />
           </span>
           <h1 className="text-xl font-bold text-white">
