@@ -31,14 +31,13 @@ export default function LandingPage() {
     <div className="flex flex-col flex-1 min-h-screen bg-white  overflow-x-hidden">
       <main className="flex-1 flex flex-col">
         {/* ── Hero ── */}
-        <section className="relative pt-20 pb-20 bg-white  border-b border-gray-100  overflow-hidden">
+        <section className="relative min-h-screen flex flex-col justify-center pt-20 pb-20 bg-white  border-b border-gray-100  overflow-hidden">
           <PixelGrid />
-          <div className="relative z-10 max-w-7xl mx-auto w-full px-6">
+          <div className="relative z-10 max-w-7xl mx-auto w-full px-6 flex-1 flex flex-col justify-center">
             <motion.div
               variants={container}
               initial="hidden"
               animate="show"
-              className="max-w-3xl"
             >
               <motion.p
                 variants={item}
@@ -55,43 +54,50 @@ export default function LandingPage() {
                 Is your software working the way you want?
               </motion.h1>
 
-              <motion.div variants={item} className="flex flex-col gap-4 mb-6">
+              <motion.div variants={item} className="flex flex-col gap-4">
                 <p className="text-base sm:text-lg font-bold text-gray-900  shrink-0">
                   Measure /
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                  {AUDIT_ORDER.map((id) => {
-                    const config = calculators[id];
-                    const badge = auditCardMeta[id];
-                    if (!config || !badge) return null;
-                    return (
-                      <MiniAuditCard
-                        key={config.id}
-                        href={`/audit/${config.id}`}
-                        iconId={config.id}
-                        name={config.name}
-                        categories={config.categories.map((c) => c.short)}
-                        badge={badge}
-                      />
-                    );
-                  })}
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/diagnose"
-                    className="text-sm font-semibold px-6 py-3 bg-blue-600 text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-blue-700 hover:shadow-[0_8px_24px_rgba(37,99,235,0.35)] transition-all duration-200"
-                  >
-                    Not sure? Diagnose a problem
-                  </Link>
-                  <Link
-                    href="/build"
-                    className="text-sm font-semibold px-6 py-3 bg-black text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-gray-800 hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition-all duration-200"
-                  >
-                    Instant build plan
-                  </Link>
-                </div>
               </motion.div>
+            </motion.div>
+
+            <motion.div
+              variants={container}
+              initial="hidden"
+              animate="show"
+              className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-1"
+            >
+              {AUDIT_ORDER.map((id) => {
+                const config = calculators[id];
+                const badge = auditCardMeta[id];
+                if (!config || !badge) return null;
+                return (
+                  <motion.div variants={item} key={config.id} className="w-full sm:flex-1">
+                    <MiniAuditCard
+                      href={`/audit/${config.id}`}
+                      iconId={config.id}
+                      name={config.name}
+                      categories={config.categories.map((c) => c.short)}
+                      badge={badge}
+                    />
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+
+            <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                href="/diagnose"
+                className="text-sm font-semibold px-6 py-3 bg-blue-600 text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-blue-700 hover:shadow-[0_8px_24px_rgba(37,99,235,0.35)] transition-all duration-200"
+              >
+                Not sure? Diagnose a problem
+              </Link>
+              <Link
+                href="/build"
+                className="text-sm font-semibold px-6 py-3 bg-black text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-gray-800 hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition-all duration-200"
+              >
+                Instant build plan
+              </Link>
             </motion.div>
           </div>
         </section>
