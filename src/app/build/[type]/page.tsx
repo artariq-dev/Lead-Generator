@@ -3,15 +3,15 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { buildTypes } from "@/lib/build/config";
 import { StepForm } from "@/components/StepForm";
-import { DotIcon } from "@/components/DotIcon";
+import { Icon } from "@/components/Icon";
 
-const cardColors: Record<string, { color: string; dotIconId: string }> = {
-  frontend:   { color: "#10b981", dotIconId: "frontend"     },
-  backend:    { color: "#ef4444", dotIconId: "backend_build" },
-  fullstack:  { color: "#8b5cf6", dotIconId: "fullstack"    },
-  cloud:      { color: "#3b82f6", dotIconId: "cloud"        },
-  automation: { color: "#f59e0b", dotIconId: "automation"   },
-  internal:   { color: "#14b8a6", dotIconId: "internal"     },
+const cardIcon: Record<string, string> = {
+  frontend:   "frontend",
+  backend:    "backend_build",
+  fullstack:  "fullstack",
+  cloud:      "cloud",
+  automation: "automation",
+  internal:   "internal",
 };
 
 interface Props {
@@ -32,23 +32,29 @@ export default async function BuildTypePage({ params }: Props) {
   const { type } = await params;
   const config = buildTypes[type];
   if (!config) notFound();
-  const meta = cardColors[config.id];
+  const meta = cardIcon[config.id];
 
   return (
-    <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
-      <main className="flex-1 max-w-2xl mx-auto w-full px-6 pt-16 pb-16">
+    <section className="py-20 bg-gray-100 min-h-screen">
+      <main className="max-w-2xl mx-auto w-full px-6">
         <div className="mb-6">
-          <Link href="/build" className="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors mb-3 inline-block">← Back</Link>
+          <Link href="/build" className="text-xs text-gray-500 hover:text-gray-900 transition-colors mb-3 inline-block">
+            ← Back
+          </Link>
           <div className="flex items-center gap-3 mb-2">
-            {meta && <DotIcon id={meta.dotIconId} color={meta.color} />}
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+            {meta && (
+              <span className="text-blue-600 shrink-0">
+                <Icon id={meta} size={26} />
+              </span>
+            )}
+            <h1 className="text-2xl font-bold text-gray-900">
               {config.name}
             </h1>
           </div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">{config.tagline}</p>
+          <p className="text-sm text-gray-500">{config.tagline}</p>
         </div>
         <StepForm config={config} reportPath={`/build/report/${config.id}`} loadingText="Building your recommendation..." />
       </main>
-    </div>
+    </section>
   );
 }

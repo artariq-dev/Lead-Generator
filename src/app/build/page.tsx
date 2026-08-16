@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { buildTypes } from "@/lib/build/config";
-import { DotIcon } from "@/components/DotIcon";
 import { CategoryCard } from "@/components/CategoryCard";
-import { accents, type Accent } from "@/lib/accents";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Build Guide",
@@ -11,50 +10,50 @@ export const metadata: Metadata = {
 
 const order = ["frontend", "backend", "fullstack", "cloud", "automation", "internal"];
 
-const cardMeta: Record<string, { accent: Accent; badge: string; dotIconId: string }> = {
-  frontend: { accent: accents.emerald, badge: "Most Requested", dotIconId: "frontend" },
-  backend:  { accent: accents.red,     badge: "Foundation",     dotIconId: "backend_build" },
-  fullstack:{ accent: accents.violet,  badge: "Common",         dotIconId: "fullstack" },
-  cloud:    { accent: accents.blue,    badge: "Infrastructure", dotIconId: "cloud" },
-  automation:{accent: accents.amber,   badge: "Save Time",      dotIconId: "automation" },
-  internal: { accent: accents.teal,    badge: "Team",           dotIconId: "internal" },
+const cardMeta: Record<string, string> = {
+  frontend:   "Most Requested",
+  backend:    "Foundation",
+  fullstack:  "Common",
+  cloud:      "Infrastructure",
+  automation: "Save Time",
+  internal:   "Team",
 };
 
 export default function BuildPage() {
   const ordered = order.map((id) => buildTypes[id]).filter(Boolean);
   return (
-    <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
-      <main className="flex-1 max-w-3xl mx-auto w-full px-6 pt-24 pb-16">
+    <section className="py-20 bg-black min-h-screen">
+      <div className="max-w-5xl mx-auto w-full px-6">
         <div className="flex items-center gap-3 mb-2">
-          <span className="text-emerald-400 dark:text-emerald-600 shrink-0">
-            <DotIcon id="build" color="currentColor" />
+          <span className="text-blue-400 shrink-0">
+            <Icon id="build" size={24} />
           </span>
-          <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-xl font-bold text-white">
             What do you want to build?
           </h1>
         </div>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">
+        <p className="text-xs text-gray-400 mb-8">
           Pick the type that matches your idea — you&apos;ll get a clear recommendation in 8 questions.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
           {ordered.map((bt) => {
-            const meta = cardMeta[bt.id];
-            if (!meta) return null;
+            const badge = cardMeta[bt.id];
+            if (!badge) return null;
             return (
               <CategoryCard
                 key={bt.id}
                 href={`/build/${bt.id}`}
-                iconId={meta.dotIconId}
+                iconId={bt.id}
                 name={bt.name}
                 categories={bt.categories.map((c) => c.label)}
-                accent={meta.accent}
-                badge={meta.badge}
+                badge={badge}
+                cta="Build plan"
               />
             );
           })}
         </div>
-      </main>
-    </div>
+      </div>
+    </section>
   );
 }
