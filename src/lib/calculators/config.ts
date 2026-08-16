@@ -19,6 +19,13 @@ export interface CalculatorConfig {
   categories: Category[];
 }
 
+export const auditCardMeta: Record<string, string> = {
+  growth: "Attract & convert",
+  performance: "Speed & uptime",
+  ux: "Usability & mobile",
+  security: "Data & trust",
+};
+
 export const calculators: Record<string, CalculatorConfig> = {
   growth: {
     id: "growth",

@@ -3,13 +3,15 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { DiscoverProblems } from "@/components/DiscoverProblems";
 import { SectionDivider } from "@/components/SectionDivider";
 import { HeroCard } from "@/components/HeroCard";
-import { Icon } from "@/components/Icon";
+import { MiniAuditCard } from "@/components/MiniAuditCard";
 import { PixelGrid } from "@/components/PixelGrid";
 import { LandingFooter } from "@/components/LandingFooter";
+import { calculators, auditCardMeta } from "@/lib/calculators/config";
+
+const AUDIT_ORDER = ["growth", "performance", "ux", "security"] as const;
 
 // Framer Motion requires a typed tuple for cubic-bezier ease
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -53,47 +55,41 @@ export default function LandingPage() {
                 Is your software working the way you want?
               </motion.h1>
 
-              <motion.div variants={item} className="flex flex-wrap items-center gap-3 mb-6">
-                <Link
-                  href="/audit"
-                  className="text-sm font-semibold px-6 py-3 bg-blue-600 text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-blue-700 hover:shadow-[0_8px_24px_rgba(37,99,235,0.35)] transition-all duration-200"
-                >
-                  Start a free audit
-                </Link>
-                <Link
-                  href="/diagnose"
-                  className="text-sm font-semibold px-6 py-3 text-gray-700  border border-gray-300  hover:border-gray-400  transition-colors duration-200"
-                >
-                  Not sure? Diagnose a problem
-                </Link>
-              </motion.div>
-
-              <motion.div variants={item} className="flex flex-col gap-2.5">
+              <motion.div variants={item} className="flex flex-col gap-4 mb-6">
                 <p className="text-base sm:text-lg font-bold text-gray-900  shrink-0">
                   Measure /
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    { label: "Growth", href: "/audit/growth", icon: "growth" },
-                    { label: "Performance", href: "/audit/performance", icon: "performance" },
-                    { label: "User Experience", href: "/audit/ux", icon: "ux" },
-                    { label: "Security", href: "/audit/security", icon: "security" },
-                  ].map((audit) => (
-                    <Link
-                      key={audit.href}
-                      href={audit.href}
-                      className="inline-flex items-center gap-2.5 px-4 py-3 text-sm font-semibold text-black bg-white border border-gray-200 hover:bg-blue-100 hover:border-blue-300 transition-colors duration-200"
-                    >
-                      <Icon id={audit.icon} size={18} />
-                      {audit.label}
-                      <span className="ml-1 flex items-center justify-center w-6 h-6 bg-blue-600">
-                        <ArrowRight
-                          size={14}
-                          className="text-white"
-                        />
-                      </span>
-                    </Link>
-                  ))}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  {AUDIT_ORDER.map((id) => {
+                    const config = calculators[id];
+                    const badge = auditCardMeta[id];
+                    if (!config || !badge) return null;
+                    return (
+                      <MiniAuditCard
+                        key={config.id}
+                        href={`/audit/${config.id}`}
+                        iconId={config.id}
+                        name={config.name}
+                        categories={config.categories.map((c) => c.short)}
+                        badge={badge}
+                      />
+                    );
+                  })}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/diagnose"
+                    className="text-sm font-semibold px-6 py-3 bg-blue-600 text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-blue-700 hover:shadow-[0_8px_24px_rgba(37,99,235,0.35)] transition-all duration-200"
+                  >
+                    Not sure? Diagnose a problem
+                  </Link>
+                  <Link
+                    href="/build"
+                    className="text-sm font-semibold px-6 py-3 bg-black text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-gray-800 hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition-all duration-200"
+                  >
+                    Instant build plan
+                  </Link>
                 </div>
               </motion.div>
             </motion.div>

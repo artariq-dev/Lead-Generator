@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { calculators } from "@/lib/calculators/config";
+import { calculators, auditCardMeta } from "@/lib/calculators/config";
 import { CategoryCard } from "@/components/CategoryCard";
 import { Icon } from "@/components/Icon";
 
@@ -9,13 +9,6 @@ export const metadata: Metadata = {
 };
 
 const order = ["growth", "performance", "ux", "security"] as const;
-
-const cardMeta: Record<string, string> = {
-  growth:     "Attract & convert",
-  performance: "Speed & uptime",
-  ux:         "Usability & mobile",
-  security:   "Data & trust",
-};
 
 export default function AuditPage() {
   const ordered = order.map((id) => calculators[id]).filter(Boolean);
@@ -36,7 +29,7 @@ export default function AuditPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-stretch">
           {ordered.map((config) => {
-            const badge = cardMeta[config.id];
+            const badge = auditCardMeta[config.id];
             if (!badge) return null;
             return (
               <CategoryCard
