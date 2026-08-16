@@ -23,10 +23,10 @@ function AnalyzeContent() {
   });
 
   return (
-    <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
+    <div className="flex flex-col flex-1 min-h-screen bg-white ">
       <main className="flex-1 max-w-6xl mx-auto w-full px-6 pt-16 pb-12">
         {pains.length === 0 ? (
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500 ">
             No problems selected.{" "}
             <Link href="/" className="text-blue-600 underline">Go back and select some.</Link>
           </p>
@@ -41,16 +41,16 @@ function AnalyzeContent() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               {/* Left — selected problems */}
-              <div className="border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-5 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
-                <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-3">
+              <div className="border border-gray-200  bg-gray-50  p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] ">
+                <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900  mb-3">
                   Problems flagged
                 </h2>
                 {Array.from(grouped.entries()).map(([parent, ids]) => (
                   <div key={parent} className="mb-3 last:mb-0">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-1">{parent}</p>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-blue-600  mb-1">{parent}</p>
                     <ul className="space-y-1">
                       {ids.map((id) => (
-                        <li key={id} className="flex items-start gap-2 text-xs text-gray-700 dark:text-gray-300">
+                        <li key={id} className="flex items-start gap-2 text-xs text-gray-700 ">
                           <span className="text-red-500 mt-0.5">•</span>
                           {painLabelsBusiness[id] || id}
                         </li>
@@ -85,10 +85,10 @@ function AnalyzeContent() {
 
             {/* Secondary CTA + back */}
             <div className="flex flex-col gap-2">
-              <Link href="/" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+              <Link href="/" className="text-xs text-blue-600  underline hover:text-blue-800  transition-colors">
                 ← Want a scored report instead
               </Link>
-              <Link href="/" className="text-xs text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+              <Link href="/" className="text-xs text-blue-600  underline hover:text-blue-800  transition-colors">
                 ← Back
               </Link>
             </div>

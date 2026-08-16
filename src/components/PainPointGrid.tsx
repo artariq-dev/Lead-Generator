@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
 import { groupsBusiness, type PainGroup } from "@/lib/pain-points";
 import { PainFilterBar } from "@/components/pain/PainFilterBar";
@@ -26,29 +26,11 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [field, setField] = useState("all");
-  const [dark, setDark] = useState(false);
 
   const filtered = useMemo(
     () => groupsBusiness.filter((g) => fieldGroups[field]?.includes(g.id)),
     [field],
   );
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      setDark(document.documentElement.classList.contains("dark"));
-    });
-    const observer = new MutationObserver(() => {
-      setDark(document.documentElement.classList.contains("dark"));
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => {
-      cancelAnimationFrame(id);
-      observer.disconnect();
-    };
-  }, []);
 
   const toggleGroupSelect = useCallback((g: PainGroup) => {
     setSelected((prev) => {
@@ -85,7 +67,7 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
   }, []);
 
   return (
-    <div className="bg-white/70 dark:bg-gray-950/70 border border-gray-200 dark:border-gray-800 p-3 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
+    <div className="bg-white border border-gray-200 p-4 shadow-[0_1px_3px_rgba(0,0,0,0.3)]">
       {/* Filter bar — outside scrollable area */}
       <PainFilterBar
         field={field}
@@ -96,7 +78,7 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
       />
 
       <div
-        className={`text-left ${dark ? "bg-gray-900" : "bg-gray-100"}`}
+        className="text-left"
         style={{
           height: height,
           overflowY: "auto",
@@ -106,14 +88,13 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
             "linear-gradient(to bottom, transparent 0%, black 10px, black calc(100% - 8px), transparent 100%)",
         }}
       >
-        <div className="pr-4 pt-4 pb-2 min-h-auto">
+        <div className="pr-2 pb-2 min-h-auto">
           {filtered.map((g) => (
             <PainGroupItem
               key={g.id}
               group={g}
               selected={selected}
               expanded={expanded}
-              dark={dark}
               onToggleGroup={toggleGroupSelect}
               onToggleExpand={toggleExpand}
               onToggleItem={toggleItem}
@@ -124,13 +105,13 @@ export function PainPointGrid({ height = "280px" }: { height?: string }) {
 
       <div className="text-center mt-auto pt-4">
         {selected.size === 0 ? (
-          <div className="w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-gray-200 dark:bg-gray-800 text-gray-400 dark:text-gray-600 border border-gray-300 dark:border-gray-700 pixel-btn shadow-[3px_3px_0px_#d1d5db] dark:shadow-[3px_3px_0px_#374151] cursor-not-allowed">
+          <div className="w-full text-center text-xs font-medium tracking-wide px-5 py-3 bg-gray-100  text-gray-400  border border-gray-200  cursor-not-allowed">
             Select at least one problem first
           </div>
         ) : (
           <Link
             href={`/diagnose/result?pains=${Array.from(selected).join(",")}`}
-            className="block w-full text-center text-xs tracking-wider uppercase px-5 py-2.5 bg-[#f0e6d4] text-gray-900 pixel-btn border border-[#e0d2b4] shadow-[3px_3px_0px_#d4c5a8] hover:shadow-[5px_5px_0px_#d4c5a8]"
+            className="block w-full text-center text-xs font-semibold tracking-wide px-5 py-3 bg-blue-600 text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-blue-700 hover:shadow-[0_8px_20px_rgba(37,99,235,0.35)] transition-all duration-200"
           >
             <span>{`Send ${selected.size} problem${selected.size !== 1 ? "s" : ""} `}</span>
             <span className="text-base">→</span>

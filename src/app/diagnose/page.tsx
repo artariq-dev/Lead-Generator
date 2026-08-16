@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PainPointGrid } from "@/components/PainPointGrid";
-import { DotIcon } from "@/components/DotIcon";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Diagnose — Identify your pain points",
@@ -9,21 +9,21 @@ export const metadata: Metadata = {
 
 export default function DiagnosePage() {
   return (
-    <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950">
-      <main className="flex-1 max-w-3xl mx-auto w-full px-6 pt-24 pb-16">
+    <section className="py-20 bg-black min-h-screen">
+      <main className="max-w-3xl mx-auto w-full px-6">
         <div className="flex items-center gap-3 mb-2">
-          <span className="text-red-400 dark:text-red-500 shrink-0">
-            <DotIcon id="diagnose" color="currentColor" />
+          <span className="text-blue-400 shrink-0">
+            <Icon id="diagnose" size={24} />
           </span>
-          <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-xl font-bold text-white">
             Identify your business software&apos;s pain points
           </h1>
         </div>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">
+        <p className="text-xs text-gray-400 mb-8">
           Select the problems that feel familiar, send them over.
         </p>
         <PainPointGrid height="calc(100vh - 380px)" />
       </main>
-    </div>
+    </section>
   );
 }

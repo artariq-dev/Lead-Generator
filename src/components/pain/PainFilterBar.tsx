@@ -21,34 +21,33 @@ export function PainFilterBar({
   totalGroups,
 }: PainFilterBarProps) {
   return (
-    <div className="border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-4 mb-3 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
-      <div className="flex flex-wrap gap-x-4 gap-y-2 mb-3">
+    <div className="mb-4">
+      <div className="flex flex-wrap gap-2">
         {fieldOptions.map((f) => (
           <button
             key={f.id}
             onClick={() => onSelectField(f.id)}
-            className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 border transition-all duration-150 cursor-pointer pixel-btn ${
+            className={`text-xs font-semibold px-3.5 py-2 border transition-all duration-150 cursor-pointer ${
               field === f.id
-                ? "bg-[#f0e6d4] border-[#f0e6d4] text-gray-900 shadow-[3px_3px_0px_#d4c5a8]"
-                : "bg-gray-800 border-gray-800 text-gray-100 dark:bg-gray-200 dark:border-gray-200 dark:text-gray-800 hover:bg-[#f0e6d4] hover:border-[#f0e6d4] hover:text-gray-900 dark:hover:bg-[#f0e6d4] dark:hover:border-[#f0e6d4] dark:hover:text-gray-900"
+                ? "bg-blue-600 border-blue-600 text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)]"
+                : "bg-white border-gray-300 text-gray-600 hover:border-blue-500 hover:text-blue-600"
             }`}
           >
             {f.label}
           </button>
         ))}
       </div>
-      <div className="flex items-center justify-between flex-wrap gap-2">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          Showing <span className="font-bold text-gray-900 dark:text-white">{total}</span>
-          {" "}of <span className="font-bold text-gray-900 dark:text-white">{totalGroups}</span> groups
+      <div className="flex items-center justify-between flex-wrap gap-2 mt-3">
+        <p className="text-xs text-gray-400">
+          {total} of {totalGroups} groups
         </p>
-        <span className="flex items-center gap-2 text-[9px] text-gray-500 dark:text-gray-400">
-          <span className="flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
+        <span className="flex items-center gap-3 text-[10px] font-medium text-gray-500">
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-red-500" />
             critical
           </span>
-          <span className="flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-amber-400" />
             warning
           </span>
         </span>

@@ -1,31 +1,27 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { DotIcon } from "@/components/DotIcon";
+import { Icon } from "@/components/Icon";
 import { iconColor, type ProblemCard } from "@/lib/discover-problems";
 
 export function Card({ problem, sev, persona, icon }: ProblemCard) {
   return (
-    <div className="group relative shrink-0 w-56 flex flex-col justify-between border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] overflow-hidden transition-colors duration-500 group-hover:border-gray-800 dark:group-hover:border-gray-200">
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gray-900 dark:bg-white origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
-      />
+    <div className="group relative shrink-0 w-56 flex flex-col justify-between border border-gray-200  bg-white  p-4 shadow-[0_1px_3px_rgba(0,0,0,0.06)]  overflow-hidden transition-colors duration-200 group-hover:border-blue-300 ">
       <div className="relative z-10">
         <span className={`inline-block mb-2 ${iconColor[icon]}`}>
-          <DotIcon id={icon} color="currentColor" scale={0.6} />
+          <Icon id={icon} size={16} />
         </span>
-        <p className="text-xs text-gray-700 dark:text-gray-300 leading-snug transition-colors duration-500 group-hover:text-gray-200 dark:group-hover:text-gray-600">
+        <p className="text-xs text-gray-700  leading-snug">
           {problem}
         </p>
       </div>
       <div className="relative z-10 flex items-center justify-between mt-3">
-        <span className="text-[10px] text-gray-400 dark:text-gray-500 font-medium transition-colors duration-500 group-hover:text-gray-300 dark:group-hover:text-gray-400">
+        <span className="text-[10px] text-gray-400  font-medium">
           —{" "}
           {persona.includes(" · ") ? (
             <>
               {persona.split(" · ")[0]}{" · "}
-              <span className="px-1 py-0.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors duration-500 group-hover:bg-gray-700 group-hover:text-gray-200 dark:group-hover:bg-gray-200 dark:group-hover:text-gray-700">
+              <span className="px-1 py-0.5 bg-gray-200  text-gray-700 ">
                 {persona.split(" · ")[1]}
               </span>
             </>
