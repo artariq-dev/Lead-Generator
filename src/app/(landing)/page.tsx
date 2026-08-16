@@ -55,8 +55,8 @@ export default function LandingPage() {
               </motion.h1>
 
               <motion.div variants={item} className="flex flex-col gap-4">
-                <p className="text-base sm:text-lg font-bold text-gray-900  shrink-0">
-                  Measure /
+                <p className="text-sm sm:text-base font-bold text-blue-700  shrink-0">
+                  Measure your software platform&apos;s
                 </p>
               </motion.div>
             </motion.div>
@@ -65,7 +65,7 @@ export default function LandingPage() {
               variants={container}
               initial="hidden"
               animate="show"
-              className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-1"
+              className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-stretch"
             >
               {AUDIT_ORDER.map((id) => {
                 const config = calculators[id];

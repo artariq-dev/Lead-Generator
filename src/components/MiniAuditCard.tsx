@@ -20,7 +20,7 @@ export function MiniAuditCard({
   return (
     <Link
       href={href}
-      className="group relative flex flex-col h-full border border-gray-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06)] hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.25)] hover:border-blue-600 hover:bg-blue-600 transition-all duration-300 p-4"
+      className="group relative flex flex-col h-full border border-gray-800 bg-black shadow-[0_1px_3px_rgba(0,0,0,0.06)] hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.25)] hover:border-blue-600 hover:bg-blue-600 transition-all duration-300 p-4"
     >
       <div className="flex flex-col flex-1">
         <div className="flex items-center justify-between mb-3">
@@ -29,7 +29,7 @@ export function MiniAuditCard({
           </span>
         </div>
 
-        <h3 className="text-base font-bold text-gray-900 leading-snug tracking-tight transition-colors duration-300 group-hover:text-white">
+        <h3 className="text-base font-bold text-white leading-snug tracking-tight transition-colors duration-300 group-hover:text-white">
           {name}
         </h3>
 
@@ -37,7 +37,7 @@ export function MiniAuditCard({
           {categories.map((label) => (
             <span
               key={label}
-              className="text-[10px] px-1.5 py-0.5 bg-gray-100 text-gray-500 transition-colors duration-300 group-hover:bg-white group-hover:text-black"
+              className="text-[10px] px-1.5 py-0.5 bg-gray-900 text-gray-400 transition-colors duration-300 group-hover:bg-white group-hover:text-black"
             >
               {label}
             </span>
@@ -45,7 +45,7 @@ export function MiniAuditCard({
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between pt-3 border-t border-gray-100 transition-colors duration-300 group-hover:border-white/20">
+      <div className="mt-4 flex items-center justify-between pt-3 border-t border-gray-800 transition-colors duration-300 group-hover:border-white/20">
         <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-400 transition-colors duration-300 group-hover:text-blue-100">
           {badge}
         </span>
