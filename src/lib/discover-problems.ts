@@ -9,9 +9,9 @@ export interface ProblemCard {
 }
 
 export const iconColor: Record<IconId, string> = {
-  audit:    "text-blue-400 dark:text-blue-600 group-hover:text-blue-300 dark:group-hover:text-blue-700",
-  diagnose: "text-red-400 dark:text-red-500 group-hover:text-red-300 dark:group-hover:text-red-700",
-  build:    "text-emerald-400 dark:text-emerald-600 group-hover:text-emerald-300 dark:group-hover:text-emerald-700",
+  audit:    "text-blue-400  group-hover:text-blue-300 ",
+  diagnose: "text-red-400  group-hover:text-red-300 ",
+  build:    "text-emerald-400  group-hover:text-emerald-300 ",
 };
 
 const rowOne: ProblemCard[] = [

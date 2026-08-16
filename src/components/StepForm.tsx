@@ -1,8 +1,18 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+
+const emptySubscribe = () => () => {};
+
+function useHydrated() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
+}
 
 interface StepOption {
   label: string;
@@ -53,19 +63,15 @@ export function StepForm({
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(0);
   const [answers, setAnswers] = useState<StepAnswer[]>([]);
-  const [mounted, setMounted] = useState(false);
+  const hydrated = useHydrated();
   const advanceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const questions = useMemo(
     () =>
-      mounted
+      hydrated
         ? config.questions.map((q) => ({ ...q, options: shuffle(q.options) }))
         : config.questions,
-    [config.questions, mounted],
+    [config.questions, hydrated],
   );
 
   const question = questions[step];
@@ -112,8 +118,8 @@ export function StepForm({
 
   if (isComplete) {
     return (
-      <div className="border border-gray-200 dark:border-gray-800 p-6 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151] text-center">
-        <p className="text-sm text-gray-500 dark:text-gray-400">{loadingText}</p>
+      <div className="bg-white border border-gray-200 p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)] text-center">
+        <p className="text-sm text-gray-500">{loadingText}</p>
       </div>
     );
   }
@@ -121,7 +127,7 @@ export function StepForm({
   const currentAnswer = answers.find((a) => a.questionId === question.id);
 
   return (
-    <div className="border border-gray-200 dark:border-gray-800 p-6 shadow-[3px_3px_0px_#e5e7eb] dark:shadow-[3px_3px_0px_#374151]">
+    <div className="bg-white border border-gray-200 p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
       <div className="mb-4">
         <div className="flex items-center justify-between mb-1.5">
           <span className="text-[10px] tracking-wider uppercase text-gray-400">
@@ -131,7 +137,7 @@ export function StepForm({
             {Math.round(((step + 1) / questions.length) * 100)}%
           </span>
         </div>
-        <div className="w-full h-1 bg-gray-200 dark:bg-gray-800">
+        <div className="w-full h-1 bg-gray-200 ">
           <div
             className="h-1 bg-blue-600 transition-all duration-300"
             style={{ width: `${((step + 1) / questions.length) * 100}%` }}
@@ -149,7 +155,7 @@ export function StepForm({
           exit="exit"
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
-          <h2 className="text-sm lg:text-base font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-sm lg:text-base font-bold text-gray-900  mb-4">
             {question.label}
           </h2>
 
@@ -158,10 +164,10 @@ export function StepForm({
               <button
                 key={`${question.id}-${option.value}`}
                 onClick={() => select(option.value)}
-                className={`w-full text-left px-4 py-3 text-sm border cursor-pointer transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_#d1d5db] dark:hover:shadow-[2px_2px_0px_#374151] ${
+                className={`w-full text-left px-4 py-3 text-sm border cursor-pointer transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] ${
                   currentAnswer?.value === option.value
-                    ? "border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-gray-900 dark:text-white"
-                    : "border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700"
+                    ? "border-blue-600 bg-blue-50  text-gray-900 "
+                    : "border-gray-200  text-gray-700  hover:border-gray-300 "
                 }`}
               >
                 {option.label}
@@ -174,7 +180,7 @@ export function StepForm({
       <div className="flex items-center justify-between mt-6">
         <button
           onClick={back}
-          className={`text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white cursor-pointer transition-colors ${
+          className={`text-xs text-gray-500 hover:text-gray-900  cursor-pointer transition-colors ${
             step === 0 ? "invisible" : ""
           }`}
         >

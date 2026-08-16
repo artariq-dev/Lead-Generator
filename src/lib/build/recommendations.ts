@@ -14,8 +14,8 @@ export const recommendations: Record<RecommendationKey, RecommendationContent> =
   no_code: {
     title: "Start with No-Code",
     subtitle: "Build fast, validate cheap, upgrade later.",
-    color: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400",
-    accent: "text-emerald-600 dark:text-emerald-400",
+    color: "bg-emerald-100 text-emerald-700  ",
+    accent: "text-emerald-600 ",
     why: "Your idea is early-stage or low-complexity enough that a no-code tool will get you to a working product in days — not months. You can validate whether it works before committing to a full custom build. Most no-code products can be migrated or replaced when you outgrow them.",
     tools: ["Webflow (websites)", "Bubble (web apps)", "Framer (landing pages)", "Glide (mobile)", "Zapier / Make (automation)", "Airtable (internal tools)"],
     nextSteps: [
@@ -28,8 +28,8 @@ export const recommendations: Record<RecommendationKey, RecommendationContent> =
   freelancer: {
     title: "Hire a Freelancer",
     subtitle: "Clear scope + right budget = one person can own this.",
-    color: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400",
-    accent: "text-blue-600 dark:text-blue-400",
+    color: "bg-blue-100 text-blue-700  ",
+    accent: "text-blue-600 ",
     why: "You have a well-defined idea and a realistic budget for a focused build. This doesn't need a full team — one experienced freelancer can own the whole thing. The key is a tight, written spec before you start. Scope creep is what kills freelancer projects.",
     tools: ["Upwork", "Toptal", "Gun.io", "Contra", "LinkedIn — referrals from your network"],
     nextSteps: [
@@ -42,8 +42,8 @@ export const recommendations: Record<RecommendationKey, RecommendationContent> =
   consultant: {
     title: "You Need a Consultant",
     subtitle: "Complex enough to need someone who's done this before.",
-    color: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-400",
-    accent: "text-purple-600 dark:text-purple-400",
+    color: "bg-purple-100 text-purple-700  ",
+    accent: "text-purple-600 ",
     why: "Your project has real complexity — integrations, scale, security, or growth requirements that need experience to get right the first time. A junior freelancer or no-code tool will get you halfway there and leave you stuck. You need someone who can architect a solution, not just follow instructions.",
     tools: [],
     nextSteps: [
@@ -56,8 +56,8 @@ export const recommendations: Record<RecommendationKey, RecommendationContent> =
   validate: {
     title: "Validate Before You Build",
     subtitle: "Building without clarity is expensive. Clarity is free.",
-    color: "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400",
-    accent: "text-amber-600 dark:text-amber-400",
+    color: "bg-amber-100 text-amber-700  ",
+    accent: "text-amber-600 ",
     why: "Right now, the biggest risk isn't technical — it's building the wrong thing. The details are fuzzy enough that any developer you hire will fill in the blanks with their assumptions, not yours. Before you spend a penny on code, you need to be clear on who this is for, what problem it solves, and what the simplest version looks like.",
     tools: ["Notion — write down the idea in full", "Figma — sketch the screens (free tier)", "Typeform — survey potential users", "Landing page — describe it, see if people sign up"],
     nextSteps: [

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
 import "./globals.css";
 import { siteConfig } from "@/lib/metadata";
 import { Nav } from "@/components/Nav";
@@ -64,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full ${montserrat.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`h-full ${montserrat.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -89,18 +93,6 @@ export default function RootLayout({
                 "url": "https://artariq.dev",
               },
             }),
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var d = document.documentElement;
-                if (localStorage.getItem("dark") === "true") {
-                  d.classList.add("dark");
-                }
-              })();
-            `,
           }}
         />
       </head>
