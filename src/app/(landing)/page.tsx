@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { HeroBg } from "@/components/HeroBg";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { DiscoverProblems } from "@/components/DiscoverProblems";
 import { SectionDivider } from "@/components/SectionDivider";
 import { HeroCard } from "@/components/HeroCard";
-import { MiniCard } from "@/components/MiniCard";
+import { Icon } from "@/components/Icon";
+import { PixelGrid } from "@/components/PixelGrid";
 import { LandingFooter } from "@/components/LandingFooter";
-import { calculators } from "@/lib/calculators/config";
 
 // Framer Motion requires a typed tuple for cubic-bezier ease
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -20,162 +20,148 @@ const container: Variants = {
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 22 },
+  hidden: { opacity: 0, y: 20 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
 };
 
-const itemFast: Variants = {
-  hidden: { opacity: 0, y: 14 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.4, ease: EASE } },
-};
-
-const AUDIT_ORDER = ["growth", "ux", "performance", "security"] as const;
-
-const AUDIT_ACCENTS: Record<string, { icon: string; arrow: string; bar: string }> = {
-  growth: {
-    icon: "text-teal-400 dark:text-teal-600 group-hover:text-teal-300 dark:group-hover:text-teal-700",
-    arrow: "bg-teal-400",
-    bar: "bg-teal-400",
-  },
-  ux: {
-    icon: "text-violet-400 dark:text-violet-600 group-hover:text-violet-300 dark:group-hover:text-violet-700",
-    arrow: "bg-violet-400",
-    bar: "bg-violet-400",
-  },
-  performance: {
-    icon: "text-blue-400 dark:text-blue-600 group-hover:text-blue-300 dark:group-hover:text-blue-700",
-    arrow: "bg-blue-400",
-    bar: "bg-blue-400",
-  },
-  security: {
-    icon: "text-red-400 dark:text-red-500 group-hover:text-red-300 dark:group-hover:text-red-700",
-    arrow: "bg-red-400",
-    bar: "bg-red-400",
-  },
-};
-
-const AUDIT_CARDS = AUDIT_ORDER.map((id) => {
-  const config = calculators[id];
-  return {
-    href: `/audit/${config.id}`,
-    label: config.name,
-    iconId: config.id,
-    tags: config.categories.map((c) => c.short),
-    accent: AUDIT_ACCENTS[id],
-  };
-});
-
 export default function LandingPage() {
-  const [halfHeight, setHalfHeight] = useState(0);
-  const onHeightChange = useCallback((h: number) => setHalfHeight(h), []);
-
   return (
-    <div className="flex flex-col flex-1 min-h-screen bg-white dark:bg-gray-950 overflow-x-hidden">
+    <div className="flex flex-col flex-1 min-h-screen bg-white  overflow-x-hidden">
       <main className="flex-1 flex flex-col">
-        <section className="relative min-h-screen flex flex-col justify-center pt-28 pb-20 bg-[#faf7f0] dark:bg-gray-950">
-          <HeroBg />
-
+        {/* ── Hero ── */}
+        <section className="relative pt-20 pb-20 bg-white  border-b border-gray-100  overflow-hidden">
+          <PixelGrid />
           <div className="relative z-10 max-w-7xl mx-auto w-full px-6">
             <motion.div
               variants={container}
               initial="hidden"
               animate="show"
-              className="flex flex-col gap-0"
+              className="max-w-3xl"
             >
-
-              {/* ── Eyebrow — Software Audit Tool ── */}
-              <div className="flex items-center gap-3">
-                <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.3em] text-gray-800 dark:text-white select-none">
-                  Free Software Audit
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 bg-blue-500 dark:bg-blue-400" />
-                  <span className="w-1.5 h-1.5 bg-emerald-500 dark:bg-emerald-400" />
-                  <span className="w-1.5 h-1.5 bg-red-500 dark:bg-red-400" />
-                </span>
-              </div>
-
-              {/* ── Hero text block with inverted background ── */}
-              <motion.div
+              <motion.p
                 variants={item}
-                className="mt-8 mb-12 text-left"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-blue-700  mb-5"
               >
-                {/* Headline */}
-                <h1 className="text-gray-900 dark:text-white flex flex-col gap-1 sm:gap-2 text-4xl sm:text-5xl font-extrabold leading-tight">
-                  <span className="text-gray-900 dark:text-white text-3xl sm:text-4xl" style={{ letterSpacing: "0.12em" }}>Is your software working the way you want?</span>
-                  <span className="text-gray-900 dark:text-white text-xl sm:text-2xl" style={{ letterSpacing: "0.12em" }}>Let&apos;s find out, pick a path below.</span>
-                </h1>
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 " />
+                Free software health check
+              </motion.p>
 
-                <div className="mt-6 mb-0 h-px w-full bg-gray-900 dark:bg-white" />
+              <motion.h1
+                variants={item}
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900  leading-[1.1] mb-6"
+              >
+                Is your software working the way you want?
+              </motion.h1>
+
+              <motion.div variants={item} className="flex flex-wrap items-center gap-3 mb-6">
+                <Link
+                  href="/audit"
+                  className="text-sm font-semibold px-6 py-3 bg-blue-600 text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-blue-700 hover:shadow-[0_8px_24px_rgba(37,99,235,0.35)] transition-all duration-200"
+                >
+                  Start a free audit
+                </Link>
+                <Link
+                  href="/diagnose"
+                  className="text-sm font-semibold px-6 py-3 text-gray-700  border border-gray-300  hover:border-gray-400  transition-colors duration-200"
+                >
+                  Not sure? Diagnose a problem
+                </Link>
               </motion.div>
 
-              {/* ── Cards ── */}
-              <motion.div
-                variants={container}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-stretch scroll-mt-24"
-              >
+              <motion.div variants={item} className="flex flex-col gap-2.5">
+                <p className="text-base sm:text-lg font-bold text-gray-900  shrink-0">
+                  Measure /
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { label: "Growth", href: "/audit/growth", icon: "growth" },
+                    { label: "Performance", href: "/audit/performance", icon: "performance" },
+                    { label: "User Experience", href: "/audit/ux", icon: "ux" },
+                    { label: "Security", href: "/audit/security", icon: "security" },
+                  ].map((audit) => (
+                    <Link
+                      key={audit.href}
+                      href={audit.href}
+                      className="inline-flex items-center gap-2.5 px-4 py-3 text-sm font-semibold text-black bg-white border border-gray-200 hover:bg-blue-100 hover:border-blue-300 transition-colors duration-200"
+                    >
+                      <Icon id={audit.icon} size={18} />
+                      {audit.label}
+                      <span className="ml-1 flex items-center justify-center w-6 h-6 bg-blue-600">
+                        <ArrowRight
+                          size={14}
+                          className="text-white"
+                        />
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
 
-                {/* Audit — 4 mini evaluators */}
-                <motion.div variants={itemFast}>
-                  <div className="grid grid-cols-2 gap-2 h-full">
-                    {AUDIT_CARDS.map((card) => (
-                      <MiniCard key={card.href} {...card} />
-                    ))}
-                  </div>
+        {/* ── Pick a path ── */}
+        <section className="py-16 bg-black ">
+          <div className="max-w-7xl mx-auto w-full px-6">
+            <motion.div
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+            >
+              <motion.div variants={item} className="mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                  Pick a path
+                </h2>
+                <p className="text-sm text-blue-200/80 mt-2">
+                  Choose what you need — an audit, a build plan, or a diagnosis.
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
+                <motion.div variants={item}>
+                  <HeroCard
+                    href="/audit"
+                    label="Audit"
+                    iconId="audit"
+                    tags={["Growth", "Performance", "User Experience", "Security"]}
+                    title="Score your software against the essentials."
+                    body="Pick the area that matters most to your business and get an instant health score."
+                    cta="Run an audit"
+                  />
                 </motion.div>
 
-                {/* Build */}
-                <motion.div variants={itemFast}>
+                <motion.div variants={item}>
                   <HeroCard
                     href="/build"
                     label="Build"
                     iconId="build"
-                    accent={{
-                      icon: "text-emerald-400 dark:text-emerald-600 group-hover:text-emerald-300 dark:group-hover:text-emerald-700",
-                      arrow: "bg-emerald-400",
-                      underline: "decoration-emerald-400 group-hover:decoration-white dark:decoration-emerald-600 dark:group-hover:decoration-gray-900",
-                    }}
                     tags={["Frontend", "Backend", "Fullstack", "Cloud", "Automation", "Internal"]}
-                    title="Got scattered ideas, need execution? Get tailored build plan."
+                    title="Got scattered ideas? Get a tailored build plan."
                     body="A clear build path, budget range, and timeline — matched to you."
-                    cta="Instant plan"
+                    cta="Get an instant plan"
                   />
                 </motion.div>
 
-                {/* Diagnose */}
-                <motion.div variants={itemFast}>
+                <motion.div variants={item}>
                   <HeroCard
                     href="/diagnose"
                     label="Diagnose"
                     iconId="diagnose"
-                    accent={{
-                      icon: "text-red-400 dark:text-red-500 group-hover:text-red-300 dark:group-hover:text-red-700",
-                      arrow: "bg-red-400",
-                      underline: "decoration-red-400 group-hover:decoration-white dark:decoration-red-500 dark:group-hover:decoration-gray-900",
-                    }}
                     tags={["User Experience", "Security", "Growth", "Performance"]}
-                    title="Facing problems with your business software? Flag what feels similar."
-                    body="Pick your problems. Get a clear summary & send over. Let's talk."
-                    cta="Flag problems"
+                    title="Facing problems with your business software?"
+                    body="Pick the problems that feel familiar. Get a clear summary to send over."
+                    cta="Flag the problems"
                   />
                 </motion.div>
-
-              </motion.div>
+              </div>
             </motion.div>
-
-            {/* Spacer for SectionDivider overlap */}
-            <div style={{ height: halfHeight || 64 }} />
           </div>
         </section>
 
-        {/* Zero-height seam */}
-        <div className="relative" style={{ height: 0 }}>
-          <div className="absolute inset-x-0 top-0 -translate-y-1/2 z-10">
-            <SectionDivider onHeightChange={onHeightChange} />
-          </div>
-        </div>
+        <SectionDivider />
 
-        <DiscoverProblems paddingTop={halfHeight || 64} />
+        <DiscoverProblems />
       </main>
 
       <LandingFooter />
