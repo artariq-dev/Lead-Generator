@@ -9,7 +9,15 @@ interface CategoryCardProps {
   categories: string[];
   badge: string;
   cta?: string;
+  accent?: string;
 }
+
+const ACCENT_CHIP: Record<string, string> = {
+  emerald: "bg-emerald-50 text-emerald-600",
+  blue: "bg-blue-50 text-blue-600",
+  purple: "bg-purple-50 text-purple-600",
+  rose: "bg-rose-50 text-rose-600",
+};
 
 export function CategoryCard({
   href,
@@ -18,7 +26,9 @@ export function CategoryCard({
   categories,
   badge,
   cta = "Start",
+  accent = "blue",
 }: CategoryCardProps) {
+  const chip = ACCENT_CHIP[accent] ?? ACCENT_CHIP.blue;
   return (
     <Link
       href={href}
@@ -26,7 +36,7 @@ export function CategoryCard({
     >
       <div className="flex flex-col flex-1">
         <div className="flex items-center justify-between mb-4">
-          <span className="flex items-center justify-center w-10 h-10 bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-white group-hover:text-black">
+          <span className={`flex items-center justify-center w-10 h-10 transition-colors duration-300 group-hover:bg-white group-hover:text-black ${chip}`}>
             <Icon id={iconId} size={20} />
           </span>
           <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-400 transition-colors duration-300 group-hover:text-blue-100">

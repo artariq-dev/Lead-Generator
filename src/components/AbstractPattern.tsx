@@ -1,4 +1,7 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { useRef, type ReactNode } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export type PatternVariant =
   | "contour"
@@ -10,13 +13,13 @@ export type PatternVariant =
 
 const CONTOUR: ReactNode = (
   <svg
-    className="absolute top-0 left-0 w-40 h-40 -translate-x-6 -translate-y-6"
+    className="absolute top-0 left-0 w-64 h-64 -translate-x-10 -translate-y-10"
     viewBox="0 0 200 200"
     fill="none"
     stroke="currentColor"
     strokeWidth="1.5"
   >
-    {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+    {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
       <ellipse
         key={i}
         cx={30 + i * 8}
@@ -32,7 +35,7 @@ const CONTOUR: ReactNode = (
 
 const HALFTONE: ReactNode = (
   <svg
-    className="absolute top-0 left-1/2 -translate-x-1/2 w-52 h-24 -translate-y-2"
+    className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-32 -translate-y-3"
     viewBox="0 0 400 120"
     fill="none"
     stroke="currentColor"
@@ -51,7 +54,7 @@ const HALFTONE: ReactNode = (
 
 const CHEVRON: ReactNode = (
   <svg
-    className="absolute top-0 right-0 w-40 h-40 -translate-y-4 translate-x-4"
+    className="absolute top-0 right-0 w-64 h-64 -translate-y-6 translate-x-6"
     viewBox="0 0 200 200"
     fill="none"
     stroke="currentColor"
@@ -59,11 +62,11 @@ const CHEVRON: ReactNode = (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    {[0, 1, 2, 3, 4, 5].map((i) => (
+    {[0, 1, 2, 3, 4, 5, 6].map((i) => (
       <path
         key={i}
         d={`M${8 + i * 14},170 L${100},${30 + i * 18} L${192 - i * 14},170`}
-        strokeOpacity={0.9 - i * 0.12}
+        strokeOpacity={0.9 - i * 0.1}
       />
     ))}
   </svg>
@@ -71,7 +74,7 @@ const CHEVRON: ReactNode = (
 
 const PARTICLES: ReactNode = (
   <svg
-    className="absolute bottom-0 left-0 w-44 h-44 -translate-x-4 translate-y-4"
+    className="absolute bottom-0 left-0 w-64 h-64 -translate-x-6 translate-y-6"
     viewBox="0 0 200 200"
     fill="currentColor"
   >
@@ -104,14 +107,14 @@ const PARTICLES: ReactNode = (
 
 const STRIPES: ReactNode = (
   <svg
-    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-24 translate-y-2"
+    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 translate-y-3"
     viewBox="0 0 200 100"
     fill="none"
     stroke="currentColor"
     strokeWidth="3"
     strokeLinecap="round"
   >
-    {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+    {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
       <path
         key={i}
         d={`M${10 + i * 14},105 C ${30 + i * 14},50 ${150 - i * 14},50 ${190 - i * 14},105`}
@@ -123,7 +126,7 @@ const STRIPES: ReactNode = (
 
 const MEMPHIS: ReactNode = (
   <svg
-    className="absolute bottom-0 right-0 w-44 h-44 -translate-x-2 translate-y-2"
+    className="absolute bottom-0 right-0 w-64 h-64 -translate-x-4 translate-y-4"
     viewBox="0 0 200 200"
     fill="none"
     stroke="currentColor"
@@ -172,9 +175,23 @@ interface AbstractPatternProps {
 }
 
 export function AbstractPattern({ variant, className }: AbstractPatternProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [28, -28]);
+  const x = useTransform(scrollYProgress, [0, 1], [-18, 18]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [-6, 6]);
+
   return (
-    <div aria-hidden className={`absolute inset-0 pointer-events-none ${className ?? ""}`}>
+    <motion.div
+      ref={ref}
+      aria-hidden
+      style={{ y, x, rotate }}
+      className={`absolute inset-0 pointer-events-none ${className ?? ""}`}
+    >
       {PATTERNS[variant]}
-    </div>
+    </motion.div>
   );
 }

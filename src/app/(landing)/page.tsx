@@ -1,17 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import type { Variants } from "framer-motion";
-import Link from "next/link";
+import { motion, type Variants } from "framer-motion";
 import { DiscoverProblems } from "@/components/DiscoverProblems";
 import { SectionDivider } from "@/components/SectionDivider";
-import { HeroCard } from "@/components/HeroCard";
-import { MiniAuditCard } from "@/components/MiniAuditCard";
-import { PixelGrid } from "@/components/PixelGrid";
 import { LandingFooter } from "@/components/LandingFooter";
-import { calculators, auditCardMeta } from "@/lib/calculators/config";
-
-const AUDIT_ORDER = ["growth", "performance", "ux", "security"] as const;
+import { HeroQuickAudit } from "@/components/landing/HeroQuickAudit";
+import { HeroBackground } from "@/components/landing/HeroBackground";
 
 // Framer Motion requires a typed tuple for cubic-bezier ease
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -31,9 +25,9 @@ export default function LandingPage() {
     <div className="flex flex-col flex-1 min-h-screen bg-white  overflow-x-hidden">
       <main className="flex-1 flex flex-col">
         {/* ── Hero ── */}
-        <section className="relative min-h-screen flex flex-col justify-center pt-20 pb-20 bg-white  border-b border-gray-100  overflow-hidden">
-          <PixelGrid />
-          <div className="relative z-10 max-w-7xl mx-auto w-full px-6 flex-1 flex flex-col justify-center">
+        <section className="relative bg-white  border-b border-gray-100  overflow-hidden">
+          <HeroBackground />
+          <div className="relative z-10 max-w-3xl mx-auto w-full px-6 pt-24 sm:pt-28 lg:py-24 pb-16 sm:pb-20">
             <motion.div
               variants={container}
               initial="hidden"
@@ -41,7 +35,7 @@ export default function LandingPage() {
             >
               <motion.p
                 variants={item}
-                className="inline-flex items-center gap-2 text-xs font-semibold text-blue-700  mb-5"
+                className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-blue-700  mb-6"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600 " />
                 Free software health check
@@ -49,115 +43,14 @@ export default function LandingPage() {
 
               <motion.h1
                 variants={item}
-                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900  leading-[1.1] mb-6"
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[0.06em] text-gray-900  leading-[1.15] mb-6"
               >
                 Is your software working the way you want?
               </motion.h1>
-
-              <motion.div variants={item} className="flex flex-col gap-4">
-                <p className="text-sm sm:text-base font-bold text-blue-700  shrink-0">
-                  Measure your software platform&apos;s
-                </p>
-              </motion.div>
             </motion.div>
 
-            <motion.div
-              variants={container}
-              initial="hidden"
-              animate="show"
-              className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-stretch"
-            >
-              {AUDIT_ORDER.map((id) => {
-                const config = calculators[id];
-                const badge = auditCardMeta[id];
-                if (!config || !badge) return null;
-                return (
-                  <motion.div variants={item} key={config.id} className="w-full sm:flex-1">
-                    <MiniAuditCard
-                      href={`/audit/${config.id}`}
-                      iconId={config.id}
-                      name={config.name}
-                      categories={config.categories.map((c) => c.short)}
-                      badge={badge}
-                    />
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-
-            <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                href="/diagnose"
-                className="text-sm font-semibold px-6 py-3 bg-blue-600 text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-blue-700 hover:shadow-[0_8px_24px_rgba(37,99,235,0.35)] transition-all duration-200"
-              >
-                Not sure? Diagnose a problem
-              </Link>
-              <Link
-                href="/build"
-                className="text-sm font-semibold px-6 py-3 bg-black text-white shadow-[0_1px_3px_rgba(0,0,0,0.15)] hover:bg-gray-800 hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition-all duration-200"
-              >
-                Instant build plan
-              </Link>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ── Pick a path ── */}
-        <section className="py-16 bg-black ">
-          <div className="max-w-7xl mx-auto w-full px-6">
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-80px" }}
-            >
-              <motion.div variants={item} className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                  Pick a path
-                </h2>
-                <p className="text-sm text-blue-200/80 mt-2">
-                  Choose what you need — an audit, a build plan, or a diagnosis.
-                </p>
-              </motion.div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
-                <motion.div variants={item}>
-                  <HeroCard
-                    href="/audit"
-                    label="Audit"
-                    iconId="audit"
-                    tags={["Growth", "Performance", "User Experience", "Security"]}
-                    title="Score your software against the essentials."
-                    body="Pick the area that matters most to your business and get an instant health score."
-                    cta="Run an audit"
-                  />
-                </motion.div>
-
-                <motion.div variants={item}>
-                  <HeroCard
-                    href="/build"
-                    label="Build"
-                    iconId="build"
-                    tags={["Frontend", "Backend", "Fullstack", "Cloud", "Automation", "Internal"]}
-                    title="Got scattered ideas? Get a tailored build plan."
-                    body="A clear build path, budget range, and timeline — matched to you."
-                    cta="Get an instant plan"
-                  />
-                </motion.div>
-
-                <motion.div variants={item}>
-                  <HeroCard
-                    href="/diagnose"
-                    label="Diagnose"
-                    iconId="diagnose"
-                    tags={["User Experience", "Security", "Growth", "Performance"]}
-                    title="Facing problems with your business software?"
-                    body="Pick the problems that feel familiar. Get a clear summary to send over."
-                    cta="Flag the problems"
-                  />
-                </motion.div>
-              </div>
-            </motion.div>
+            {/* Interactive audit — the funnel starts here */}
+            <HeroQuickAudit />
           </div>
         </section>
 

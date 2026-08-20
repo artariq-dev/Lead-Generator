@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const emptySubscribe = () => () => {};
@@ -60,11 +60,21 @@ export function StepForm({
   loadingText: string;
 }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(0);
   const [answers, setAnswers] = useState<StepAnswer[]>([]);
   const hydrated = useHydrated();
   const advanceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  const prefilled = useMemo(() => {
+    const map: Record<string, string> = {};
+    if (!hydrated) return map;
+    searchParams.forEach((value, key) => {
+      map[key] = value;
+    });
+    return map;
+  }, [hydrated, searchParams]);
 
   const questions = useMemo(
     () =>
@@ -73,6 +83,23 @@ export function StepForm({
         : config.questions,
     [config.questions, hydrated],
   );
+
+  // Skip questions already answered via URL (e.g. first question from the hero)
+  const firstUnanswered = useMemo(() => {
+    if (!hydrated) return 0;
+    return config.questions.findIndex((q) => !prefilled[q.id]);
+  }, [config.questions, prefilled, hydrated]);
+
+  useEffect(() => {
+    if (!hydrated || firstUnanswered <= 0) return;
+    setStep(firstUnanswered);
+    const initial = config.questions
+      .slice(0, firstUnanswered)
+      .filter((q) => prefilled[q.id])
+      .map((q) => ({ questionId: q.id, value: prefilled[q.id] }));
+    setAnswers(initial);
+    setDirection(1);
+  }, [hydrated, firstUnanswered, config.questions, prefilled]);
 
   const question = questions[step];
   const isLast = step === questions.length - 1;
