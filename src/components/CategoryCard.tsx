@@ -17,6 +17,8 @@ const ACCENT_CHIP: Record<string, string> = {
   blue: "bg-blue-50 text-blue-600",
   purple: "bg-purple-50 text-purple-600",
   rose: "bg-rose-50 text-rose-600",
+  amber: "bg-amber-50 text-amber-600",
+  indigo: "bg-indigo-50 text-indigo-600",
 };
 
 export function CategoryCard({

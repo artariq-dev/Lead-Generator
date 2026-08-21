@@ -12,10 +12,10 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const ORDER = ["growth", "performance", "ux", "security"] as const;
 
 const ACCENTS: Record<string, string> = {
-  growth: "text-emerald-600",
-  performance: "text-blue-600",
-  ux: "text-purple-600",
-  security: "text-rose-600",
+  growth: "bg-emerald-50 text-emerald-600 group-hover:bg-black group-hover:text-white",
+  performance: "bg-blue-50 text-blue-600 group-hover:bg-black group-hover:text-white",
+  ux: "bg-purple-50 text-purple-600 group-hover:bg-black group-hover:text-white",
+  security: "bg-rose-50 text-rose-600 group-hover:bg-black group-hover:text-white",
 };
 
 const ALT_PATHS = [
@@ -23,19 +23,21 @@ const ALT_PATHS = [
     href: "/build",
     label: "Build",
     iconId: "build",
+    iconClass: "bg-emerald-50 text-emerald-600",
     title: "Got scattered ideas? Get a tailored build plan.",
     cta: "Get an instant plan",
     pattern: "memphis" as PatternVariant,
-    patternColor: "text-blue-400",
+    patternColor: "text-emerald-400",
   },
   {
     href: "/diagnose",
     label: "Diagnose",
     iconId: "diagnose",
+    iconClass: "bg-red-50 text-red-600",
     title: "Facing problems? Flag what hurts, get a summary.",
     cta: "Flag the problems",
     pattern: "contour" as PatternVariant,
-    patternColor: "text-purple-400",
+    patternColor: "text-red-400",
   },
 ];
 
@@ -55,9 +57,10 @@ export function HeroQuickAudit() {
     >
       <div className="h-1 w-full bg-blue-600 mb-5" />
 
-      <h2 className="text-sm lg:text-base font-bold text-gray-900 leading-snug mb-4">
-        Which area of your software should we score?
-      </h2>
+        <h2 className="text-sm lg:text-base font-bold text-gray-900 leading-snug mb-4">
+          Reasoning factors + Breakdown logic across{" "}
+          <span className="text-blue-600">4 critical pillars :</span>
+        </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {ORDER.map((id, i) => {
@@ -68,10 +71,10 @@ export function HeroQuickAudit() {
             <motion.div key={id} {...fadeUp(0.15 + 0.07 * i)}>
               <Link
                 href={`/audit/${id}`}
-                className="group w-full flex items-center gap-3 px-3.5 py-3 border border-gray-200 text-left transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:border-gray-300"
+                className="group w-full flex items-center gap-3 px-3.5 py-3 border border-gray-200 text-left transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_6px_16px_rgba(0,0,0,0.1)] hover:border-gray-300"
               >
-                <span className={`flex items-center justify-center w-9 h-9 bg-gray-50 shrink-0 ${ACCENTS[id]}`}>
-                  <Icon id={id} size={18} />
+                <span className={`flex items-center justify-center w-10 h-10 shrink-0 transition-colors duration-200 ${ACCENTS[id]}`}>
+                  <Icon id={id} size={20} />
                 </span>
                 <span className="min-w-0 leading-tight">
                   <span className="block text-sm font-bold text-gray-900 truncate">
@@ -84,7 +87,7 @@ export function HeroQuickAudit() {
                 <ArrowRight
                   size={18}
                   strokeWidth={3}
-                  className="ml-auto shrink-0 text-emerald-600 transition-all duration-150 group-hover:text-blue-600 group-hover:translate-x-0.5"
+                  className="ml-auto shrink-0 text-emerald-600 transition-all duration-200 group-hover:text-black group-hover:translate-x-0.5"
                 />
               </Link>
             </motion.div>
@@ -116,7 +119,7 @@ export function HeroQuickAudit() {
 
               <div className="relative flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="flex items-center justify-center w-9 h-9 bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-white group-hover:text-black">
+                  <span className={`flex items-center justify-center w-9 h-9 transition-colors duration-300 group-hover:bg-white group-hover:text-black ${path.iconClass}`}>
                     <Icon id={path.iconId} size={18} />
                   </span>
                   <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-400 transition-colors duration-300 group-hover:text-blue-100">
@@ -145,11 +148,6 @@ export function HeroQuickAudit() {
           </motion.div>
         ))}
       </div>
-
-      <p className="mt-4 text-[10px] text-gray-500 leading-relaxed">
-        8 questions → instant A–F scorecard → a personal reply within 24 hours.
-        No sign-up, no spam, no upsell.
-      </p>
     </motion.div>
   );
 }
