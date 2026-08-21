@@ -38,7 +38,7 @@ export default function LandingPage() {
                 className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-blue-700  mb-6"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600 " />
-                Free software health check
+                Software Breakdown
               </motion.p>
 
               <motion.h1

@@ -15,7 +15,7 @@ export interface PainGroup {
 export const groupsBusiness: PainGroup[] = [
   {
     id: "crm",
-    label: "Your CRM should close deals — not collect dust",
+    label: "Your business software should close deals — not collect dust",
     description: "Leads don't convert themselves, and spreadsheets aren't a sales system",
     children: [
       { id: "lead_loss", label: "Leads are falling through the cracks — no follow-up system in place", severity: "critical", tech: "CRM, HubSpot, Salesforce" },
@@ -251,10 +251,10 @@ export const parentLabelsBusiness: Record<string, string> = {
   design: "Too many ideas, too few shipped — sound familiar?",
   seo: "If Google can't find you, neither can your users",
   analytics: "If Google can't find you, neither can your users",
-  lead_loss: "Your CRM should close deals — not collect dust",
-  crm_data: "Your CRM should close deals — not collect dust",
-  crm_manual: "Your CRM should close deals — not collect dust",
-  crm_pipeline: "Your CRM should close deals — not collect dust",
-  crm_followup: "Your CRM should close deals — not collect dust",
-  crm_roi: "Your CRM should close deals — not collect dust",
+  lead_loss: "Your business software should close deals — not collect dust",
+  crm_data: "Your business software should close deals — not collect dust",
+  crm_manual: "Your business software should close deals — not collect dust",
+  crm_pipeline: "Your business software should close deals — not collect dust",
+  crm_followup: "Your business software should close deals — not collect dust",
+  crm_roi: "Your business software should close deals — not collect dust",
 };
