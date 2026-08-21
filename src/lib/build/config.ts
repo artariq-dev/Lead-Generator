@@ -33,7 +33,7 @@ export const buildTypes: Record<string, BuildConfig> = {
     questions: [
       {
         id: "fe_purpose",
-        label: "What's the main purpose of what you want to build?",
+        label: "The main purpose of what you want to build",
         options: [
           { label: "A marketing or landing page to promote something", value: "marketing", score: 1 },
           { label: "A web app where users log in and do things", value: "webapp", score: 3 },
@@ -43,7 +43,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fe_audience",
-        label: "Who is going to use it — and do you know what they need from it?",
+        label: "Who will use it — and what you know about what they need",
         options: [
           { label: "Yes — I know exactly who they are and what they need", value: "clear", score: 4 },
           { label: "I have a rough idea of the audience", value: "rough", score: 2 },
@@ -53,7 +53,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fe_accounts",
-        label: "Does it need users to sign up, log in, or have their own accounts?",
+        label: "Whether users need to sign up, log in, or have their own accounts",
         options: [
           { label: "No — publicly accessible, no accounts needed", value: "none", score: 1 },
           { label: "Yes — users need basic accounts and profiles", value: "basic", score: 3 },
@@ -63,7 +63,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fe_integrations",
-        label: "Does it need to connect to anything — payments, bookings, a database, third-party APIs?",
+        label: "What it needs to connect to — payments, bookings, a database, third-party APIs",
         options: [
           { label: "No — mostly static content", value: "none", score: 1 },
           { label: "Yes — payments or bookings", value: "payments", score: 3 },
@@ -73,7 +73,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fe_budget",
-        label: "What's your budget for building this?",
+        label: "Your budget for building this",
         options: [
           { label: "Under £2k — need something lean and fast", value: "low", score: 1 },
           { label: "£2k–£8k — willing to invest for the right result", value: "mid", score: 2 },
@@ -83,7 +83,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fe_timeline",
-        label: "How fast do you need this live?",
+        label: "How fast you need this live",
         options: [
           { label: "ASAP — weeks matter", value: "asap", score: 1 },
           { label: "1–3 months is fine", value: "months", score: 3 },
@@ -93,7 +93,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fe_maintenance",
-        label: "After it's built, who manages updates and changes?",
+        label: "Who manages updates and changes after it's built",
         options: [
           { label: "I want to edit it myself — content, text, images", value: "self", score: 1 },
           { label: "A developer I'll hire as needed", value: "dev", score: 3 },
@@ -103,7 +103,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fe_growth",
-        label: "Is this a one-time build or something you'll grow over time?",
+        label: "Whether this is a one-time build or something you'll grow over time",
         options: [
           { label: "One-time — solve this problem, done", value: "onetime", score: 1 },
           { label: "I'll add features gradually as the business grows", value: "gradual", score: 3 },
@@ -127,7 +127,7 @@ export const buildTypes: Record<string, BuildConfig> = {
     questions: [
       {
         id: "be_purpose",
-        label: "What do you need the backend to do at its core?",
+        label: "What the backend needs to do at its core",
         options: [
           { label: "Store and retrieve data for my app or website", value: "storage", score: 2 },
           { label: "Handle user accounts, auth, and permissions", value: "auth", score: 3 },
@@ -137,7 +137,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "be_existing",
-        label: "Do you have a frontend or existing system this backend needs to connect to?",
+        label: "Whether this backend needs to connect to an existing frontend or system",
         options: [
           { label: "Yes — it needs to plug into something already built", value: "existing", score: 3 },
           { label: "Not yet — this is the starting point", value: "greenfield", score: 2 },
@@ -147,7 +147,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "be_scale",
-        label: "How much data or traffic do you expect this to handle?",
+        label: "How much data or traffic it needs to handle",
         options: [
           { label: "Small — a few hundred users or requests a day", value: "small", score: 1 },
           { label: "Medium — thousands of users, growing steadily", value: "medium", score: 3 },
@@ -157,7 +157,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "be_security",
-        label: "Does your backend handle sensitive data — personal details, payments, health info?",
+        label: "Whether the backend handles sensitive data — personal details, payments, health info",
         options: [
           { label: "No — it's not sensitive", value: "none", score: 1 },
           { label: "Some — basic personal info like names and emails", value: "basic", score: 2 },
@@ -167,7 +167,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "be_budget",
-        label: "What's your budget for building this?",
+        label: "Your budget for building this",
         options: [
           { label: "Under £2k — need something simple and fast", value: "low", score: 1 },
           { label: "£2k–£8k — willing to invest for the right result", value: "mid", score: 2 },
@@ -177,7 +177,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "be_timeline",
-        label: "How fast do you need this running?",
+        label: "How fast you need this running",
         options: [
           { label: "ASAP — I need an MVP backend in weeks", value: "asap", score: 1 },
           { label: "1–3 months is fine", value: "months", score: 3 },
@@ -187,7 +187,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "be_maintenance",
-        label: "Who will maintain and monitor this once it's live?",
+        label: "Who will maintain and monitor it once it's live",
         options: [
           { label: "Me — I want to understand and control it", value: "self", score: 2 },
           { label: "A developer I'll bring in as needed", value: "dev", score: 3 },
@@ -197,7 +197,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "be_growth",
-        label: "Is this backend a foundation you'll build on — or a one-time solution?",
+        label: "Whether this backend is a foundation you'll build on — or a one-time solution",
         options: [
           { label: "One-time — solves a specific problem, done", value: "onetime", score: 1 },
           { label: "Foundation — I'll keep adding to it over time", value: "foundation", score: 3 },
@@ -222,7 +222,7 @@ export const buildTypes: Record<string, BuildConfig> = {
     questions: [
       {
         id: "cloud_situation",
-        label: "What's your current cloud situation?",
+        label: "Your current cloud situation",
         options: [
           { label: "Starting from scratch — nothing is set up yet", value: "greenfield", score: 2 },
           { label: "Moving an existing app or system to the cloud", value: "migration", score: 4 },
@@ -232,7 +232,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "cloud_workload",
-        label: "What are you running or planning to run on the cloud?",
+        label: "What you're running or planning to run on the cloud",
         options: [
           { label: "A website or web app", value: "webapp", score: 2 },
           { label: "APIs and backend services", value: "api", score: 3 },
@@ -242,7 +242,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "cloud_provider",
-        label: "Which cloud provider are you on or considering?",
+        label: "Which cloud provider you're on or considering",
         options: [
           { label: "AWS — or want to be", value: "aws", score: 3 },
           { label: "Google Cloud", value: "gcp", score: 3 },
@@ -252,7 +252,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "cloud_state",
-        label: "How much of your infrastructure is currently documented or automated?",
+        label: "How much of your infrastructure is documented or automated",
         options: [
           { label: "Fully — infrastructure as code, everything versioned", value: "full", score: 5 },
           { label: "Partially — some docs, some manual steps", value: "partial", score: 3 },
@@ -262,7 +262,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "cloud_scale",
-        label: "Does your infrastructure need to scale automatically with traffic?",
+        label: "Whether your infrastructure needs to scale automatically with traffic",
         options: [
           { label: "Yes — traffic is unpredictable and spikes matter", value: "auto", score: 5 },
           { label: "Somewhat — steady growth, planned capacity is fine", value: "planned", score: 3 },
@@ -272,7 +272,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "cloud_concern",
-        label: "What's your biggest concern with your cloud setup?",
+        label: "Your biggest concern with your cloud setup",
         options: [
           { label: "Cost — I'm spending too much or can't see where it goes", value: "cost", score: 3 },
           { label: "Security — I'm not confident data is protected", value: "security", score: 4 },
@@ -282,7 +282,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "cloud_budget",
-        label: "What's your budget for this cloud work?",
+        label: "Your budget for this cloud work",
         options: [
           { label: "Under £2k — targeted fix or basic setup", value: "low", score: 1 },
           { label: "£2k–£8k — proper setup or focused migration", value: "mid", score: 2 },
@@ -292,7 +292,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "cloud_ownership",
-        label: "Once it's built, who manages and monitors it?",
+        label: "Who manages and monitors it once it's built",
         options: [
           { label: "Me or my internal team — we want full control", value: "internal", score: 4 },
           { label: "A DevOps engineer I'll hire ongoing", value: "hire", score: 3 },
@@ -317,7 +317,7 @@ export const buildTypes: Record<string, BuildConfig> = {
     questions: [
       {
         id: "auto_problem",
-        label: "What are you trying to automate?",
+        label: "What you're trying to automate",
         options: [
           { label: "A repetitive manual task my team does daily", value: "manual", score: 2 },
           { label: "Data moving between systems — syncing, copying, updating", value: "sync", score: 3 },
@@ -327,7 +327,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "auto_tools",
-        label: "Which tools or systems does this automation need to connect?",
+        label: "Which tools or systems the automation needs to connect",
         options: [
           { label: "Just one or two — simple connection", value: "simple", score: 1 },
           { label: "Three to five tools", value: "moderate", score: 3 },
@@ -337,7 +337,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "auto_frequency",
-        label: "How often does this process run?",
+        label: "How often this process runs",
         options: [
           { label: "Once or twice a day", value: "daily", score: 1 },
           { label: "Multiple times per hour", value: "hourly", score: 3 },
@@ -347,7 +347,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "auto_error",
-        label: "What happens if this automation fails silently?",
+        label: "What happens if this automation fails silently",
         options: [
           { label: "Minor inconvenience — easy to catch manually", value: "minor", score: 1 },
           { label: "Noticeable but recoverable", value: "noticeable", score: 2 },
@@ -357,7 +357,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "auto_budget",
-        label: "What's your budget for building this?",
+        label: "Your budget for building this",
         options: [
           { label: "Under £1k — want a no-code solution", value: "low", score: 1 },
           { label: "£1k–£5k — happy to pay for proper setup", value: "mid", score: 2 },
@@ -367,7 +367,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "auto_timeline",
-        label: "How urgently do you need this running?",
+        label: "How urgently you need this running",
         options: [
           { label: "This week — it's costing us time right now", value: "urgent", score: 1 },
           { label: "Within a month", value: "month", score: 3 },
@@ -377,7 +377,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "auto_ownership",
-        label: "Who will manage this automation once it's live?",
+        label: "Who will manage the automation once it's live",
         options: [
           { label: "Me — I want to adjust it myself when things change", value: "self", score: 2 },
           { label: "A developer or ops person on my team", value: "team", score: 3 },
@@ -387,7 +387,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "auto_growth",
-        label: "Is this a one-off fix or part of a larger automation strategy?",
+        label: "Whether this is a one-off fix or part of a larger automation strategy",
         options: [
           { label: "One-off — fix this one thing", value: "onetime", score: 1 },
           { label: "Starting point — I want to automate more over time", value: "start", score: 3 },
@@ -412,7 +412,7 @@ export const buildTypes: Record<string, BuildConfig> = {
     questions: [
       {
         id: "int_purpose",
-        label: "What is this internal tool supposed to replace or improve?",
+        label: "What this internal tool should replace or improve",
         options: [
           { label: "A spreadsheet or manual process my team uses daily", value: "spreadsheet", score: 2 },
           { label: "A third-party tool that doesn't quite fit our needs", value: "thirdparty", score: 3 },
@@ -422,7 +422,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "int_users",
-        label: "How many people will use this tool, and how often?",
+        label: "How many people will use it, and how often",
         options: [
           { label: "Just me or one small team — a few times a week", value: "small", score: 1 },
           { label: "5–20 people, daily use", value: "medium", score: 3 },
@@ -432,7 +432,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "int_complexity",
-        label: "What does this tool need to do at its most complex?",
+        label: "What the tool needs to do at its most complex",
         options: [
           { label: "Display and edit data — a smarter spreadsheet", value: "crud", score: 2 },
           { label: "Automate approvals, notifications, or workflows", value: "workflow", score: 4 },
@@ -442,7 +442,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "int_data",
-        label: "Does this tool handle sensitive business data — finances, HR, customer records?",
+        label: "Whether the tool handles sensitive data — finances, HR, customer records",
         options: [
           { label: "No — non-sensitive operational data", value: "none", score: 1 },
           { label: "Some — internal metrics and reporting", value: "some", score: 2 },
@@ -452,7 +452,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "int_budget",
-        label: "What's your budget for this?",
+        label: "Your budget for this",
         options: [
           { label: "Under £2k — lean internal tool", value: "low", score: 1 },
           { label: "£2k–£8k — proper solution worth the investment", value: "mid", score: 2 },
@@ -462,7 +462,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "int_timeline",
-        label: "How quickly does your team need this?",
+        label: "How quickly your team needs it",
         options: [
           { label: "This month — it's blocking work right now", value: "urgent", score: 1 },
           { label: "1–2 months", value: "soon", score: 3 },
@@ -472,7 +472,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "int_maintenance",
-        label: "Who will update this when processes change — and they will?",
+        label: "Who will update this when processes change",
         options: [
           { label: "I want to update it myself without a developer", value: "self", score: 2 },
           { label: "A developer we have or will hire", value: "dev", score: 3 },
@@ -482,7 +482,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "int_growth",
-        label: "Is this a stopgap or a long-term system your team will rely on?",
+        label: "Whether this is a stopgap or a long-term system your team will rely on",
         options: [
           { label: "Stopgap — buy us time while we figure out the real solution", value: "stopgap", score: 1 },
           { label: "Medium-term — a few years at least", value: "medium", score: 3 },
@@ -507,7 +507,7 @@ export const buildTypes: Record<string, BuildConfig> = {
     questions: [
       {
         id: "fs_purpose",
-        label: "What are you building at the highest level?",
+        label: "What you're building at the highest level",
         options: [
           { label: "A SaaS product — users pay to use it", value: "saas", score: 5 },
           { label: "A marketplace — buyers and sellers or two user types", value: "marketplace", score: 5 },
@@ -517,7 +517,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fs_defined",
-        label: "How well defined is what you're building?",
+        label: "How well defined what you're building is",
         options: [
           { label: "Very clear — I have wireframes or a detailed spec", value: "clear", score: 4 },
           { label: "Mostly clear — I know the core features", value: "mostly", score: 3 },
@@ -527,7 +527,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fs_complexity",
-        label: "Which best describes the core complexity of your product?",
+        label: "The core complexity of your product",
         options: [
           { label: "Users, roles, and permissions with a database", value: "users", score: 3 },
           { label: "Real-time features — live updates, chat, notifications", value: "realtime", score: 5 },
@@ -537,7 +537,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fs_validated",
-        label: "Have you validated that people actually want this before building it?",
+        label: "Whether you've validated that people want this before building it",
         options: [
           { label: "Yes — spoken to users, confirmed the need", value: "validated", score: 4 },
           { label: "Somewhat — strong gut feeling from experience", value: "gut", score: 2 },
@@ -547,7 +547,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fs_budget",
-        label: "What's your budget for this build?",
+        label: "Your budget for this build",
         options: [
           { label: "Under £5k — need to keep it tight", value: "low", score: 1 },
           { label: "£5k–£15k — solid investment for the right scope", value: "mid", score: 2 },
@@ -557,7 +557,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fs_timeline",
-        label: "When do you need an MVP in users' hands?",
+        label: "When you need an MVP in users' hands",
         options: [
           { label: "Within 6 weeks — need to move fast", value: "fast", score: 1 },
           { label: "2–3 months", value: "months", score: 3 },
@@ -567,7 +567,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fs_team",
-        label: "Do you have a technical co-founder or developer on your team?",
+        label: "Whether you have a technical co-founder or developer on your team",
         options: [
           { label: "Yes — someone technical is already involved", value: "yes", score: 4 },
           { label: "No — I'm fully non-technical and need someone to own it", value: "no", score: 2 },
@@ -577,7 +577,7 @@ export const buildTypes: Record<string, BuildConfig> = {
       },
       {
         id: "fs_growth",
-        label: "What does success look like 12 months after launch?",
+        label: "What success looks like 12 months after launch",
         options: [
           { label: "Paying customers and measurable revenue", value: "revenue", score: 5 },
           { label: "A working product I can show investors or customers", value: "mvp", score: 3 },

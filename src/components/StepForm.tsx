@@ -158,7 +158,7 @@ export function StepForm({
       <div className="mb-4">
         <div className="flex items-center justify-between mb-1.5">
           <span className="text-[10px] tracking-wider uppercase text-gray-400">
-            Question {step + 1} of {questions.length}
+            Factor {step + 1} of {questions.length}
           </span>
           <span className="text-[10px] text-gray-400">
             {Math.round(((step + 1) / questions.length) * 100)}%

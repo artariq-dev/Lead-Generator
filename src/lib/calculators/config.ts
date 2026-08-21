@@ -41,7 +41,7 @@ export const calculators: Record<string, CalculatorConfig> = {
     questions: [
       {
         id: "growth_channels",
-        label: "Do you know which channels actually bring in your paying customers?",
+        label: "Which channels actually bring in your paying customers",
         options: [
           { label: "Yes — I know exactly which ones work", value: "clear", score: 5 },
           { label: "I have a rough idea", value: "rough", score: 3 },
@@ -51,7 +51,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "growth_response",
-        label: "When someone shows interest in your business, how quickly do they hear back?",
+        label: "How quickly interested people hear back",
         options: [
           { label: "Within minutes — it's automatic", value: "minutes", score: 5 },
           { label: "Within the hour", value: "hour", score: 3 },
@@ -61,7 +61,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "growth_followup",
-        label: "What happens to a lead who isn't ready to buy right away?",
+        label: "What happens to a lead who isn't ready to buy right away",
         options: [
           { label: "They get follow-ups automatically", value: "auto", score: 5 },
           { label: "We follow up when we remember", value: "manual", score: 3 },
@@ -71,7 +71,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "growth_pipeline",
-        label: "Can you see exactly where every potential customer is in the process right now?",
+        label: "Exactly where every potential customer is in the process right now",
         options: [
           { label: "Yes — I can see it all at a glance", value: "visible", score: 5 },
           { label: "Mostly — I can piece it together", value: "partial", score: 3 },
@@ -81,7 +81,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "growth_manual",
-        label: "How much of your day goes to tasks like copying data, updating spreadsheets, or chasing follow-ups?",
+        label: "How much of your day goes to copying data, updating spreadsheets, or chasing follow-ups",
         options: [
           { label: "Almost none — most of it runs itself", value: "auto", score: 5 },
           { label: "An hour or so", value: "some", score: 3 },
@@ -91,7 +91,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "growth_tools",
-        label: "Are the tools you use for sales and marketing working together — or do you copy-paste between them?",
+        label: "Whether your sales and marketing tools work together — or you copy-paste between them",
         options: [
           { label: "They work together — information flows automatically", value: "connected", score: 5 },
           { label: "Some of them are connected", value: "partial", score: 3 },
@@ -101,7 +101,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "growth_budget",
-        label: "Do you know which marketing spend actually pays off — or are you guessing?",
+        label: "Which marketing spend actually pays off — and whether it's tracked or guesswork",
         options: [
           { label: "Yes — I can see what works and what doesn't", value: "clear", score: 5 },
           { label: "I have a rough sense of it", value: "rough", score: 3 },
@@ -111,7 +111,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "growth_measure",
-        label: "If a customer stopped buying, how long before you'd notice?",
+        label: "How quickly you'd notice if a customer stopped buying",
         options: [
           { label: "Immediately — I'd see it the same day", value: "day", score: 5 },
           { label: "Within the week", value: "week", score: 3 },
@@ -136,7 +136,7 @@ export const calculators: Record<string, CalculatorConfig> = {
     questions: [
       {
         id: "perf_load",
-        label: "How fast does your main page load for a customer on their phone?",
+        label: "How fast your main page loads on a phone",
         options: [
           { label: "Under 2 seconds — feels instant", value: "fast", score: 5 },
           { label: "2–4 seconds — acceptable", value: "ok", score: 3 },
@@ -146,7 +146,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "perf_why",
-        label: "When things feel slow, do you know why — or is it a mystery?",
+        label: "Whether you know why things feel slow — or it's a mystery",
         options: [
           { label: "Yes — I can see exactly what's slow", value: "clear", score: 5 },
           { label: "I have a rough idea", value: "rough", score: 3 },
@@ -156,7 +156,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "perf_breaks",
-        label: "In a normal month, how often does your software break or stop working for customers?",
+        label: "How often your software breaks or stops working for customers in a normal month",
         options: [
           { label: "Almost never", value: "never", score: 5 },
           { label: "Once or twice", value: "sometimes", score: 3 },
@@ -166,7 +166,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "perf_recover",
-        label: "If it went down right now, how fast could you get it back up?",
+        label: "How fast you could get it back up if it went down right now",
         options: [
           { label: "Minutes — I know exactly what to do", value: "minutes", score: 5 },
           { label: "Within the hour", value: "hour", score: 3 },
@@ -176,7 +176,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "perf_alert",
-        label: "If something broke tonight, would you be alerted — or find out when a customer complains?",
+        label: "Whether you'd be alerted if something broke tonight — or find out when a customer complains",
         options: [
           { label: "I'd be alerted automatically", value: "auto", score: 5 },
           { label: "I'd notice if I checked", value: "manual", score: 3 },
@@ -186,7 +186,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "perf_health",
-        label: "Can you check right now, on your own, whether your software is running smoothly?",
+        label: "Whether you can check on your own if your software is running smoothly",
         options: [
           { label: "Yes — I can see it any time", value: "yes", score: 5 },
           { label: "I can check if I think about it", value: "manual", score: 3 },
@@ -196,7 +196,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "perf_scale",
-        label: "If twice as many people started using it tomorrow, would it keep up?",
+        label: "Whether it would keep up if twice as many people started using it tomorrow",
         options: [
           { label: "Yes — no problem", value: "yes", score: 5 },
           { label: "Probably — for a while", value: "probably", score: 3 },
@@ -206,7 +206,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "perf_backup",
-        label: "If customer data was accidentally deleted, could you get it back?",
+        label: "Whether you could get customer data back if it was accidentally deleted",
         options: [
           { label: "Yes — we have backups we've tested", value: "tested", score: 5 },
           { label: "We have backups, but never tested restoring them", value: "untested", score: 3 },
@@ -231,7 +231,7 @@ export const calculators: Record<string, CalculatorConfig> = {
     questions: [
       {
         id: "ux_learn",
-        label: "Can a new customer figure out how to use it on their own — without being shown?",
+        label: "Whether a new customer can figure it out on their own — without being shown",
         options: [
           { label: "Yes — it's obvious", value: "easy", score: 5 },
           { label: "Mostly — some get stuck", value: "some", score: 3 },
@@ -241,7 +241,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "ux_return",
-        label: "When a new customer signs up, do they come back — or disappear after the first try?",
+        label: "Whether new customers come back or disappear after the first try",
         options: [
           { label: "They come back — I can see it", value: "return", score: 5 },
           { label: "I think they do, but I'm not sure", value: "guess", score: 3 },
@@ -251,7 +251,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "ux_confusing",
-        label: "When was the last time someone told you it was confusing or hard to use?",
+        label: "The last time someone said it was confusing or hard to use",
         options: [
           { label: "Never — people seem happy", value: "never", score: 5 },
           { label: "Months ago", value: "months", score: 3 },
@@ -261,7 +261,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "ux_stuck",
-        label: "If a customer gets stuck, can they find help — or do they just give up?",
+        label: "Whether a stuck customer can find help — or just gives up",
         options: [
           { label: "Yes — it's easy to find help and get unstuck", value: "easy", score: 5 },
           { label: "There's help, but it's not obvious", value: "partial", score: 3 },
@@ -271,7 +271,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "ux_phone",
-        label: "Does it work properly on a phone — or is it awkward and frustrating on small screens?",
+        label: "Whether it works properly on a phone — or feels awkward on small screens",
         options: [
           { label: "Works great on any device", value: "great", score: 5 },
           { label: "Mostly works — some rough spots", value: "ok", score: 3 },
@@ -281,7 +281,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "ux_done",
-        label: "Can customers do everything they need on their phone, or do they have to switch to a computer?",
+        label: "Whether customers can do everything on their phone or must switch to a computer",
         options: [
           { label: "Everything works on a phone", value: "all", score: 5 },
           { label: "Most things", value: "most", score: 3 },
@@ -291,7 +291,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "ux_usage",
-        label: "Do you know which parts people actually use — and which parts they ignore?",
+        label: "Which parts people actually use — and which parts they ignore",
         options: [
           { label: "Yes — I can see usage clearly", value: "clear", score: 5 },
           { label: "I have a rough idea", value: "rough", score: 3 },
@@ -301,7 +301,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "ux_complaints",
-        label: "Do you have an easy way for customers to tell you what's annoying them?",
+        label: "How easy it is for customers to tell you what's annoying them",
         options: [
           { label: "Yes — it's easy to send feedback", value: "easy", score: 5 },
           { label: "They can email or call us", value: "manual", score: 3 },
@@ -326,7 +326,7 @@ export const calculators: Record<string, CalculatorConfig> = {
     questions: [
       {
         id: "sec_safe",
-        label: "If a customer's data was leaked today, would you know what was exposed and how fast?",
+        label: "Whether you'd know what was exposed and how fast if data leaked today",
         options: [
           { label: "Yes — I'd know immediately what happened", value: "yes", score: 5 },
           { label: "I'd piece it together within a day", value: "day", score: 3 },
@@ -336,7 +336,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "sec_protected",
-        label: "How confident are you that customer data is protected from outsiders right now?",
+        label: "How confident you are that customer data is protected from outsiders right now",
         options: [
           { label: "Very confident — we've checked recently", value: "confident", score: 5 },
           { label: "Fairly confident", value: "fairly", score: 3 },
@@ -346,7 +346,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "sec_access",
-        label: "Do you know who on your team can see sensitive customer information?",
+        label: "Who on your team can see sensitive customer information",
         options: [
           { label: "Yes — I have the full picture", value: "full", score: 5 },
           { label: "Mostly — some gaps", value: "partial", score: 3 },
@@ -356,7 +356,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "sec_leavers",
-        label: "When someone leaves the company, is their access switched off — or does it quietly stay on?",
+        label: "Whether leavers' access is switched off — or quietly stays on",
         options: [
           { label: "It's switched off right away", value: "off", score: 5 },
           { label: "Usually — sometimes we forget", value: "sometimes", score: 3 },
@@ -366,7 +366,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "sec_alert",
-        label: "If someone tried to break in, would you be told about it — or would it go unnoticed?",
+        label: "Whether you'd be told if someone tried to break in — or it would go unnoticed",
         options: [
           { label: "I'd be alerted automatically", value: "auto", score: 5 },
           { label: "I might notice if I checked", value: "manual", score: 3 },
@@ -376,7 +376,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "sec_check",
-        label: "Do you have a way to check whether your software is actually secure — or is it a hope?",
+        label: "Whether your software is actually checked for security — or it's a hope",
         options: [
           { label: "Yes — we check regularly", value: "yes", score: 5 },
           { label: "We've checked once or twice", value: "sometimes", score: 3 },
@@ -386,7 +386,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "sec_backup",
-        label: "If the worst happened and data was lost, could you restore everything?",
+        label: "Whether you could restore everything if data was lost",
         options: [
           { label: "Yes — backups are tested and ready", value: "tested", score: 5 },
           { label: "We have backups, but never tested restoring them", value: "untested", score: 3 },
@@ -396,7 +396,7 @@ export const calculators: Record<string, CalculatorConfig> = {
       },
       {
         id: "sec_plan",
-        label: "If you were hacked, do you have a clear plan for what to do first?",
+        label: "How clear your plan is for what to do if you're hacked",
         options: [
           { label: "Yes — we know exactly what to do", value: "yes", score: 5 },
           { label: "We'd figure it out as we go", value: "adhoc", score: 3 },
