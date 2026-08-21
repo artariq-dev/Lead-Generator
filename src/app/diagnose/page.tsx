@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function DiagnosePage() {
   return (
-    <section className="py-20 bg-gray-50 min-h-screen">
+    <section className="pt-24 pb-20 bg-gray-50 min-h-screen">
       <main className="max-w-3xl mx-auto w-full px-6">
         <div className="flex items-center gap-3 mb-2">
           <span className="text-red-600 shrink-0">

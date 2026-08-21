@@ -29,7 +29,7 @@ export default async function CalculatorPage({
   if (!config) notFound();
 
   return (
-    <section className="py-20 bg-gray-100 min-h-screen">
+    <section className="pt-24 pb-20 bg-gray-100 min-h-screen">
       <main className="max-w-2xl mx-auto w-full px-6">
         <div className="mb-8">
           <Link href="/audit" className="text-xs text-gray-500 hover:text-gray-900 transition-colors mb-3 inline-block">

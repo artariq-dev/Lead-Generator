@@ -30,7 +30,7 @@ function ReportContent({ type }: { type: string }) {
 
   if (answers.length < config.questions.length) {
     return (
-      <section className="py-20 bg-gray-100 min-h-screen">
+      <section className="pt-24 pb-20 bg-gray-100 min-h-screen">
         <main className="max-w-2xl mx-auto w-full px-6">
           <p className="text-sm text-gray-500 mb-4">
             Incomplete answers — looks like you didn&apos;t finish the questionnaire.
@@ -55,7 +55,7 @@ function ReportContent({ type }: { type: string }) {
   });
 
   return (
-    <section className="py-20 bg-gray-100 min-h-screen">
+    <section className="pt-24 pb-20 bg-gray-100 min-h-screen">
       <main className="max-w-6xl mx-auto w-full px-6">
         <ReportHeader
           eyebrow={`Build Guide · ${config.name}`}

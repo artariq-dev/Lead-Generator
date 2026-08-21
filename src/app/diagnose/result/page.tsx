@@ -24,7 +24,7 @@ function AnalyzeContent() {
 
   return (
     <div className="flex flex-col flex-1 min-h-screen bg-white ">
-      <main className="flex-1 max-w-6xl mx-auto w-full px-6 pt-16 pb-12">
+      <main className="flex-1 max-w-6xl mx-auto w-full px-6 pt-24 pb-12">
         {pains.length === 0 ? (
           <p className="text-sm text-gray-500 ">
             No problems selected.{" "}

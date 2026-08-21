@@ -20,7 +20,7 @@ const accents: Record<string, string> = {
 export default function AuditPage() {
   const ordered = order.map((id) => calculators[id]).filter(Boolean);
   return (
-    <section className="py-20 bg-gray-50 min-h-screen">
+    <section className="pt-24 pb-20 bg-gray-50 min-h-screen">
       <div className="max-w-5xl mx-auto w-full px-6">
         <div className="flex items-center gap-3 mb-2">
           <span className="text-blue-600 shrink-0">

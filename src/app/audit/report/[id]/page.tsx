@@ -27,7 +27,7 @@ function ReportContent() {
   const g = gradeConfig[result.grade] || gradeConfig.F;
 
   return (
-    <section className="py-20 bg-gray-100 min-h-screen">
+    <section className="pt-24 pb-20 bg-gray-100 min-h-screen">
       <main className="max-w-6xl mx-auto w-full px-6">
 
         {/* Header */}
