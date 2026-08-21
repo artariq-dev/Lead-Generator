@@ -58,8 +58,8 @@ export function HeroQuickAudit() {
       <div className="h-1 w-full bg-blue-600 mb-5" />
 
         <h2 className="text-sm lg:text-base font-bold text-gray-900 leading-snug mb-4">
-          Reasoning factors + Breakdown logic across{" "}
-          <span className="text-blue-600">4 critical pillars :</span>
+          Reasoning + Breakdown{" "}
+          <span className="text-blue-600">across 4 critical pillars :</span>
         </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
