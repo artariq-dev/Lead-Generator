@@ -49,6 +49,13 @@ export default function LandingPage() {
                 <span className="text-blue-600">+</span>{" "}
                 Factors
               </motion.h1>
+
+              <motion.p
+                variants={item}
+                className="text-sm sm:text-base text-gray-600  max-w-xl mb-8 leading-relaxed"
+              >
+                See how your software affects conversions — and how to fix it.
+              </motion.p>
             </motion.div>
 
             {/* Interactive audit — the funnel starts here */}
