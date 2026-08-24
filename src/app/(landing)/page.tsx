@@ -38,14 +38,16 @@ export default function LandingPage() {
                 className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-blue-700  mb-6"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600 " />
-                Software Breakdown
+                Business software breakdown
               </motion.p>
 
               <motion.h1
                 variants={item}
                 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[0.06em] text-gray-900  leading-[1.15] mb-6"
               >
-                Is your software working the way you want?
+                Reasoning{" "}
+                <span className="text-blue-600">+</span>{" "}
+                Factors
               </motion.h1>
             </motion.div>
 
