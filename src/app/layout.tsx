@@ -8,6 +8,7 @@ import "./globals.css";
 import { siteConfig } from "@/lib/metadata";
 import { Nav } from "@/components/Nav";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -100,6 +101,7 @@ export default function RootLayout({
         <Nav />
         <div className="flex flex-col flex-1">{children}</div>
         <Analytics />
+        <GoogleAnalytics gaId="G-KRX12V810R" />
       </body>
     </html>
   );
