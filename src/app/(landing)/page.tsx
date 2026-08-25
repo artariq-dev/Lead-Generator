@@ -43,7 +43,7 @@ export default function LandingPage() {
 
               <motion.h1
                 variants={item}
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[0.06em] text-gray-900  leading-[1.15] mb-6"
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[0.06em] text-gray-900  leading-[1.15] mb-2"
               >
                 Reasoning{" "}
                 <span className="text-blue-600">+</span>{" "}
@@ -52,9 +52,9 @@ export default function LandingPage() {
 
               <motion.p
                 variants={item}
-                className="text-sm sm:text-base text-gray-600  max-w-xl mb-8 leading-relaxed"
+                className="text-sm sm:text-base text-gray-600  max-w-xl lg:max-w-none lg:whitespace-nowrap mb-8 leading-relaxed"
               >
-                See how your software affects conversions — and how to fix it.
+                Better platform, better numbers: more conversions, more sales.
               </motion.p>
             </motion.div>
 
