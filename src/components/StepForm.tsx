@@ -21,7 +21,8 @@ interface StepOption {
 
 interface StepQuestion {
   id: string;
-  label: string;
+  stem?: string;
+  label?: string;
   options: StepOption[];
 }
 
@@ -182,16 +183,39 @@ export function StepForm({
           exit="exit"
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
-          <h2 className="text-sm lg:text-base font-bold text-gray-900  mb-4">
-            {question.label}
-          </h2>
+          {question.stem ? (
+            <div className="mb-6">
+              <p className="text-sm lg:text-base font-bold text-gray-900  leading-relaxed">
+                {question.stem}{" "}
+                <span
+                  className={`inline-block min-w-[8rem] border-b-2 border-dashed px-1 pb-0.5 align-baseline transition-colors ${
+                    currentAnswer
+                      ? "text-blue-600 border-blue-600"
+                      : "text-gray-400 border-gray-300"
+                  }`}
+                >
+                  {currentAnswer
+                    ? question.options.find((o) => o.value === currentAnswer.value)?.label
+                    : "…"}
+                </span>
+              </p>
+            </div>
+          ) : (
+            <h2 className="text-sm lg:text-base font-bold text-gray-900  mb-4">
+              {question.label}
+            </h2>
+          )}
 
-          <div className="space-y-2">
+          <div className={question.stem ? "flex flex-wrap gap-2" : "space-y-2"}>
             {question.options.map((option) => (
               <button
                 key={`${question.id}-${option.value}`}
                 onClick={() => select(option.value)}
-                className={`w-full text-left px-4 py-3 text-sm border cursor-pointer transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] ${
+                className={`${
+                  question.stem
+                    ? "px-3.5 py-2.5"
+                    : "w-full text-left px-4 py-3"
+                } text-sm border cursor-pointer transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] ${
                   currentAnswer?.value === option.value
                     ? "border-blue-600 bg-blue-50  text-gray-900 "
                     : "border-gray-200  text-gray-700  hover:border-gray-300 "
@@ -214,7 +238,7 @@ export function StepForm({
           ← Back
         </button>
         <span className="text-xs text-gray-400">
-          {currentAnswer ? "Selected" : "Pick one"}
+          {currentAnswer ? "Completed" : "Tap to complete"}
         </span>
       </div>
     </div>

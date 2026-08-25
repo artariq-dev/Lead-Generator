@@ -24,7 +24,7 @@ const ALT_PATHS = [
     label: "Build",
     iconId: "build",
     iconClass: "bg-emerald-50 text-emerald-600",
-    title: "Got scattered ideas? Get a tailored build plan.",
+    title: "Got scattered ideas? Need to build software solution or platform ?",
     cta: "Get an instant plan",
     pattern: "memphis" as PatternVariant,
     patternColor: "text-emerald-400",
@@ -57,8 +57,8 @@ export function HeroQuickAudit() {
     >
       <div className="h-1 w-full bg-blue-600 mb-5" />
 
-          <h2 className="text-sm lg:text-base font-bold text-blue-600 leading-snug mb-4">
-            4 Critical pillars :
+          <h2 className="text-sm lg:text-base font-bold text-gray-900 leading-snug mb-4">
+            <span className="text-blue-600">Four</span> Critical pillars :
           </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

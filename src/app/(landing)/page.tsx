@@ -52,9 +52,10 @@ export default function LandingPage() {
 
               <motion.p
                 variants={item}
-                className="text-sm sm:text-base text-gray-600  max-w-xl lg:max-w-none lg:whitespace-nowrap mb-8 leading-relaxed"
+                className="text-sm sm:text-base font-semibold text-gray-900  max-w-xl lg:max-w-none lg:whitespace-nowrap mb-8 leading-relaxed"
               >
-                Better platform, better numbers: more conversions, more sales.
+                Better platform, better numbers.{" "}
+                <span className="block sm:inline text-blue-600">More conversions, more sales.</span>
               </motion.p>
             </motion.div>
 
